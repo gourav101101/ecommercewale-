@@ -1,0 +1,204 @@
+.contactPage {
+  padding-bottom: var(--space-20);
+  min-height: calc(100vh - var(--navbar-height));
+}
+
+.pageHeader {
+  background: var(--color-bg-alt);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-12) 0;
+  text-align: center;
+  margin-bottom: var(--space-10);
+}
+
+.pageHeader h1 {
+  font-size: var(--text-4xl);
+  font-weight: 800;
+  margin-bottom: var(--space-3);
+  color: var(--color-text);
+}
+
+.pageHeader p {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contactLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+}
+
+/* Info Section */
+.infoSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}
+
+.infoCards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.infoCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--space-6);
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+}
+
+.iconWrap {
+  width: 48px;
+  height: 48px;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  margin-bottom: var(--space-4);
+  box-shadow: var(--shadow-sm);
+}
+
+.infoCard h3 {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-1);
+}
+
+.infoCard p {
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 2px;
+}
+
+.infoCard span {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.mapContainer {
+  display: block;
+  height: 300px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  text-decoration: none;
+}
+
+.mapFrame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  pointer-events: none;
+}
+
+/* Form Section */
+.formContainer {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-lg);
+}
+
+.formTabs {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-8);
+  background: var(--color-surface);
+  padding: var(--space-1);
+  border-radius: var(--radius-md);
+}
+
+.tabBtn {
+  flex: 1;
+  padding: var(--space-3) 0;
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  background: transparent;
+  border-radius: calc(var(--radius-md) - 2px);
+  transition: all var(--transition-fast);
+}
+
+.tabActive {
+  background: var(--color-bg-card);
+  color: var(--color-text);
+  box-shadow: var(--shadow-sm);
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.submitBtn {
+  margin-top: var(--space-4);
+  width: 100%;
+}
+
+.btnSuccess {
+  background: var(--color-success) !important;
+  pointer-events: none;
+}
+
+.whatsappPrompt {
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.whatsappPrompt p {
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .contactLayout {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+  
+  .infoCards {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .infoCard {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  .mapContainer {
+    height: 400px;
+  }
+}
+
+@media (max-width: 640px) {
+  .infoCards {
+    flex-direction: column;
+  }
+  
+  .whatsappPrompt {
+    flex-direction: column;
+    gap: var(--space-4);
+    align-items: flex-start;
+  }
+  
+  .whatsappPrompt .btn {
+    width: 100%;
+  }
+}
