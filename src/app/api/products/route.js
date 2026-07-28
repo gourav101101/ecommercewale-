@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { revalidateTag } from 'next/cache';
 import dbConnect from '@/lib/db';
 import Product from '@/models/Product';
 
@@ -28,7 +29,7 @@ export async function GET(request) {
       ];
     }
 
-    const products = await Product.find(query).sort({ createdAt: -1 });
+    const products = await Product.find(query).sort({ createdAt: -1 }).lean();
     return NextResponse.json(products);
   } catch (error) {
     return NextResponse.json({ error: 'Failed to fetch products' }, { status: 500 });
@@ -41,6 +42,7 @@ export async function POST(request) {
     const data = await request.json();
     
     const newProduct = await Product.create(data);
+    revalidateTag('products', 'max');
     return NextResponse.json(newProduct, { status: 201 });
   } catch (error) {
     return NextResponse.json({ error: 'Failed to create product' }, { status: 500 });
@@ -62,6 +64,7 @@ export async function PUT(request) {
     if (!updatedProduct) {
       return NextResponse.json({ error: 'Product not found' }, { status: 404 });
     }
+    revalidateTag('products', 'max');
     
     return NextResponse.json(updatedProduct);
   } catch (error) {
@@ -84,6 +87,7 @@ export async function DELETE(request) {
     if (!deletedProduct) {
       return NextResponse.json({ error: 'Product not found' }, { status: 404 });
     }
+    revalidateTag('products', 'max');
     
     return NextResponse.json({ message: 'Product deleted successfully' });
   } catch (error) {
