@@ -11,6 +11,10 @@ export const metadata = {
   title: 'EcommerceWale.in — India\'s #1 E-Commerce Packaging Store',
   description: 'Buy courier bags, corrugated boxes, packaging tapes, thermal labels & shredded paper at wholesale prices. Trusted by 10,000+ Flipkart, Amazon, Myntra & Meesho sellers.',
   keywords: 'courier bags, packaging, e-commerce, flipkart packaging, amazon packaging, corrugated boxes, thermal labels, shipping supplies India',
+  icons: {
+    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
+    shortcut: ['/icon.svg'],
+  },
   openGraph: {
     title: 'EcommerceWale.in — Packaging Supplies for E-Commerce Sellers',
     description: 'Wholesale courier bags, boxes, tapes, labels for Flipkart, Amazon, Myntra & Meesho sellers.',
