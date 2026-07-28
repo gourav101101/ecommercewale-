@@ -542,3 +542,19 @@
     font-size: var(--text-base);
   }
 }
+
+/* ============================================================
+   Out of Stock Notice
+   ============================================================ */
+.outOfStockNotice {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: var(--radius-md);
+  color: var(--color-error, #ef4444);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}

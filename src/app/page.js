@@ -19,7 +19,7 @@ const categoryIcons = {
 
 export default async function Home() {
   await dbConnect();
-  const rawBestSellers = await Product.find({ bestSeller: true }).sort({ createdAt: -1 }).limit(4);
+  const rawBestSellers = await Product.find({ bestSeller: true, inStock: { $ne: false } }).sort({ createdAt: -1 }).limit(4);
   const bestSellers = JSON.parse(JSON.stringify(rawBestSellers));
 
   return (

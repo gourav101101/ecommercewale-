@@ -287,3 +287,51 @@
   border-radius: var(--radius-full);
   white-space: nowrap;
 }
+
+/* ============================================================
+   Out of Stock States
+   ============================================================ */
+
+.outOfStock {
+  position: relative;
+}
+
+.outOfStock .imageWrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.outOfStock .content {
+  opacity: 0.6;
+}
+
+.outOfStockBadge {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  background: var(--color-error, #ef4444);
+  color: white;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  z-index: 3;
+}
+
+.addToCartDisabled {
+  background: var(--color-border) !important;
+  box-shadow: none !important;
+  cursor: not-allowed !important;
+  opacity: 0.7;
+}
+
+.addToCartDisabled:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}

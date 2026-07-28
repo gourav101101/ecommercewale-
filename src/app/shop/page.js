@@ -99,6 +99,13 @@ function ShopContent() {
         break;
     }
 
+    // Always push out-of-stock products to the bottom
+    result.sort((a, b) => {
+      const aOut = a.inStock === false ? 1 : 0;
+      const bOut = b.inStock === false ? 1 : 0;
+      return aOut - bOut;
+    });
+
     return result;
   }, [products, searchQuery, selectedCategory, selectedMarketplace, sortBy]);
 

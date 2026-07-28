@@ -52,7 +52,7 @@ export default function AdminProducts() {
   const fetchProducts = async () => {
     try {
       setLoading(true);
-      const res = await fetch('/api/products');
+      const res = await fetch('/api/products?includeOutOfStock=true');
       const data = await res.json();
       setProducts(data);
     } catch {
@@ -178,6 +178,26 @@ export default function AdminProducts() {
       showToast('Product deleted successfully!', 'success');
     } catch {
       showToast('Error deleting product', 'error');
+    }
+  };
+
+  const handleToggleStatus = async (product) => {
+    const newStatus = !product.inStock;
+    // Optimistic UI update
+    setProducts(prev => prev.map(p => p.id === product.id ? { ...p, inStock: newStatus } : p));
+
+    try {
+      const res = await fetch('/api/products', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...product, inStock: newStatus }),
+      });
+      if (!res.ok) throw new Error();
+      showToast(`Product "${product.name}" is now ${newStatus ? 'In Stock' : 'Out of Stock'}`, 'success');
+    } catch {
+      // Revert on error
+      setProducts(prev => prev.map(p => p.id === product.id ? { ...p, inStock: product.inStock } : p));
+      showToast('Failed to update product status', 'error');
     }
   };
 
@@ -342,7 +362,7 @@ export default function AdminProducts() {
                       <div className="productNameCell">
                         <div className="productThumb" style={{ backgroundImage: `url(${product.image})` }} />
                         <div>
-                          <div className="productNameText">{product.shortName}</div>
+                          <div className="productNameText" title={product.name}>{product.name}</div>
                           <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)' }}>{product.type}</div>
                         </div>
                       </div>
@@ -358,7 +378,14 @@ export default function AdminProducts() {
                       </div>
                     </td>
                     <td>
-                      <div className={`toggleSwitch ${product.inStock ? 'active' : ''}`} />
+                      <button
+                        type="button"
+                        className={`toggleSwitch ${product.inStock ? 'active' : ''}`}
+                        onClick={() => handleToggleStatus(product)}
+                        title={product.inStock ? 'In Stock (Click to mark Out of Stock)' : 'Out of Stock (Click to mark In Stock)'}
+                        aria-label={`Toggle status for ${product.name}`}
+                        style={{ border: 'none', padding: 0, outline: 'none' }}
+                      />
                     </td>
                     <td>
                       <div style={{ display: 'flex', gap: '0.5rem' }}>

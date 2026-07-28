@@ -11,6 +11,7 @@ export default function ProductCard({ product }) {
   const { cartItems, addToCart, updateQuantity, removeFromCart } = useCart();
   const { toggleWishlist, isInWishlist } = useWishlist();
   const { showToast } = useToast();
+  const isOutOfStock = product.inStock === false;
   
   const defaultSize = product.sizes && product.sizes.length > 0 ? product.sizes[0].value : null;
   const cartItem = cartItems.find(
@@ -20,6 +21,10 @@ export default function ProductCard({ product }) {
 
   const handleAddToCart = (e) => {
     e.preventDefault();
+    if (isOutOfStock) {
+      showToast('This product is currently out of stock', 'error');
+      return;
+    }
     if (defaultSize) {
       addToCart(product, defaultSize, 1);
       showToast(`${product.name} added to cart`, 'success');
@@ -46,14 +51,17 @@ export default function ProductCard({ product }) {
   };
 
   return (
-    <Link href={`/product/${product.slug}`} className={styles.card}>
+    <Link href={`/product/${product.slug}`} className={`${styles.card} ${isOutOfStock ? styles.outOfStock : ''}`}>
       <div className={styles.imageWrap}>
         <div 
           className={styles.image} 
           style={{ backgroundImage: `url(${product.image})` }} 
           aria-label={product.name}
         />
-        {product.bestSeller && (
+        {isOutOfStock && (
+          <span className={styles.outOfStockBadge}>Out of Stock</span>
+        )}
+        {product.bestSeller && !isOutOfStock && (
           <span className={styles.badge}>Best Seller</span>
         )}
         
@@ -119,12 +127,13 @@ export default function ProductCard({ product }) {
             </div>
           ) : (
             <button 
-              className={styles.addToCartBtn} 
+              className={`${styles.addToCartBtn} ${isOutOfStock ? styles.addToCartDisabled : ''}`}
               onClick={handleAddToCart}
-              aria-label={`Add ${product.name} to cart`}
+              disabled={isOutOfStock}
+              aria-label={isOutOfStock ? `${product.name} is out of stock` : `Add ${product.name} to cart`}
             >
               <ShoppingCart size={16} />
-              Add to Cart
+              {isOutOfStock ? 'Out of Stock' : 'Add to Cart'}
             </button>
           )}
         </div>

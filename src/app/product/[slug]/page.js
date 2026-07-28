@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { useCart } from '@/context/CartContext';
 import { useToast } from '@/context/ToastContext';
-import { Star, Minus, Plus, ShoppingCart, CheckCircle2, Package, Tag, ArrowLeft } from 'lucide-react';
+import { Star, Minus, Plus, ShoppingCart, CheckCircle2, Package, Tag, ArrowLeft, AlertTriangle } from 'lucide-react';
 import ProductCard from '@/components/shop/ProductCard/ProductCard';
 import styles from './page.module.css';
 import Link from 'next/link';
@@ -108,7 +108,10 @@ export default function ProductDetailPage() {
   const currentPrice = calculateCurrentPrice(product.pricing, quantity);
   const totalAmount = currentPrice * quantity;
 
+  const isOutOfStock = product.inStock === false;
+
   const handleAddToCart = () => {
+    if (isOutOfStock) return;
     addToCart(product, selectedSize, quantity);
     // Optionally show a toast or feedback here
   };
@@ -272,11 +275,20 @@ export default function ProductDetailPage() {
 
             {/* Add to Cart */}
             <div className={styles.actionGroup}>
+              {isOutOfStock && (
+                <div className={styles.outOfStockNotice}>
+                  <AlertTriangle size={18} />
+                  <span>This product is currently out of stock</span>
+                </div>
+              )}
               <button 
                 className={`btn btn-primary btn-lg ${styles.addToCartBtn}`}
                 onClick={handleAddToCart}
+                disabled={isOutOfStock}
+                style={isOutOfStock ? { opacity: 0.5, cursor: 'not-allowed', filter: 'grayscale(1)' } : {}}
               >
-                <ShoppingCart size={20} /> Add to Cart
+                <ShoppingCart size={20} />
+                {isOutOfStock ? 'Out of Stock' : 'Add to Cart'}
               </button>
               
               <div className={styles.trustSignals}>

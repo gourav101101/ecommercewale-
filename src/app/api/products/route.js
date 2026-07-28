@@ -10,8 +10,10 @@ export async function GET(request) {
     const category = searchParams.get('category');
     const bestSeller = searchParams.get('bestSeller');
     const search = searchParams.get('search');
+    const includeOutOfStock = searchParams.get('includeOutOfStock');
     
     let query = {};
+
     if (category && category !== 'all') {
       query.category = category;
     }

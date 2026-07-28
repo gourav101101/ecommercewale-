@@ -15,7 +15,7 @@ export async function GET(request, { params }) {
     // Also fetch related products based on category
     const relatedProducts = await Product.find({ 
       category: product.category,
-      _id: { $ne: product._id } 
+      _id: { $ne: product._id }
     }).limit(4);
     
     return NextResponse.json({ product, relatedProducts });
