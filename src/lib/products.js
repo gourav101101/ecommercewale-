@@ -18,3 +18,27 @@ export const getShopProducts = unstable_cache(
   ['shop-products'],
   { revalidate: 300, tags: ['products'] }
 );
+
+export async function getProductDetails(slug) {
+  const getCachedProduct = unstable_cache(
+    async () => {
+      await dbConnect();
+      const product = await Product.findOne({ slug }).lean();
+      if (!product) return null;
+
+      const relatedProducts = await Product.find({
+        category: product.category,
+        _id: { $ne: product._id },
+      })
+        .select(shopProductFields)
+        .limit(4)
+        .lean();
+
+      return { product, relatedProducts };
+    },
+    ['product-details', slug],
+    { revalidate: 300, tags: ['products'] }
+  );
+
+  return getCachedProduct();
+}

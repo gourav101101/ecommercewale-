@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { revalidateTag } from 'next/cache';
 import dbConnect from '@/lib/db';
 import Product from '@/models/Product';
 
@@ -31,6 +32,7 @@ export async function POST(request, { params }) {
     product.reviewCount = totalReviews;
     
     await product.save();
+    revalidateTag('products', 'max');
     
     return NextResponse.json({ 
       message: 'Review added successfully', 

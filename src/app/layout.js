@@ -8,6 +8,7 @@ import LayoutWrapper from '@/components/layout/LayoutWrapper/LayoutWrapper';
 import Toast from '@/components/ui/Toast/Toast';
 
 export const metadata = {
+  metadataBase: new URL('https://www.ecommercewale.in'),
   title: 'EcommerceWale.in — India\'s #1 E-Commerce Packaging Store',
   description: 'Buy courier bags, corrugated boxes, packaging tapes, thermal labels & shredded paper at wholesale prices. Trusted by 10,000+ Flipkart, Amazon, Myntra & Meesho sellers.',
   keywords: 'courier bags, packaging, e-commerce, flipkart packaging, amazon packaging, corrugated boxes, thermal labels, shipping supplies India',
@@ -15,6 +16,8 @@ export const metadata = {
     icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
     shortcut: ['/icon.svg'],
   },
+  alternates: { canonical: '/' },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 } },
   openGraph: {
     title: 'EcommerceWale.in — Packaging Supplies for E-Commerce Sellers',
     description: 'Wholesale courier bags, boxes, tapes, labels for Flipkart, Amazon, Myntra & Meesho sellers.',
@@ -22,6 +25,11 @@ export const metadata = {
     siteName: 'EcommerceWale',
     locale: 'en_IN',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'EcommerceWale.in - Packaging Supplies for E-Commerce Sellers',
+    description: 'Wholesale courier bags, boxes, tapes, and labels for online sellers across India.',
   },
 };
 
