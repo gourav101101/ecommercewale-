@@ -13,7 +13,8 @@ export default function LayoutWrapper({ children }) {
   return (
     <>
       {!isAdmin && <Navbar />}
-      <main style={!isAdmin ? { paddingTop: 'var(--navbar-height)' } : {}}>
+      {!isAdmin && <a href="#main-content" className="skip-link">Skip to content</a>}
+      <main id="main-content" style={!isAdmin ? { paddingTop: 'var(--navbar-height)' } : {}}>
         {children}
       </main>
       {!isAdmin && <Footer />}

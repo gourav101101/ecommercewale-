@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EcommerceWale
 
-## Getting Started
+A Next.js packaging storefront on GitHub and Vercel, with itemised WhatsApp order enquiries.
 
-First, run the development server:
+## Development
 
-```bash
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. Without `MONGODB_URI`, storefront previews use the bundled product catalogue. Database-backed features require a real MongoDB connection.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Verification
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sh
+npm test
+npm run lint
+npm run build
+npm start
+```
 
-## Learn More
+On Windows with Edge installed, `node scripts/review-storefront.mjs` runs a hidden browser review and saves screenshots and a report to the ignored `test-artifacts/` directory.
 
-To learn more about Next.js, take a look at the following resources:
+## Production
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Preserve `MONGODB_URI` in Vercel. Configure server-only `ADMIN_EMAIL`, `ADMIN_PASSWORD` (at least 12 characters), and `ADMIN_SESSION_SECRET` (at least 32 random characters) before enabling admin access. Configure a durable login rate-limit/WAF rule on the deployment.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Read [the redesign and deployment notes](docs/REDESIGN.md) for the WhatsApp workflow, setup requirements, validation limits, and remaining business checks.
 
-## Deploy on Vercel
+Customers must send the prepared message in WhatsApp. The site does not take online payments or automatically create confirmed orders from enquiries. Our team confirms stock, final pricing, GST, delivery and payment instructions.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Pushes to the Vercel-connected production branch trigger a deployment. Review and test changes before publishing.

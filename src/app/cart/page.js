@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
 import { Minus, Plus, Trash2, ArrowRight, ShieldCheck, Tag } from 'lucide-react';
@@ -11,26 +10,11 @@ export default function CartPage() {
     cartItems, 
     cartCount, 
     subtotal, 
-    gstAmount, 
-    shippingCost, 
-    totalAmount, 
     removeFromCart, 
     updateQuantity,
     isLoaded
   } = useCart();
   
-  const [coupon, setCoupon] = useState('');
-  const [couponApplied, setCouponApplied] = useState(false);
-
-  const handleApplyCoupon = (e) => {
-    e.preventDefault();
-    if (coupon.trim().toLowerCase() === 'first10') {
-      setCouponApplied(true);
-    }
-  };
-
-  const discountAmount = couponApplied ? subtotal * 0.10 : 0;
-  const finalTotal = totalAmount - discountAmount;
 
   if (!isLoaded) {
     return <div className="container section">Loading cart...</div>;
@@ -52,7 +36,8 @@ export default function CartPage() {
   return (
     <div className={styles.cartPage}>
       <div className="container">
-        <h1 className={styles.pageTitle}>Shopping Cart ({cartCount} items)</h1>
+        <h1 className={styles.pageTitle}>Your order list</h1>
+        <p style={{ color: 'var(--color-text-secondary)', marginBottom: '2rem', fontSize: '14px' }}>{cartItems.length} product selections · {cartCount} units. Build your list, then request a quote on WhatsApp.</p>
 
         <div className={styles.cartLayout}>
           {/* Cart Items List */}
@@ -101,6 +86,7 @@ export default function CartPage() {
                     <div className={styles.qtyControl}>
                       <button 
                         className={styles.qtyBtn}
+                        aria-label={`Decrease ${item.name} quantity`}
                         onClick={() => updateQuantity(item.id, item.selectedSize, item.quantity - 1)}
                       >
                         <Minus size={14} />
@@ -109,6 +95,7 @@ export default function CartPage() {
                         type="number"
                         min="1"
                         className={styles.qtyInput}
+                        aria-label={`Quantity of ${item.name}`}
                         value={item.quantity}
                         onChange={(e) => {
                           const val = parseInt(e.target.value);
@@ -119,6 +106,7 @@ export default function CartPage() {
                       />
                       <button 
                         className={styles.qtyBtn}
+                        aria-label={`Increase ${item.name} quantity`}
                         onClick={() => updateQuantity(item.id, item.selectedSize, item.quantity + 1)}
                       >
                         <Plus size={14} />
@@ -154,7 +142,7 @@ export default function CartPage() {
 
           {/* Order Summary */}
           <div className={styles.orderSummary}>
-            <h3>Order Summary</h3>
+            <h3>Your estimate</h3>
             
             <div className={styles.summaryList}>
               <div className={styles.summaryRow}>
@@ -162,58 +150,28 @@ export default function CartPage() {
                 <span>₹{subtotal.toFixed(2)}</span>
               </div>
               <div className={styles.summaryRow}>
-                <span>GST (18%)</span>
-                <span>₹{gstAmount.toFixed(2)}</span>
+                <span>GST</span>
+                <span>Confirmed in quote</span>
               </div>
               <div className={styles.summaryRow}>
                 <span>Shipping</span>
-                <span>{shippingCost === 0 ? <span className={styles.freeLabel}>Free</span> : `₹${shippingCost.toFixed(2)}`}</span>
+                <span>Confirmed in quote</span>
               </div>
               
-              {shippingCost > 0 && (
-                <div className={styles.shippingNotice}>
-                  Add ₹{(2000 - subtotal).toFixed(2)} more to get free shipping!
-                </div>
-              )}
-
-              {couponApplied && (
-                <div className={`${styles.summaryRow} ${styles.discountRow}`}>
-                  <span>Discount (FIRST10)</span>
-                  <span>-₹{discountAmount.toFixed(2)}</span>
-                </div>
-              )}
-
               <div className={styles.summaryTotal}>
-                <span>Total</span>
-                <span>₹{finalTotal.toFixed(2)}</span>
+                <span>Subtotal estimate</span>
+                <span>₹{subtotal.toFixed(2)}</span>
               </div>
             </div>
 
-            <form className={styles.couponForm} onSubmit={handleApplyCoupon}>
-              <input 
-                type="text" 
-                placeholder="Promo code (try FIRST10)" 
-                className={styles.couponInput}
-                value={coupon}
-                onChange={(e) => setCoupon(e.target.value)}
-                disabled={couponApplied}
-              />
-              <button 
-                type="submit" 
-                className={`btn ${couponApplied ? 'btn-outline' : 'btn-secondary'}`}
-                disabled={couponApplied}
-              >
-                {couponApplied ? 'Applied' : 'Apply'}
-              </button>
-            </form>
 
             <Link href="/checkout" className={`btn btn-primary btn-lg ${styles.checkoutBtn}`}>
-              Proceed to Checkout <ArrowRight size={20} />
+              Request WhatsApp quote <ArrowRight size={20} />
             </Link>
 
             <div className={styles.secureCheckout}>
               <ShieldCheck size={16} className={styles.secureIcon} />
-              <span>Secure Checkout. GST Invoice provided.</span>
+              <span>No online payment. Final pricing, GST and delivery confirmed by our team.</span>
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Search, Plus, Filter, Edit, Trash2 } from 'lucide-react';
 import Modal from '@/components/ui/Modal/Modal';
 import { useToast } from '@/context/ToastContext';
@@ -47,20 +47,20 @@ export default function AdminProducts() {
     return Object.keys(specs).length > 0 ? specs : { Material: 'Standard' };
   };
 
-  useEffect(() => { fetchProducts(); }, []);
-
-  const fetchProducts = async () => {
+  const fetchProducts = useCallback(async () => {
     try {
-      setLoading(true);
       const res = await fetch('/api/products?includeOutOfStock=true');
+      if (!res.ok) throw new Error('Failed to load catalogue');
       const data = await res.json();
-      setProducts(data);
+      setProducts(Array.isArray(data) ? data : []);
     } catch {
       showToast('Failed to fetch products from database', 'error');
     } finally {
       setLoading(false);
     }
-  };
+  }, [showToast]);
+
+  useEffect(() => { queueMicrotask(fetchProducts); }, [fetchProducts]);
 
   const filteredProducts = products.filter(p => {
     const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase());

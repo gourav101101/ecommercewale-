@@ -27,16 +27,13 @@ export default function AdminLogin() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate network delay
-    await new Promise(resolve => setTimeout(resolve, 800));
-    
-    const success = login(email, password);
-    
-    if (success) {
+    try {
+      await login(email, password);
       showToast('Welcome back, Admin!', 'success');
       router.push('/admin');
-    } else {
-      showToast('Invalid credentials. Please try again.', 'error');
+    } catch (error) {
+      showToast(error.message, 'error');
+    } finally {
       setIsSubmitting(false);
     }
   };
@@ -100,10 +97,6 @@ export default function AdminLogin() {
               >
                 {isPasswordVisible ? <EyeOff size={18} /> : <Eye size={18} />}
               </button>
-            </div>
-            {/* For demo purposes, hint the password */}
-            <div style={{ fontSize: '0.7rem', color: 'var(--color-text-muted)', marginTop: '0.5rem', textAlign: 'right' }}>
-              Hint: admin@ecommercewale.in / admin123
             </div>
           </div>
 

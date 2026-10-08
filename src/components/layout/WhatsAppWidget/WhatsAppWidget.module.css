@@ -10,6 +10,7 @@
 }
 
 .pulse {
+  display: none;
   position: absolute;
   inset: -6px;
   border-radius: 50%;
@@ -24,10 +25,10 @@
   justify-content: center;
   width: 56px;
   height: 56px;
-  background: linear-gradient(135deg, #25D366, #128C7E);
+  background: #186c45;
   border-radius: 50%;
   color: white;
-  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.16);
   transition: all var(--transition-base);
 }
 

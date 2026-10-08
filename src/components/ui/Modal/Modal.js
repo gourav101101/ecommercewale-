@@ -8,7 +8,7 @@ import styles from './Modal.module.css';
 export default function Modal({ isOpen, onClose, title, children, footer, maxWidth = '560px' }) {
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => { setMounted(true); }, []);
+  useEffect(() => { queueMicrotask(() => setMounted(true)); }, []);
 
   useEffect(() => {
     const handleEsc = (e) => { if (e.key === 'Escape') onClose(); };

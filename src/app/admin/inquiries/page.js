@@ -8,7 +8,6 @@ export default function AdminInquiries() {
   const [loading, setLoading] = useState(true);
 
   const fetchInquiries = async () => {
-    setLoading(true);
     try {
       const res = await fetch('/api/contact');
       const data = await res.json();
@@ -21,14 +20,14 @@ export default function AdminInquiries() {
   };
 
   useEffect(() => {
-    fetchInquiries();
+    queueMicrotask(fetchInquiries);
   }, []);
 
   return (
     <div>
       <div className="panelHeader" style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <h1 style={{ fontSize: '1.5rem', fontWeight: 600 }}>Customer Inquiries</h1>
-        <button className="btn btn-outline btn-sm" onClick={fetchInquiries}>
+        <button className="btn btn-outline btn-sm" onClick={() => { setLoading(true); fetchInquiries(); }}>
           <RefreshCcw size={16} /> Refresh
         </button>
       </div>

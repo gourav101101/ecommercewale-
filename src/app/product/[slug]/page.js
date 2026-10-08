@@ -45,12 +45,12 @@ export default async function ProductPage({ params }) {
       '@type': 'Offer',
       url: productUrl,
       priceCurrency: 'INR',
-      price: Number(product.bulkPrice || product.basePrice).toFixed(2),
+      price: Number(product.pricing?.[0]?.pricePerUnit ?? product.basePrice ?? product.bulkPrice).toFixed(2),
       availability: product.inStock === false ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
       itemCondition: 'https://schema.org/NewCondition',
     },
-    ...(product.reviewCount > 0 && product.rating > 0 ? {
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: product.rating, reviewCount: product.reviewCount },
+    ...(product.reviews?.length > 0 ? {
+      aggregateRating: { '@type': 'AggregateRating', ratingValue: (product.reviews.reduce((sum, review) => sum + Number(review.rating), 0) / product.reviews.length).toFixed(1), reviewCount: product.reviews.length },
     } : {}),
   };
 

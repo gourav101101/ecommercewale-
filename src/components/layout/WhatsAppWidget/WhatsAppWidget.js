@@ -2,14 +2,13 @@
 
 import { MessageCircle } from 'lucide-react';
 import styles from './WhatsAppWidget.module.css';
+import { whatsappUrl } from '@/lib/whatsapp';
 
 export default function WhatsAppWidget() {
-  const phoneNumber = '919827787080';
-  const message = encodeURIComponent('Hi! I\'m interested in your packaging products. Can you help me?');
 
   return (
     <a
-      href={`https://wa.me/${phoneNumber}?text=${message}`}
+      href={whatsappUrl()}
       target="_blank"
       rel="noopener noreferrer"
       className={styles.widget}

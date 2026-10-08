@@ -51,12 +51,13 @@ export function CartProvider({ children }) {
   // Persist cart to localStorage
   useEffect(() => {
     if (isLoaded) {
-      localStorage.setItem('ecommercewale_cart', JSON.stringify(cartItems));
+      try { localStorage.setItem('ecommercewale_cart', JSON.stringify(cartItems)); } catch { /* Keep the cart usable if storage is unavailable. */ }
     }
   }, [cartItems, isLoaded]);
 
   const addToCart = useCallback((product, selectedSize, quantity = 1) => {
-    if (!product || !Array.isArray(product.pricing)) return;
+    if (!product || !Array.isArray(product.pricing) || !product.pricing.length || product.inStock === false) return;
+    quantity = Math.max(1, Math.floor(Number(quantity) || 1));
 
     setCartItems((prev) => {
       const existingIndex = prev.findIndex(
@@ -99,6 +100,8 @@ export function CartProvider({ children }) {
   }, []);
 
   const updateQuantity = useCallback((id, selectedSize, newQuantity) => {
+    newQuantity = Math.floor(Number(newQuantity));
+    if (!Number.isFinite(newQuantity)) return;
     if (newQuantity < 1) return;
     setCartItems((prev) =>
       prev.map((item) => {

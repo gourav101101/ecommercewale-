@@ -15,7 +15,7 @@ import {
   LogOut,
   Mail,
 } from 'lucide-react';
-import { useAdminAuth } from '@/context/AdminAuthContext';
+import { AdminAuthProvider, useAdminAuth } from '@/context/AdminAuthContext';
 import { useToast } from '@/context/ToastContext';
 import Modal from '@/components/ui/Modal/Modal';
 import './admin.css';
@@ -37,6 +37,10 @@ const pageTitles = {
 };
 
 export default function AdminLayout({ children }) {
+  return <AdminAuthProvider><AdminShell>{children}</AdminShell></AdminAuthProvider>;
+}
+
+function AdminShell({ children }) {
   const pathname = usePathname();
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -54,10 +58,12 @@ export default function AdminLayout({ children }) {
     }
   }, [isLoading, isAuthenticated, isLoginPage, router]);
 
-  const handleLogout = () => {
-    logout();
-    showToast('Logged out successfully', 'success');
-    router.push('/admin/login');
+  const handleLogout = async () => {
+    try {
+      await logout();
+      showToast('Logged out successfully', 'success');
+      router.push('/admin/login');
+    } catch (error) { showToast(error.message, 'error'); }
   };
 
   // If loading or unauthenticated on a protected route, show nothing while redirecting

@@ -36,7 +36,7 @@ export default function ScrollReveal({ children, className = '', animation = 'fa
   }, [animation, delay]);
 
   return (
-    <div ref={elementRef} className={className} style={{ opacity: 0 }}>
+    <div ref={elementRef} className={className}>
       {children}
     </div>
   );

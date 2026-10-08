@@ -5,16 +5,16 @@ import Product from '@/models/Product';
 
 export async function POST(request, { params }) {
   try {
-    await dbConnect();
     const { slug } = await params;
     const body = await request.json();
     
     const { userName, rating, comment } = body;
     
-    if (!userName || !rating || !comment) {
+    if (typeof userName !== 'string' || !userName.trim() || userName.length > 100 || typeof comment !== 'string' || !comment.trim() || comment.length > 2000 || !Number.isInteger(Number(rating)) || Number(rating) < 1 || Number(rating) > 5) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
+    await dbConnect();
     const product = await Product.findOne({ slug });
     
     if (!product) {

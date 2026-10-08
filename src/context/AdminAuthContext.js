@@ -10,29 +10,27 @@ export function AdminAuthProvider({ children }) {
 
   // Check auth state on mount
   useEffect(() => {
-    queueMicrotask(() => {
-      try {
-        setIsAuthenticated(localStorage.getItem('ecommercewale_admin_auth') === 'true');
-      } catch (error) {
-        console.error('Failed to read auth state from local storage:', error);
-      }
-      setIsLoading(false);
-    });
+    const controller = new AbortController();
+    fetch('/api/admin/session', { signal: controller.signal })
+      .then((response) => response.json())
+      .then((data) => setIsAuthenticated(data.authenticated === true))
+      .catch(() => {})
+      .finally(() => setIsLoading(false));
+    return () => controller.abort();
   }, []);
 
-  const login = (email, password) => {
-    // Mock credentials for demonstration
-    if (email === 'admin@ecommercewale.in' && password === 'admin123') {
-      setIsAuthenticated(true);
-      localStorage.setItem('ecommercewale_admin_auth', 'true');
-      return true;
-    }
-    return false;
+  const login = async (email, password) => {
+    const response = await fetch('/api/admin/session', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password }) });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || 'Unable to sign in');
+    setIsAuthenticated(true);
+    return true;
   };
 
-  const logout = () => {
+  const logout = async () => {
+    const response = await fetch('/api/admin/session', { method: 'DELETE' });
+    if (!response.ok) throw new Error('Unable to sign out');
     setIsAuthenticated(false);
-    localStorage.removeItem('ecommercewale_admin_auth');
   };
 
   return (

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Search, ChevronDown, MessageCircle } from 'lucide-react';
-import { faqData } from '@/data/admin';
+import { faqData } from '@/data/faqs';
 import styles from './page.module.css';
 
 export default function FAQPage() {
@@ -36,6 +36,7 @@ export default function FAQPage() {
             <Search size={20} className={styles.searchIcon} />
             <input 
               type="text" 
+              aria-label="Search frequently asked questions"
               placeholder="Search for answers..."
               className={styles.searchInput}
               value={searchQuery}
@@ -84,6 +85,8 @@ export default function FAQPage() {
                         <div key={qIndex} className={`${styles.accordionItem} ${isOpen ? styles.open : ''}`}>
                           <button 
                             className={styles.accordionHeader}
+                            aria-expanded={Boolean(isOpen)}
+                            aria-controls={`answer-${key}`}
                             onClick={() => toggleItem(category.id, qIndex)}
                           >
                             <h3>{item.q}</h3>
@@ -91,7 +94,7 @@ export default function FAQPage() {
                               <ChevronDown size={20} />
                             </div>
                           </button>
-                          <div className={styles.accordionBody}>
+                          <div id={`answer-${key}`} className={styles.accordionBody} inert={!isOpen}>
                             <div className={styles.accordionContent}>
                               <p>{item.a}</p>
                             </div>

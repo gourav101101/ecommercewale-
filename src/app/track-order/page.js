@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Search, Package, Truck, CheckCircle2, Box } from 'lucide-react';
+import { Search, Package, Truck, CheckCircle2, Box, X, MessageCircle } from 'lucide-react';
+import { whatsappUrl } from '@/lib/whatsapp';
 
 export default function TrackOrderPage() {
   const [orderId, setOrderId] = useState('');
@@ -60,9 +61,11 @@ export default function TrackOrderPage() {
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
           <h1 style={{ marginBottom: '1rem' }}>Track Your Order</h1>
           <p style={{ color: 'var(--color-text-muted)', maxWidth: '500px', margin: '0 auto' }}>
-            Enter your order ID and the email address used during checkout to see the current status of your shipment.
+            Have an order ID and email from our team? Check its status below. For WhatsApp orders, message us with your order details for a delivery update.
           </p>
         </div>
+
+        <a href={whatsappUrl('Hi EcommerceWale! I would like a delivery update for my order.')} target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ marginBottom: '2rem' }}><MessageCircle size={18} /> Get a WhatsApp delivery update</a>
 
         <div style={{ 
           background: 'var(--color-bg-alt)', 

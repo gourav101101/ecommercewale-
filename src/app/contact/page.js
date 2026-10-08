@@ -1,191 +1,37 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageCircle, ArrowUpRight, Copy } from 'lucide-react';
+import { whatsappUrl } from '@/lib/whatsapp';
 import styles from './page.module.css';
+
 export default function ContactPage() {
-  const [formType, setFormType] = useState('general'); // 'general' or 'bulk'
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    const formData = new FormData(e.target);
-    const data = {
-      formType,
-      name: formData.get('name'),
-      phone: formData.get('phone'),
-      email: formData.get('email'),
-      message: formData.get('message'),
-      ...(formType === 'bulk' && {
-        companyName: formData.get('companyName'),
-        monthlyVolume: formData.get('monthlyVolume'),
-        productsNeeded: formData.get('products')
-      })
-    };
-    
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-      
-      if (!res.ok) throw new Error('Failed to submit form');
-      
-      setIsSubmitted(true);
-      setTimeout(() => setIsSubmitted(false), 3000);
-      e.target.reset();
-    } catch (err) {
-      console.error(err);
-      alert('Failed to send message. Please try again or contact us via WhatsApp.');
-    } finally {
-      setIsSubmitting(false);
-    }
+  const [ready, setReady] = useState('');
+  const [copied, setCopied] = useState('');
+  const submit = (event) => {
+    event.preventDefault();
+    const values = new FormData(event.currentTarget);
+    const message = `Hi EcommerceWale!\nEnquiry: ${values.get('type')}\nName: ${values.get('name')}\nBusiness: ${values.get('company') || 'Not specified'}\n\n${values.get('message')}`;
+    setReady(message);
+    window.open(whatsappUrl(message), '_blank', 'noopener,noreferrer');
   };
-
-  return (
-    <div className={styles.contactPage}>
-      {/* Header */}
-      <div className={styles.pageHeader}>
-        <div className="container">
-          <h1>Contact Us</h1>
-          <p>We&apos;re here to help with your packaging needs. Get in touch with our team.</p>
-        </div>
+  const copy = async () => { try { await navigator.clipboard.writeText(ready); setCopied('Message copied.'); } catch { setCopied('Please select the message below and copy it manually.'); } };
+  return <div className={`container ${styles.page}`}>
+    <span className={styles.label}>REAL PEOPLE. PRACTICAL ANSWERS.</span><h1>Let’s talk<br /><span>about your next order.</span></h1><p className={styles.intro}>A question about sizes, a bigger order, or just getting started? We’re here to help you find your fit.</p>
+    <div className={styles.layout}>
+      <div className={styles.info}>
+        <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className={styles.feature}><MessageCircle size={25} /><h2>A message away.</h2><p>Get help with product selection, bulk quotes, and order enquiries on WhatsApp.</p><span>Start a conversation <ArrowUpRight size={17} /></span></a>
+        <a href="tel:+919827787080" className={styles.contact}><Phone size={18} /><div><span>GIVE US A CALL</span><strong>+91 98277 87080</strong></div><ArrowUpRight size={16} /></a>
+        <a href="mailto:hello@ecommercewale.in" className={styles.contact}><Mail size={18} /><div><span>DROP US A NOTE</span><strong>hello@ecommercewale.in</strong></div><ArrowUpRight size={16} /></a>
+        <div className={styles.contact}><MapPin size={18} /><div><span>BASED IN INDORE</span><strong>Madhya Pradesh, India</strong><p>Serving businesses across India.</p></div></div>
       </div>
-
-      <div className={`container ${styles.contactLayout}`}>
-        {/* Contact Info & Map */}
-        <div className={styles.infoSection}>
-          <div className={styles.infoCards}>
-            <div className={styles.infoCard}>
-              <div className={styles.iconWrap}><Phone size={24} /></div>
-              <h3>Call Us</h3>
-              <p>+91 98277 87080</p>
-              <span>Mon-Sat, 9:00 AM - 6:00 PM</span>
-            </div>
-            
-            <div className={styles.infoCard}>
-              <div className={styles.iconWrap}><Mail size={24} /></div>
-              <h3>Email Us</h3>
-              <p>hello@ecommercewale.in</p>
-              <span>We reply within 24 hours</span>
-            </div>
-            
-            <div className={styles.infoCard}>
-              <div className={styles.iconWrap}><MapPin size={24} /></div>
-              <h3>Visit Us</h3>
-              <p>136 Kanak Green, Rewti</p>
-              <span>Indore, Madhya Pradesh 452015, India</span>
-            </div>
-          </div>
-
-          <a
-            href="https://www.google.com/maps/search/?api=1&query=136%20Kanak%20Green%2C%20Rewti%2C%20Indore%2C%20Madhya%20Pradesh%20452015%2C%20India"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.mapContainer}
-            aria-label="Open our location in Google Maps"
-          >
-            <iframe
-              title="EcommerceWale location in Indore"
-              src="https://www.google.com/maps?q=136%20Kanak%20Green%2C%20Rewti%2C%20Indore%2C%20Madhya%20Pradesh%20452015%2C%20India&z=16&output=embed"
-              className={styles.mapFrame}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </a>
-        </div>
-
-        {/* Form Section */}
-        <div className={styles.formSection}>
-          <div className={styles.formContainer}>
-            <div className={styles.formTabs}>
-              <button 
-                className={`${styles.tabBtn} ${formType === 'general' ? styles.tabActive : ''}`}
-                onClick={() => setFormType('general')}
-              >
-                General Inquiry
-              </button>
-              <button 
-                className={`${styles.tabBtn} ${formType === 'bulk' ? styles.tabActive : ''}`}
-                onClick={() => setFormType('bulk')}
-              >
-                Bulk Order / Wholesale
-              </button>
-            </div>
-
-            <form onSubmit={handleSubmit} className={styles.contactForm}>
-              <div className="grid-2">
-                <div className="input-group">
-                  <label htmlFor="name">Full Name</label>
-                  <input type="text" id="name" name="name" required className="input" placeholder="John Doe" />
-                </div>
-                <div className="input-group">
-                  <label htmlFor="phone">Phone Number</label>
-                  <input type="tel" id="phone" name="phone" required className="input" placeholder="+91" />
-                </div>
-              </div>
-              
-              <div className="input-group">
-                <label htmlFor="email">Email Address</label>
-                <input type="email" id="email" name="email" required className="input" placeholder="john@company.com" />
-              </div>
-
-              {formType === 'bulk' && (
-                <>
-                  <div className="grid-2">
-                    <div className="input-group">
-                      <label htmlFor="company">Company/Brand Name</label>
-                      <input type="text" id="company" name="companyName" required className="input" placeholder="Your Brand" />
-                    </div>
-                    <div className="input-group">
-                      <label htmlFor="monthlyVolume">Monthly Order Volume</label>
-                      <select id="monthlyVolume" name="monthlyVolume" className="input">
-                        <option value="1000-5000">1,000 - 5,000 units</option>
-                        <option value="5000-10000">5,000 - 10,000 units</option>
-                        <option value="10000+">10,000+ units</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div className="input-group">
-                    <label htmlFor="products">Products Needed</label>
-                    <input type="text" id="products" name="products" className="input" placeholder="e.g. Courier Bags, Custom Boxes" />
-                  </div>
-                </>
-              )}
-
-              <div className="input-group">
-                <label htmlFor="message">Your Message</label>
-                <textarea id="message" name="message" required className="input" rows="5" placeholder="How can we help you?"></textarea>
-              </div>
-
-              <button 
-                type="submit" 
-                className={`btn btn-primary btn-lg ${styles.submitBtn} ${isSubmitted ? styles.btnSuccess : ''}`}
-                disabled={isSubmitting || isSubmitted}
-              >
-                {isSubmitting ? (
-                  'Sending...'
-                ) : isSubmitted ? (
-                  'Message Sent!'
-                ) : (
-                  <>Send Message <Send size={18} /></>
-                )}
-              </button>
-            </form>
-
-            <div className={styles.whatsappPrompt}>
-              <p>Need immediate assistance?</p>
-              <a href="https://wa.me/919827787080" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
-                <MessageCircle size={18} style={{ color: '#25D366' }} /> Chat on WhatsApp
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <form onSubmit={submit} className={styles.form}><h2>What are you packing?</h2><p>Share a few details. We’ll prepare your message for WhatsApp.</p>
+        <div className="input-group"><label htmlFor="contact-type">I’m looking for</label><select className="input" name="type" id="contact-type"><option>Help choosing packaging</option><option>A bulk order quote</option><option>Support with an existing order</option><option>Samples or custom packaging</option></select></div>
+        <div className={styles.fields}><div className="input-group"><label htmlFor="contact-name">Your name</label><input id="contact-name" name="name" className="input" autoComplete="name" required minLength={2} maxLength={100} /></div><div className="input-group"><label htmlFor="contact-company">Business <span>(optional)</span></label><input id="contact-company" name="company" className="input" autoComplete="organization" maxLength={120} /></div></div>
+        <div className="input-group"><label htmlFor="contact-message">Tell us a little more</label><textarea className="input" id="contact-message" name="message" rows={5} required minLength={5} maxLength={1500} placeholder="Your products, sizes, quantities, delivery pincode, or questions…" /></div>
+        <button type="submit" className="btn btn-primary btn-lg"><MessageCircle size={18} /> Continue on WhatsApp <ArrowUpRight size={17} /></button><small>You’ll review and send your message in WhatsApp. No payment is taken here.</small>
+        {ready && <div className={styles.recovery}><p>Your message is ready. If WhatsApp didn’t open:</p><a href={whatsappUrl(ready)} className="btn btn-outline" target="_blank" rel="noopener noreferrer">Open WhatsApp <ArrowUpRight size={14} /></a><button type="button" onClick={copy} className="btn btn-outline"><Copy size={14} /> Copy message</button><p role="status">{copied}</p><details><summary>View message</summary><pre>{ready}</pre></details></div>}
+      </form>
     </div>
-  );
+  </div>;
 }

@@ -18,6 +18,7 @@ export default function WishlistPage() {
       if (!res.ok) throw new Error('Not found');
       const data = await res.json();
       const fullProduct = data.product;
+      if (fullProduct.inStock === false) { showToast('This product is currently unavailable.', 'error'); return; }
       addToCart(fullProduct, fullProduct.sizes?.[0]?.value || 'standard', 1);
       showToast(fullProduct.name + ' added to cart', 'success');
     } catch {
@@ -95,15 +96,10 @@ export default function WishlistPage() {
                     {item.name}
                   </Link>
                   
-                  <div className={styles.ratingBox}>
-                    <span className={styles.star}>★</span>
-                    <span className={styles.rating}>{item.rating}</span>
-                    <span className={styles.reviews}>({item.reviewCount})</span>
-                  </div>
                   
                   <div className={styles.priceBox}>
-                    <span className={styles.bulkPrice}>₹{item.bulkPrice.toFixed(2)}</span>
-                    <span className={styles.unit}>/pc onwards</span>
+                    <span className={styles.bulkPrice}>₹{Number(item.pricing?.[0]?.pricePerUnit ?? item.basePrice ?? item.bulkPrice).toFixed(2)}</span>
+                    <span className={styles.unit}>/ unit · before GST & delivery</span>
                   </div>
                   
                   {cartItem ? (

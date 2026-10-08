@@ -1,13 +1,11 @@
-import dbConnect from '@/lib/db';
-import Product from '@/models/Product';
+import { getShopProducts } from '@/lib/products';
 
 const siteUrl = 'https://www.ecommercewale.in';
 
 export const revalidate = 86400;
 
 export default async function sitemap() {
-  await dbConnect();
-  const products = await Product.find({}).select('slug updatedAt').lean();
+  const products = await getShopProducts();
   const pages = [
     ['', '1.0'],
     ['/shop', '0.9'],

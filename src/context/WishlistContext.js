@@ -33,7 +33,7 @@ export function WishlistProvider({ children }) {
   // Persist wishlist to localStorage
   useEffect(() => {
     if (isLoaded) {
-      localStorage.setItem('ecommercewale_wishlist', JSON.stringify(wishlistItems));
+      try { localStorage.setItem('ecommercewale_wishlist', JSON.stringify(wishlistItems)); } catch { /* Storage may be disabled. */ }
     }
   }, [wishlistItems, isLoaded]);
 
@@ -54,6 +54,9 @@ export function WishlistProvider({ children }) {
           reviewCount: product.reviewCount,
           category: product.category,
           sizes: product.sizes,
+          inStock: product.inStock,
+          type: product.type,
+          marketplaceCompatible: product.marketplaceCompatible,
         },
       ];
     });

@@ -3,7 +3,9 @@
 import { useState } from 'react';
 import { useCart } from '@/context/CartContext';
 import { useToast } from '@/context/ToastContext';
-import { Star, Minus, Plus, ShoppingCart, CheckCircle2, Package, Tag, ArrowLeft, AlertTriangle } from 'lucide-react';
+import { Star, Minus, Plus, ShoppingCart, CheckCircle2, Package, Tag, ArrowLeft, AlertTriangle, MessageCircle } from 'lucide-react';
+import Image from 'next/image';
+import { whatsappUrl, formatMoney } from '@/lib/whatsapp';
 import ProductCard from '@/components/shop/ProductCard/ProductCard';
 import styles from './page.module.css';
 import Link from 'next/link';
@@ -25,6 +27,8 @@ export default function ProductDetailPage({ initialProduct, initialRelatedProduc
   const [reviewRating, setReviewRating] = useState('5');
   const [reviewComment, setReviewComment] = useState('');
   const [submittingReview, setSubmittingReview] = useState(false);
+  const reviewCount = product.reviews?.length || 0;
+  const reviewAverage = reviewCount ? product.reviews.reduce((sum, review) => sum + Number(review.rating), 0) / reviewCount : 0;
 
   const handleReviewSubmit = async (e) => {
     e.preventDefault();
@@ -78,7 +82,7 @@ export default function ProductDetailPage({ initialProduct, initialRelatedProduc
   const handleAddToCart = () => {
     if (isOutOfStock) return;
     addToCart(product, selectedSize, quantity);
-    // Optionally show a toast or feedback here
+    showToast('Added to your order list', 'success');
   };
 
   const handleQuantityChange = (e) => {
@@ -106,9 +110,8 @@ export default function ProductDetailPage({ initialProduct, initialRelatedProduc
           <div className={styles.gallery}>
             <div 
               className={styles.mainImage}
-              style={{ backgroundImage: `url(${product.gallery && product.gallery.length > 0 ? product.gallery[currentImageIndex] : product.image})` }}
-              aria-label={product.name}
             >
+              <Image src={product.gallery?.[currentImageIndex] || product.image} alt={product.name} fill sizes="(max-width: 850px) 92vw, 50vw" priority style={{ objectFit: 'contain' }} />
               {product.bestSeller && <div className={styles.badge}>Best Seller</div>}
             </div>
             
@@ -133,18 +136,18 @@ export default function ProductDetailPage({ initialProduct, initialRelatedProduc
               <span className={styles.typeLabel}>{product.type}</span>
               <h1 className={styles.title}>{product.name}</h1>
               
-              <div className={styles.ratingRow}>
+              {reviewCount > 0 ? <div className={styles.ratingRow}>
                 <div className="star-rating">
-                  {[...Array(Math.floor(product.rating))].map((_, i) => (
+                  {[...Array(Math.max(0, Math.min(5, Math.floor(reviewAverage))))].map((_, i) => (
                     <Star key={i} size={16} fill="currentColor" />
                   ))}
-                  {product.rating % 1 !== 0 && (
+                  {reviewAverage % 1 !== 0 && (
                     <Star size={16} fill="currentColor" style={{ clipPath: 'inset(0 50% 0 0)' }} />
                   )}
                 </div>
-                <span className={styles.ratingText}>{product.rating}</span>
-                <span className={styles.reviewCount}>({product.reviewCount} reviews)</span>
-              </div>
+                <span className={styles.ratingText}>{reviewAverage.toFixed(1)}</span>
+                <span className={styles.reviewCount}>({reviewCount} reviews)</span>
+              </div> : <span className={styles.reviewCount}>An everyday packaging essential</span>}
             </div>
 
             <div className={styles.priceSection}>
@@ -153,7 +156,7 @@ export default function ProductDetailPage({ initialProduct, initialRelatedProduc
                 <span className={styles.amount}>{currentPrice.toFixed(2)}</span>
                 <span className={styles.unit}>/ unit</span>
               </div>
-              <p className={styles.priceNote}>Inclusive of all taxes</p>
+              <p className={styles.priceNote}>Catalogue estimate · GST and delivery confirmed in your quote</p>
             </div>
 
             {/* Sizes */}
@@ -170,6 +173,7 @@ export default function ProductDetailPage({ initialProduct, initialRelatedProduc
                     <button
                       key={size.value}
                       className={`${styles.sizePill} ${selectedSize === size.value ? styles.sizeActive : ''}`}
+                      aria-pressed={selectedSize === size.value}
                       onClick={() => setSelectedSizeOverride(size.value)}
                     >
                       {size.label}
@@ -189,6 +193,7 @@ export default function ProductDetailPage({ initialProduct, initialRelatedProduc
                 <div className={styles.quantityControl}>
                   <button 
                     className={styles.qtyBtn} 
+                    aria-label="Decrease quantity"
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
                   >
                     <Minus size={18} />
@@ -197,11 +202,13 @@ export default function ProductDetailPage({ initialProduct, initialRelatedProduc
                     type="number"
                     min="1"
                     className={styles.qtyInput}
+                    aria-label="Order quantity"
                     value={quantity}
                     onChange={handleQuantityChange}
                   />
                   <button 
                     className={styles.qtyBtn}
+                    aria-label="Increase quantity"
                     onClick={() => setQuantity(quantity + 1)}
                   >
                     <Plus size={18} />
@@ -253,8 +260,9 @@ export default function ProductDetailPage({ initialProduct, initialRelatedProduc
                 style={isOutOfStock ? { opacity: 0.5, cursor: 'not-allowed', filter: 'grayscale(1)' } : {}}
               >
                 <ShoppingCart size={20} />
-                {isOutOfStock ? 'Out of Stock' : 'Add to Cart'}
+                {isOutOfStock ? 'Out of Stock' : 'Add to order list'}
               </button>
+              <a className="btn btn-outline btn-lg" href={whatsappUrl(`Hi EcommerceWale! Please quote for ${product.name}.\nSize: ${selectedSize || 'Standard'}\nQuantity: ${quantity}\nCatalogue estimate: ${formatMoney(totalAmount)} before GST and delivery.\nProduct: https://www.ecommercewale.in/product/${product.slug}\nPlease confirm availability and final price.`)} target="_blank" rel="noopener noreferrer"><MessageCircle size={19} /> Ask about this product</a>
               
               <div className={styles.trustSignals}>
                 <div className={styles.trustItem}>
@@ -263,7 +271,7 @@ export default function ProductDetailPage({ initialProduct, initialRelatedProduc
                 </div>
                 <div className={styles.trustItem}>
                   <Package size={16} className={styles.trustIcon} />
-                  <span>Ships within 24 hours</span>
+                  <span>Delivery estimate in your quote</span>
                 </div>
               </div>
             </div>
@@ -342,8 +350,8 @@ export default function ProductDetailPage({ initialProduct, initialRelatedProduc
                 <h3 style={{ marginTop: 0 }}>Write a Review</h3>
                 <form onSubmit={handleReviewSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   <div className="input-group">
-                    <label>Rating</label>
-                    <select value={reviewRating} onChange={e => setReviewRating(e.target.value)} className="input" required>
+                    <label htmlFor="review-rating">Rating</label>
+                    <select id="review-rating" value={reviewRating} onChange={e => setReviewRating(e.target.value)} className="input" required>
                       <option value="5">5 Stars - Excellent</option>
                       <option value="4">4 Stars - Good</option>
                       <option value="3">3 Stars - Average</option>
@@ -352,12 +360,12 @@ export default function ProductDetailPage({ initialProduct, initialRelatedProduc
                     </select>
                   </div>
                   <div className="input-group">
-                    <label>Name</label>
-                    <input type="text" value={reviewName} onChange={e => setReviewName(e.target.value)} className="input" required />
+                    <label htmlFor="review-name">Name</label>
+                    <input id="review-name" type="text" autoComplete="name" maxLength={100} value={reviewName} onChange={e => setReviewName(e.target.value)} className="input" required />
                   </div>
                   <div className="input-group">
-                    <label>Review</label>
-                    <textarea rows="4" value={reviewComment} onChange={e => setReviewComment(e.target.value)} className="input" required></textarea>
+                    <label htmlFor="review-comment">Review</label>
+                    <textarea id="review-comment" rows="4" maxLength={2000} value={reviewComment} onChange={e => setReviewComment(e.target.value)} className="input" required></textarea>
                   </div>
                   <button type="submit" className="btn btn-primary" disabled={submittingReview}>
                     {submittingReview ? 'Submitting...' : 'Submit Review'}
@@ -396,7 +404,7 @@ export default function ProductDetailPage({ initialProduct, initialRelatedProduc
             <div className="section-header">
               <h2>You Might Also Need</h2>
             </div>
-            <div className="grid-4">
+            <div className={styles.relatedGrid}>
               {relatedProducts.map((rp) => (
                 <ProductCard key={rp.id} product={rp} />
               ))}

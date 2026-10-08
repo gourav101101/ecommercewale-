@@ -10,11 +10,10 @@ export function ThemeProvider({ children }) {
 
   useEffect(() => {
     queueMicrotask(() => {
-      const saved = localStorage.getItem('ecommercewale_theme');
+      let saved;
+      try { saved = localStorage.getItem('ecommercewale_theme'); } catch { /* Storage may be disabled. */ }
       if (saved === 'light' || saved === 'dark') {
         setTheme(saved);
-      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        setTheme('dark');
       }
       setMounted(true);
     });
@@ -23,7 +22,7 @@ export function ThemeProvider({ children }) {
   useEffect(() => {
     if (mounted) {
       document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('ecommercewale_theme', theme);
+      try { localStorage.setItem('ecommercewale_theme', theme); } catch { /* Storage may be disabled. */ }
     }
   }, [theme, mounted]);
 
