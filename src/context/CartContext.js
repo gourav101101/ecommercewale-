@@ -1,6 +1,10 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import { variantCartItem } from '@/lib/supplier-products';
+import { storefrontImage } from '@/lib/product-visuals';
+import { excludedFromStorefront, archiveExcludedSelections } from '@/lib/storefront-policy';
+import { positivePackQuantity } from '@/lib/courier-options';
 const CartContext = createContext();
 
 function calculateCurrentPrice(pricing, quantity) {
@@ -15,7 +19,7 @@ function calculateCurrentPrice(pricing, quantity) {
 }
 
 function normalizeCartItem(item) {
-  if (!item || !item.pricing) return null;
+  if (!item || !item.pricing || excludedFromStorefront(item)) return null;
 
   const quantity = Number.isFinite(Number(item.quantity)) && Number(item.quantity) > 0
     ? Math.floor(Number(item.quantity))
@@ -23,6 +27,9 @@ function normalizeCartItem(item) {
 
   return {
     ...item,
+    ...(item.slug==='meesho-non-transparent-pod-with-pocket-100-barcode-working' && !positivePackQuantity(item.packQuantity)
+      ? {packConfirmationRequired:true,sizeLabel:String(item.sizeLabel || 'Selected option').replace(/\/\s*0+\s*$/,'/ Pack quantity pending')} : {}),
+    image: storefrontImage(item),
     quantity,
     pricePerUnit: calculateCurrentPrice(item.pricing, quantity),
   };
@@ -39,6 +46,7 @@ export function CartProvider({ children }) {
         const saved = localStorage.getItem('ecommercewale_cart');
         const items = saved ? JSON.parse(saved) : [];
         if (Array.isArray(items)) {
+          archiveExcludedSelections(items,'cart');
           setCartItems(items.map(normalizeCartItem).filter(Boolean));
         }
       } catch (e) {
@@ -56,6 +64,17 @@ export function CartProvider({ children }) {
   }, [cartItems, isLoaded]);
 
   const addToCart = useCallback((product, selectedSize, quantity = 1) => {
+    if(excludedFromStorefront(product)) return;
+    if (product?.pricingMode==='variant') {
+      const item=variantCartItem(product,selectedSize,Number(quantity));
+      if (!item) return;
+      setCartItems(previous=>{
+        const exists=previous.find(entry=>entry.id===item.id&&entry.selectedSize===item.selectedSize);
+        if (!exists) return [...previous,item];
+        return previous.map(entry=>entry===exists?{...item,quantity:Math.min(999999,entry.quantity+item.quantity)}:entry);
+      });
+      return;
+    }
     if (!product || !Array.isArray(product.pricing) || !product.pricing.length || product.inStock === false) return;
     quantity = Math.max(1, Math.floor(Number(quantity) || 1));
 

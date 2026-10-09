@@ -1,0 +1,50 @@
+'use client';
+import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { ArrowLeft, ArrowRight, Check, MessageCircle, Minus, Plus, ShoppingBag } from 'lucide-react';
+import { useCart } from '@/context/CartContext';
+import { useToast } from '@/context/ToastContext';
+import { formatMoney, whatsappUrl } from '@/lib/whatsapp';
+import { validQuantity } from '@/lib/catalogue-pricing';
+import { variantOrderable } from '@/lib/supplier-products';
+import VariantPicker from '../VariantPicker/VariantPicker';
+import ProductCard from '../ProductCard/ProductCard';
+import CourierPackSummary from './CourierPackSummary';
+import styles from '@/app/product/[slug]/page.module.css';
+
+export default function SupplierProduct({ product, relatedProducts }) {
+  const [variantId,setVariantId]=useState((product.variants.find(variantOrderable)||product.variants[0])?.id);
+  const [quantity,setQuantity]=useState(1);
+  const [galleryImage,setGalleryImage]=useState(null);
+  const [added,setAdded]=useState(false);
+  const {addToCart}=useCart();
+  const {showToast}=useToast();
+  const variant=product.variants.find(item=>item.id===variantId);
+  const courier=product.category==='courier-bags';
+  const curated=['boxes','tapes','courier-bags'].includes(product.category);
+  // Keep chosen size references without listing every diagram in the gallery.
+  const visibleGallery=[...new Set([...product.gallery,...(curated ? [variant.image] : [])])];
+  const showOriginalSizeReference=product.category==='boxes' && variant.originalSizeReference && variant.originalSizeReference!==variant.image;
+  const available=product.inStock!==false && variantOrderable(variant);
+  const valid=validQuantity(quantity);
+  const select=id=>{setVariantId(id);setGalleryImage(null);setAdded(false);};
+  const count=value=>{setQuantity(value);setAdded(false);};
+  const message=`Hi EcommerceWale! Please confirm ${product.name}.\nVariant: ${variant.title}\nVariant ID: ${variant.id}\n${valid ? `Quantity: ${quantity} selected packs/items\nReference price per selected pack/item: ${formatMoney(variant.price)}\nLine estimate: ${formatMoney(variant.price*Number(quantity))}` : 'Please help me choose a quantity.'}\nPlease confirm availability, final price, GST and delivery. This is an enquiry, not a confirmed purchase.`;
+  return <div className={`container ${styles.page}`}>
+    <nav className={styles.breadcrumb} aria-label="Breadcrumb"><Link href="/shop"><ArrowLeft size={16}/> All packaging</Link><span>/</span><Link href={`/shop?category=${product.category}`}>{product.category==='labels'?'Labels':product.category.replaceAll('-',' ')}</Link></nav>
+    <div className={styles.productLayout}><div className={styles.visualColumn}><div className={styles.mainImage}><Image src={galleryImage||variant.image} alt={galleryImage && galleryImage!==variant.image ? `${product.name} — gallery view` : variant.imageStatus==='review-pending'?`Exact image of ${product.name} is under review`:`${variant.imageStatus==='reference-edited'?'Supplier-reference presentation':'Supplier photograph'} of ${product.name} — ${variant.title}`} fill priority sizes="(max-width:850px) 94vw, 55vw" />{!available&&<span className={styles.imageLabel}>{variant.packConfirmationRequired?'Pack quantity needs confirmation':'Availability confirmation needed'}</span>}</div>
+      {visibleGallery.length>1&&<div className={styles.thumbnails} aria-label="Product images">{visibleGallery.map((src,index)=><button key={src} aria-current={(galleryImage||variant.image)===src ? 'true' : undefined} onClick={()=>setGalleryImage(src)} aria-label={`View ${curated && src===variant.image?'selected option reference':`image ${index+1}`}`}><Image src={src} alt="" fill sizes="80px" /></button>)}</div>}
+      {showOriginalSizeReference&&<details key={variant.originalSizeReference} className={styles.sizeReference}><summary>Original supplier size reference</summary><p>Reference for {variant.title}. Source captions and styling props are retained for comparison; bottles, filler and other props are not included.</p><div className={styles.mainImage}><Image src={variant.originalSizeReference} alt={`Original supplier measurement reference for ${product.name} — ${variant.title}`} fill sizes="(max-width:850px) 94vw, 55vw" /></div></details>}
+      <details className={styles.imageDisclosure}><summary>About these images</summary><p>{product.visualDisclosure}</p><p>Gallery views may show other options. Choosing a size or pack restores its linked image.</p><a href={product.sourceUrl} target="_blank" rel="noopener noreferrer">Supplier reference</a></details></div>
+      <div className={styles.configurator}><span className={styles.eyebrow}>{product.variants.length} OPTIONS</span><h1>{product.name}</h1>
+        <div className={styles.price} aria-live="polite"><strong data-testid="variant-price">{variant.price>0 ? formatMoney(variant.price) : 'Price on request'}</strong><span>{courier?'per selected pack':'per selected pack/item'}</span></div><p className={styles.priceNote}>{variant.priceBasis==='supplier-reference'?'Supplier reference':'Quote estimate'} · GST & delivery in your quote.</p>
+        <section className={styles.optionSection}><div className={styles.sectionHeading}><h2>Choose your option</h2></div><VariantPicker product={product} variant={variant} onChange={select}/>{!available&&!variant.packConfirmationRequired&&<p role="status">Currently unavailable. Ask us about this option.</p>}</section>
+        <section className={styles.optionSection}><div className={styles.sectionHeading}><h2>Quantity</h2></div><div className={styles.quantityRow}><label htmlFor="supplier-quantity">{courier?'Complete packs':'Packs/items'}</label><div className={styles.stepper}><button aria-label="Decrease quantity" disabled={Number(quantity)<=1} onClick={()=>count(Math.max(1,Number(quantity)-1))}><Minus size={17}/></button><input id="supplier-quantity" aria-label="Order quantity" type="number" min="1" max="999999" step="1" value={quantity} onChange={event=>count(event.target.value)} aria-invalid={!valid}/><button aria-label="Increase quantity" disabled={Number(quantity)>=999999} onClick={()=>count(Number(quantity)+1)}><Plus size={17}/></button></div></div>{!valid&&<p role="alert">Enter a whole quantity between 1 and 999,999.</p>}</section>
+        <CourierPackSummary product={product} variant={variant} quantity={quantity}/>
+        <div className={styles.purchasePanel}><div className={styles.total}><div><span>Estimated total</span><p data-testid="variant-title">{variant.title} · {quantity||'—'} {courier?'pack(s)':'pack(s)/item(s)'}</p></div><strong data-testid="variant-total" aria-live="polite">{valid&&variant.price>0?formatMoney(variant.price*Number(quantity)):'—'}</strong></div><button className={`btn btn-primary ${styles.addButton}`} disabled={!available||!valid} onClick={()=>{addToCart(product,variant.id,Number(quantity));setAdded(true);showToast('Added to your order list','success');}}><ShoppingBag size={19}/>{available?'Add to order list':variant.packConfirmationRequired?'Confirm pack quantity first':'Currently unavailable'}<ArrowRight size={19}/></button>{added&&<div className={styles.added} role="status"><Check size={17}/>Added to your order list.<Link href="/cart">View list <ArrowRight size={15}/></Link></div>}<a className={styles.directQuote} href={whatsappUrl(message)} target="_blank" rel="noopener noreferrer"><MessageCircle size={18}/>Ask about this variant</a><small>Final quote on WhatsApp. No online payment.</small></div>
+      </div></div>
+    <section className={styles.detailsSection}><div><span className={styles.eyebrow}>THE DETAILS</span><h2>Know your packaging.</h2><p className={styles.priceNote}>Catalogue updated {new Date(product.snapshotAt).toLocaleDateString('en-IN',{timeZone:'Asia/Kolkata'})}.</p></div><div className={styles.accordions}><details><summary>View all {product.variants.length} variants <Plus size={20}/></summary><div className={styles.variantTable}><table><thead><tr><th>Option</th><th>Pack/item price</th><th>Status</th></tr></thead><tbody>{product.variants.map(item=><tr key={item.id}><td><button onClick={()=>{select(item.id);document.getElementById('supplier-quantity').scrollIntoView({block:'center'});}}>{item.title}</button></td><td>{item.price>0?formatMoney(item.price):'On request'}</td><td>{item.packConfirmationRequired?'Pack count pending':variantOrderable(item)?'Listed available':'Unavailable'}</td></tr>)}</tbody></table></div></details><details><summary>Product features <Plus size={20}/></summary><p>{product.description}</p><ul>{product.features.map(feature=><li key={feature}>{feature}</li>)}</ul></details><details><summary>Pricing & delivery <Plus size={20}/></summary><p>Prices cover a complete selected pack or item, not one loose piece. Per-bag estimates divide the selected pack price by its confirmed bag count. Our team confirms stock, pack contents, GST, delivery and the final quote before payment. Supplier promotions do not apply automatically.</p><a href={whatsappUrl(`Hi EcommerceWale! I need a larger quantity of ${product.name}. Option: ${variant.title}. Variant ID: ${variant.id}. Please confirm pack quantities and a bulk quote.`)} target="_blank" rel="noopener noreferrer">Need a larger quantity? Ask us <ArrowRight size={16}/></a></details><details><summary>Product & order details <Plus size={20}/></summary><p>Variant reference: {variant.id}{variant.sku ? ` · SKU: ${variant.sku}` : ''}. Size and pack descriptions are supplied by the supplier. Marketplace names identify supplier-labelled products, not a guarantee of acceptance by a marketplace.</p><Link href="/contact">Ask our team <ArrowRight size={16}/></Link></details></div></section>
+    {relatedProducts.length>0&&<section className={styles.related}><div className={styles.relatedHeading}><h2>Complete your packing list.</h2><Link href="/shop">Explore everything <ArrowRight size={17}/></Link></div><div className={styles.relatedGrid}>{relatedProducts.map(item=><ProductCard key={item.id} product={item}/>)}</div></section>}
+  </div>;
+}

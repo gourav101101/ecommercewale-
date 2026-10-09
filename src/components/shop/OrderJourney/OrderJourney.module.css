@@ -1,0 +1,8 @@
+.journey { display:flex; flex-wrap:wrap; gap:16px 30px; padding-block:22px; border-bottom:1px solid var(--color-border); margin-bottom:48px; }
+.step { display:flex; align-items:center; gap:10px; color:var(--color-text-secondary); font-size:14px; }
+.step[aria-current] { color:var(--color-text); font-weight:700; }
+.number { width:30px; height:30px; border:1px solid var(--color-border); display:grid; place-items:center; border-radius:50%; font-size:12px; }
+.step[aria-current] .number { background:var(--color-text); color:var(--color-bg); border-color:var(--color-text); }
+.arrow { margin-left:20px; }
+.step a { text-decoration:underline; text-underline-offset:4px; }
+@media(max-width:600px) { .journey { gap:12px; justify-content:space-between; margin-bottom:30px; } .step { gap:6px; font-size:12px; } .number { width:24px; height:24px; font-size:10px; } .arrow { display:none; } }

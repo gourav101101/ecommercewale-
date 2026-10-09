@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import {
   LayoutDashboard,
@@ -11,7 +12,6 @@ import {
   ArrowLeft,
   Menu,
   X,
-  Bell,
   LogOut,
   Mail,
 } from 'lucide-react';
@@ -23,6 +23,7 @@ import './admin.css';
 const sidebarLinks = [
   { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/admin/products', label: 'Products', icon: Package },
+  { href: '/admin/suppliers', label: 'Supplier catalogue', icon: Package },
   { href: '/admin/orders', label: 'Orders', icon: ShoppingBag },
   { href: '/admin/customers', label: 'Customers', icon: Users },
   { href: '/admin/inquiries', label: 'Inquiries', icon: Mail },
@@ -31,6 +32,7 @@ const sidebarLinks = [
 const pageTitles = {
   '/admin': { title: 'Dashboard', subtitle: 'Welcome back! Here\'s your store overview.' },
   '/admin/products': { title: 'Products', subtitle: 'Manage your product catalog.' },
+  '/admin/suppliers': { title: 'Supplier catalogue', subtitle: 'Manage exact size/pack prices and availability for the connected catalogue.' },
   '/admin/orders': { title: 'Orders', subtitle: 'Track and manage customer orders.' },
   '/admin/customers': { title: 'Customers', subtitle: 'View and manage your customer base.' },
   '/admin/inquiries': { title: 'Inquiries', subtitle: 'Read messages from the contact form.' },
@@ -82,7 +84,7 @@ function AdminShell({ children }) {
       <aside className={`adminSidebar ${sidebarOpen ? 'open' : ''}`}>
         <div className="sidebarHeader">
           <div className="sidebarLogoIcon">
-            <Package size={22} />
+            <Image src="/images/brand/logo-circle.webp" alt="EcommerceWale" width={40} height={40} style={{ borderRadius: '50%' }} />
           </div>
           <div>
             <div className="sidebarBrand">EcommerceWale</div>
@@ -145,23 +147,6 @@ function AdminShell({ children }) {
           </div>
 
           <div className="topBarRight">
-            <button
-              className="mobileMenuBtn"
-              style={{ display: 'flex', position: 'relative' }}
-              aria-label="Notifications"
-            >
-              <Bell size={18} />
-              <span style={{
-                position: 'absolute',
-                top: '6px',
-                right: '6px',
-                width: '8px',
-                height: '8px',
-                borderRadius: '50%',
-                background: 'var(--color-primary)',
-              }} />
-            </button>
-            
             <button 
               onClick={() => setIsLogoutModalOpen(true)}
               className="btn btn-outline" 

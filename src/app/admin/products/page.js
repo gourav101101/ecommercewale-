@@ -1,9 +1,11 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import Link from 'next/link';
 import { Search, Plus, Filter, Edit, Trash2 } from 'lucide-react';
 import Modal from '@/components/ui/Modal/Modal';
 import { useToast } from '@/context/ToastContext';
+import { parsePricing, formatPricing } from '@/lib/product-input';
 
 export default function AdminProducts() {
   const [products, setProducts] = useState([]);
@@ -14,13 +16,15 @@ export default function AdminProducts() {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [saving, setSaving] = useState(false);
+  const [loadError, setLoadError] = useState('');
   const { showToast } = useToast();
 
   const emptyForm = {
     name: '', category: 'courier-bags', basePrice: '', bulkPrice: '',
     image: '', galleryUrls: '', featuresStr: '', specsStr: '',
     type: '', description: '', marketplaceCompatibleStr: '',
-    sizesStr: '', bestSeller: false, inStock: true,
+    sizesStr: '', pricingStr: '1 | | | Standard', bestSeller: false, inStock: true,
   };
 
   const [formData, setFormData] = useState(emptyForm);
@@ -38,22 +42,24 @@ export default function AdminProducts() {
   };
 
   const parseSpecs = (str) => {
-    if (!str) return { Material: 'Standard' };
+    if (!str) return {};
     const specs = {};
     str.split('\n').forEach(line => {
       const idx = line.indexOf(':');
       if (idx > -1) specs[line.slice(0, idx).trim()] = line.slice(idx + 1).trim();
     });
-    return Object.keys(specs).length > 0 ? specs : { Material: 'Standard' };
+    return specs;
   };
 
   const fetchProducts = useCallback(async () => {
+    setLoadError('');
     try {
       const res = await fetch('/api/products?includeOutOfStock=true');
       if (!res.ok) throw new Error('Failed to load catalogue');
       const data = await res.json();
       setProducts(Array.isArray(data) ? data : []);
     } catch {
+      setLoadError('Catalogue unavailable. Check the MongoDB connection before editing products.');
       showToast('Failed to fetch products from database', 'error');
     } finally {
       setLoading(false);
@@ -82,7 +88,7 @@ export default function AdminProducts() {
     category: formData.category,
     basePrice: parseFloat(formData.basePrice),
     bulkPrice: parseFloat(formData.bulkPrice),
-    image: formData.image || 'https://images.unsplash.com/photo-1605600659942-1e9d29fc60eb?auto=format&fit=crop&q=80&w=600',
+    image: formData.image,
     inStock: formData.inStock,
     bestSeller: formData.bestSeller,
     marketplaceCompatible: formData.marketplaceCompatibleStr
@@ -90,35 +96,36 @@ export default function AdminProducts() {
       : [],
     gallery: formData.galleryUrls
       ? formData.galleryUrls.split('\n').map(s => s.trim()).filter(Boolean)
-      : [formData.image || 'https://images.unsplash.com/photo-1605600659942-1e9d29fc60eb?auto=format&fit=crop&q=80&w=600'],
-    pricing: [
-      { minQty: 1, maxQty: 499, pricePerUnit: parseFloat(formData.basePrice), label: '1-499 units' },
-      { minQty: 500, maxQty: null, pricePerUnit: parseFloat(formData.bulkPrice), label: '500+ units' },
-    ],
+      : [formData.image],
+    pricing: parsePricing(formData.pricingStr),
     sizes: parseSizes(formData.sizesStr),
     specs: parseSpecs(formData.specsStr),
     features: formData.featuresStr
       ? formData.featuresStr.split('\n').map(s => s.trim()).filter(Boolean)
-      : ['High quality packaging material', 'Secure seal', 'Durable design'],
+      : [],
   });
 
   const handleAddProduct = async (e) => {
     e.preventDefault();
-    const newProduct = buildProduct({ id: `new-${Date.now()}`, slug: `new-${Date.now()}`, rating: 5.0, reviewCount: 0 });
+    if (saving) return;
+    setSaving(true);
     try {
+      const id = crypto.randomUUID();
+      const slug = formData.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 110) || 'product';
+      const newProduct = buildProduct({ id, slug: `${slug}-${id.slice(0, 8)}` });
       const res = await fetch('/api/products', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newProduct),
       });
-      if (!res.ok) throw new Error();
+      if (!res.ok) throw new Error((await res.json()).error || 'Could not save product');
       await fetchProducts();
       setIsAddModalOpen(false);
       setFormData(emptyForm);
       showToast('Product added successfully!', 'success');
-    } catch {
-      showToast('Error saving product to DB', 'error');
-    }
+    } catch (error) {
+      showToast(error.message, 'error');
+    } finally { setSaving(false); }
   };
 
   const openEditModal = (product) => {
@@ -130,6 +137,7 @@ export default function AdminProducts() {
       description: product.description || '',
       basePrice: product.basePrice,
       bulkPrice: product.bulkPrice,
+      pricingStr: formatPricing(product.pricing || []),
       image: product.image,
       galleryUrls: product.gallery ? product.gallery.join('\n') : '',
       featuresStr: product.features ? product.features.join('\n') : '',
@@ -145,21 +153,23 @@ export default function AdminProducts() {
   const handleEditProduct = async (e) => {
     e.preventDefault();
     if (!selectedProduct) return;
-    const updatedProduct = buildProduct(selectedProduct);
+    if (saving) return;
+    setSaving(true);
     try {
+      const updatedProduct = buildProduct(selectedProduct);
       const res = await fetch('/api/products', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updatedProduct),
       });
-      if (!res.ok) throw new Error();
+      if (!res.ok) throw new Error((await res.json()).error || 'Could not update product');
       await fetchProducts();
       setIsEditModalOpen(false);
       setSelectedProduct(null);
       showToast('Product updated successfully!', 'success');
-    } catch {
-      showToast('Error updating product', 'error');
-    }
+    } catch (error) {
+      showToast(error.message, 'error');
+    } finally { setSaving(false); }
   };
 
   const openDeleteModal = (product) => {
@@ -215,8 +225,8 @@ export default function AdminProducts() {
         <select id={`${idPrefix}category`} name="category" className="input"
           value={formData.category} onChange={handleInputChange}>
           <option value="courier-bags">Courier Bags</option>
-          <option value="boxes-tapes">Boxes &amp; Tapes</option>
-          <option value="labels-stickers">Labels &amp; Stickers</option>
+          <option value="boxes">Boxes</option><option value="tapes">Tapes</option>
+          <option value="labels">Labels</option>
           <option value="shredded-paper">Shredded Paper</option>
         </select>
       </div>
@@ -243,25 +253,18 @@ export default function AdminProducts() {
           value={formData.description} onChange={handleInputChange} />
       </div>
 
-      <div className="grid-2">
-        <div className="input-group">
-          <label htmlFor={`${idPrefix}basePrice`}>Base Price (₹)</label>
-          <input type="number" id={`${idPrefix}basePrice`} name="basePrice" className="input"
-            min="0" step="0.01" required
-            value={formData.basePrice} onChange={handleInputChange} />
-        </div>
-        <div className="input-group">
-          <label htmlFor={`${idPrefix}bulkPrice`}>Bulk Price (₹)</label>
-          <input type="number" id={`${idPrefix}bulkPrice`} name="bulkPrice" className="input"
-            min="0" step="0.01" required
-            value={formData.bulkPrice} onChange={handleInputChange} />
-        </div>
+      <div className="input-group">
+        <label htmlFor={`${idPrefix}pricing`}>Quantity pricing — ₹ per unit</label>
+        <textarea id={`${idPrefix}pricing`} name="pricingStr" className="input" rows="5" required
+          value={formData.pricingStr} onChange={handleInputChange}
+          placeholder="1 | 99 | 8.50 | 1–99 units&#10;100 | | 6.50 | 100+ units" />
+        <small>One tier per line: minimum | maximum | unit price | label. Start at 1; leave the final maximum blank. Existing tiers are preserved. Base and bulk prices are calculated automatically.</small>
       </div>
 
       <div className="input-group">
         <label htmlFor={`${idPrefix}image`}>Main Image URL</label>
-        <input type="url" id={`${idPrefix}image`} name="image" className="input"
-          placeholder="https://..."
+        <input type="text" id={`${idPrefix}image`} name="image" className="input" required
+          placeholder="/images/product.jpg or approved supplier image URL"
           value={formData.image} onChange={handleInputChange} />
       </div>
 
@@ -308,6 +311,8 @@ export default function AdminProducts() {
 
   return (
     <div className="adminPanel">
+      <div className="adminNotice">Supplier products use exact size/pack variants. <Link href="/admin/suppliers">Manage the 44 supplier products and 688 variant prices here →</Link> This screen manages your separate custom products.</div>
+      {loadError && <div className="adminNotice" role="alert">{loadError} <button type="button" onClick={fetchProducts}>Retry</button></div>}
       <div className="panelHeader">
         <h2>Products Management</h2>
         <button
@@ -331,8 +336,8 @@ export default function AdminProducts() {
             onChange={(e) => setFilterCategory(e.target.value)}>
             <option value="all">All Categories</option>
             <option value="courier-bags">Courier Bags</option>
-            <option value="boxes-tapes">Boxes &amp; Tapes</option>
-            <option value="labels-stickers">Labels &amp; Stickers</option>
+            <option value="boxes">Boxes</option><option value="tapes">Tapes</option>
+            <option value="labels">Labels</option>
             <option value="shredded-paper">Shredded Paper</option>
           </select>
         </div>
@@ -425,8 +430,8 @@ export default function AdminProducts() {
             <button type="button" className="btn btn-outline" onClick={() => setIsAddModalOpen(false)}>
               Cancel
             </button>
-            <button type="submit" form="add-product-form" className="btn btn-primary">
-              Save Product
+            <button type="submit" form="add-product-form" className="btn btn-primary" disabled={saving || !!loadError}>
+              {saving ? 'Saving…' : 'Save Product'}
             </button>
           </>
         }
@@ -448,8 +453,8 @@ export default function AdminProducts() {
               onClick={() => { setIsEditModalOpen(false); setSelectedProduct(null); }}>
               Cancel
             </button>
-            <button type="submit" form="edit-product-form" className="btn btn-primary">
-              Update Product
+            <button type="submit" form="edit-product-form" className="btn btn-primary" disabled={saving}>
+              {saving ? 'Saving…' : 'Update Product'}
             </button>
           </>
         }

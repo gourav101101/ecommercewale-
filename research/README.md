@@ -1,6 +1,23 @@
 # Ecosoft supplier catalogue review
 
-Prepared 8 October 2026. **30 candidate products; none imported or approved.**
+**Integration update:** the captured 44-product / 688-variant snapshot is now connected to the local storefront with exact variant prices as reference quote estimates. Admin overrides are separate from these original research files. See [connected catalogue notes](../docs/CONNECTED-SUPPLIER-CATALOGUE.md). The historical review-only notes below describe the export's original preparation; no production deployment or destructive database import was performed.
+
+## Complete public product feed — 9 October 2026
+
+**44 public products and 688 variants captured; none imported or approved.** The feed now responds successfully. Pagination reached an empty page, and all 44 product URLs in the supplier's product sitemap are represented in the export.
+
+- `ecosoft-full-variants.csv`: current variant-level review spreadsheet, with supplier prices, options, availability, image references and blank EcommerceWale selling prices.
+- `ecosoft-full-catalogue.json`: structured snapshot, including all returned variants and image references, pagination evidence and sitemap reconciliation.
+- `ecosoft-access-report.json`: public endpoint access checks.
+- `/admin/suppliers`: authenticated searchable review, variant details, photo previews and CSV download.
+
+This covers the public product feed, not all website content or private supplier data. Descriptions, policies and photo binaries were not copied into the storefront. Feed availability is not a guarantee of current inventory; supplier pack/roll prices are not necessarily per-piece costs. Review zero-price or unavailable variants before import.
+
+Refresh with `node scripts/fetch-supplier-catalogue.mjs`, then rebuild the application to update the bundled admin snapshot. Refreshing does not import products into MongoDB.
+
+## Historical partial review — 8 October 2026
+
+**30 candidate products; none imported or approved.** Retained for comparison; use the full export above for current coverage.
 
 Open `ecosoft-catalogue-review.csv` in Excel to review. JSON includes additional product-page observations.
 

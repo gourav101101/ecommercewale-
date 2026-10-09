@@ -1,417 +1,94 @@
 'use client';
-
 import { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { ArrowLeft, ArrowRight, Check, Minus, Plus, MessageCircle, ShoppingBag } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { useToast } from '@/context/ToastContext';
-import { Star, Minus, Plus, ShoppingCart, CheckCircle2, Package, Tag, ArrowLeft, AlertTriangle, MessageCircle } from 'lucide-react';
-import Image from 'next/image';
-import { whatsappUrl, formatMoney } from '@/lib/whatsapp';
+import { formatMoney, whatsappUrl } from '@/lib/whatsapp';
+import { quantityPrice, validQuantity } from '@/lib/catalogue-pricing';
 import ProductCard from '@/components/shop/ProductCard/ProductCard';
+import SupplierProduct from '@/components/shop/SupplierProduct/SupplierProduct';
 import styles from './page.module.css';
-import Link from 'next/link';
 
-export default function ProductDetailPage({ initialProduct, initialRelatedProducts }) {
+export default function ProductClient({ initialProduct, initialRelatedProducts }) {
+  if (initialProduct.pricingMode==='variant') return <SupplierProduct product={initialProduct} relatedProducts={initialRelatedProducts}/>;
+  return <LegacyProduct initialProduct={initialProduct} initialRelatedProducts={initialRelatedProducts}/>;
+}
+
+function LegacyProduct({ initialProduct, initialRelatedProducts }) {
+  const [product, setProduct] = useState(initialProduct);
+  const [sizeIndex, setSizeIndex] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+  const [imageIndex, setImageIndex] = useState(0);
+  const [added, setAdded] = useState(false);
+  const [reviewPending, setReviewPending] = useState(false);
   const { addToCart } = useCart();
   const { showToast } = useToast();
-  
-  const [product, setProduct] = useState(initialProduct);
-  const [relatedProducts] = useState(initialRelatedProducts);
-
-  const [selectedSizeOverride, setSelectedSizeOverride] = useState(null);
-  const [quantity, setQuantity] = useState(1);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [activeTab, setActiveTab] = useState('specs');
-  
-  // Review form state
-  const [reviewName, setReviewName] = useState('');
-  const [reviewRating, setReviewRating] = useState('5');
-  const [reviewComment, setReviewComment] = useState('');
-  const [submittingReview, setSubmittingReview] = useState(false);
-  const reviewCount = product.reviews?.length || 0;
-  const reviewAverage = reviewCount ? product.reviews.reduce((sum, review) => sum + Number(review.rating), 0) / reviewCount : 0;
-
-  const handleReviewSubmit = async (e) => {
-    e.preventDefault();
-    setSubmittingReview(true);
+  const size = product.sizes?.[sizeIndex];
+  const images = [...new Set([product.image, ...(product.gallery || [])].filter(Boolean))];
+  const tiers = product.pricing || [];
+  const valid = validQuantity(quantity);
+  const units = valid ? Number(quantity) : 0;
+  const activeTier = [...tiers].sort((a,b) => b.minQty-a.minQty).find(tier => units >= tier.minQty);
+  const unitPrice = quantityPrice(tiers, units || 1);
+  const unavailable = product.inStock === false || !tiers.length;
+  const updateQuantity = value => { setQuantity(value); setAdded(false); };
+  const add = () => { if (unavailable || !valid) return; addToCart(product, size?.value || 'standard', units); setAdded(true); showToast('Added to your order list', 'success'); };
+  const review = async event => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const values = Object.fromEntries(new FormData(form));
+    setReviewPending(true);
     try {
-      const res = await fetch(`/api/products/${product.slug}/reviews`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userName: reviewName, rating: reviewRating, comment: reviewComment })
-      });
-      if (!res.ok) throw new Error('Failed to submit review');
-      const data = await res.json();
-      setProduct({
-        ...product,
-        rating: data.product.rating,
-        reviewCount: data.product.reviewCount,
-        reviews: data.product.reviews
-      });
-      showToast('Review submitted successfully!', 'success');
-      setReviewName('');
-      setReviewComment('');
-      setReviewRating('5');
-    } catch (error) {
-      showToast('Error submitting review', 'error');
-    } finally {
-      setSubmittingReview(false);
-    }
+      const response = await fetch(`/api/products/${product.slug}/reviews`, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(values) });
+      if (!response.ok) throw new Error();
+      const data = await response.json();
+      setProduct(previous => ({ ...previous, reviews:data.product.reviews }));
+      form.reset(); showToast('Review submitted successfully', 'success');
+    } catch { showToast('Could not submit your review. Please try again.', 'error'); }
+    finally { setReviewPending(false); }
   };
-  
-  const selectedSize = product.sizes.some((size) => size.value === selectedSizeOverride)
-    ? selectedSizeOverride
-    : product.sizes[0]?.value || null;
-
-  const calculateCurrentPrice = (pricing, quantity) => {
-    if (!pricing || pricing.length === 0) return product.basePrice || 0;
-    // Sort by minQty descending
-    const sorted = [...pricing].sort((a, b) => b.minQty - a.minQty);
-    for (let i = 0; i < sorted.length; i++) {
-      if (quantity >= sorted[i].minQty) {
-        return sorted[i].pricePerUnit;
-      }
-    }
-    return sorted[sorted.length - 1].pricePerUnit;
-  };
-
-  const currentPrice = calculateCurrentPrice(product.pricing, quantity);
-  const totalAmount = currentPrice * quantity;
-
-  const isOutOfStock = product.inStock === false;
-
-  const handleAddToCart = () => {
-    if (isOutOfStock) return;
-    addToCart(product, selectedSize, quantity);
-    showToast('Added to your order list', 'success');
-  };
-
-  const handleQuantityChange = (e) => {
-    const val = parseInt(e.target.value);
-    if (!isNaN(val) && val > 0) {
-      setQuantity(val);
-    }
-  };
-
-  return (
-    <div className={styles.productPage}>
-      <div className="container">
-        <div className={styles.breadcrumb}>
-          <Link href="/shop" className={styles.backLink}>
-            <ArrowLeft size={16} /> Back to Shop
-          </Link>
-          <span className={styles.separator}>/</span>
-          <span className={styles.categoryName}>{product.category.replace('-', ' ')}</span>
-          <span className={styles.separator}>/</span>
-          <span className={styles.currentName}>{product.name}</span>
-        </div>
-
-        <div className={styles.productMain}>
-          {/* Gallery */}
-          <div className={styles.gallery}>
-            <div 
-              className={styles.mainImage}
-            >
-              <Image src={product.gallery?.[currentImageIndex] || product.image} alt={product.name} fill sizes="(max-width: 850px) 92vw, 50vw" priority style={{ objectFit: 'contain' }} />
-              {product.bestSeller && <div className={styles.badge}>Best Seller</div>}
-            </div>
-            
-            {product.gallery && product.gallery.length > 1 && (
-              <div className={styles.thumbnailStrip}>
-                {product.gallery.map((img, index) => (
-                  <button
-                    key={index}
-                    className={`${styles.thumbnail} ${index === currentImageIndex ? styles.thumbnailActive : ''}`}
-                    onClick={() => setCurrentImageIndex(index)}
-                    style={{ backgroundImage: `url(${img})` }}
-                    aria-label={`View image ${index + 1}`}
-                  />
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Details */}
-          <div className={styles.details}>
-            <div className={styles.header}>
-              <span className={styles.typeLabel}>{product.type}</span>
-              <h1 className={styles.title}>{product.name}</h1>
-              
-              {reviewCount > 0 ? <div className={styles.ratingRow}>
-                <div className="star-rating">
-                  {[...Array(Math.max(0, Math.min(5, Math.floor(reviewAverage))))].map((_, i) => (
-                    <Star key={i} size={16} fill="currentColor" />
-                  ))}
-                  {reviewAverage % 1 !== 0 && (
-                    <Star size={16} fill="currentColor" style={{ clipPath: 'inset(0 50% 0 0)' }} />
-                  )}
-                </div>
-                <span className={styles.ratingText}>{reviewAverage.toFixed(1)}</span>
-                <span className={styles.reviewCount}>({reviewCount} reviews)</span>
-              </div> : <span className={styles.reviewCount}>An everyday packaging essential</span>}
-            </div>
-
-            <div className={styles.priceSection}>
-              <div className={styles.priceCurrent}>
-                <span className={styles.currency}>₹</span>
-                <span className={styles.amount}>{currentPrice.toFixed(2)}</span>
-                <span className={styles.unit}>/ unit</span>
-              </div>
-              <p className={styles.priceNote}>Catalogue estimate · GST and delivery confirmed in your quote</p>
-            </div>
-
-            {/* Sizes */}
-            {product.sizes && product.sizes.length > 0 && (
-              <div className={styles.selectionGroup}>
-                <div className={styles.selectionHeader}>
-                  <h3 className={styles.selectionTitle}>Select Size</h3>
-                  <span className={styles.selectionValue}>
-                    {product.sizes.find(s => s.value === selectedSize)?.dimensions}
-                  </span>
-                </div>
-                <div className={styles.sizeGrid}>
-                  {product.sizes.map((size) => (
-                    <button
-                      key={size.value}
-                      className={`${styles.sizePill} ${selectedSize === size.value ? styles.sizeActive : ''}`}
-                      aria-pressed={selectedSize === size.value}
-                      onClick={() => setSelectedSizeOverride(size.value)}
-                    >
-                      {size.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Quantity & Bulk Pricing */}
-            <div className={styles.selectionGroup}>
-              <div className={styles.selectionHeader}>
-                <h3 className={styles.selectionTitle}>Quantity</h3>
-              </div>
-              
-              <div className={styles.quantityWrapper}>
-                <div className={styles.quantityControl}>
-                  <button 
-                    className={styles.qtyBtn} 
-                    aria-label="Decrease quantity"
-                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  >
-                    <Minus size={18} />
-                  </button>
-                  <input
-                    type="number"
-                    min="1"
-                    className={styles.qtyInput}
-                    aria-label="Order quantity"
-                    value={quantity}
-                    onChange={handleQuantityChange}
-                  />
-                  <button 
-                    className={styles.qtyBtn}
-                    aria-label="Increase quantity"
-                    onClick={() => setQuantity(quantity + 1)}
-                  >
-                    <Plus size={18} />
-                  </button>
-                </div>
-                
-                <div className={styles.totalCalc}>
-                  Total: <strong>₹{totalAmount.toFixed(2)}</strong>
-                </div>
-              </div>
-            </div>
-
-            {/* Tiered Pricing Table */}
-            <div className={styles.bulkPricingBox}>
-              <div className={styles.bulkHeader}>
-                <Tag size={16} /> <span>Bulk Discount Pricing</span>
-              </div>
-              <div className={styles.bulkTable}>
-                {product.pricing && product.pricing.map((tier, idx) => {
-                  const isCurrentTier = 
-                    quantity >= tier.minQty && 
-                    (tier.maxQty === null || quantity <= tier.maxQty);
-                    
-                  return (
-                    <div 
-                      key={idx} 
-                      className={`${styles.bulkRow} ${isCurrentTier ? styles.bulkRowActive : ''}`}
-                    >
-                      <span>{tier.label}</span>
-                      <strong>₹{tier.pricePerUnit.toFixed(2)} /pc</strong>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Add to Cart */}
-            <div className={styles.actionGroup}>
-              {isOutOfStock && (
-                <div className={styles.outOfStockNotice}>
-                  <AlertTriangle size={18} />
-                  <span>This product is currently out of stock</span>
-                </div>
-              )}
-              <button 
-                className={`btn btn-primary btn-lg ${styles.addToCartBtn}`}
-                onClick={handleAddToCart}
-                disabled={isOutOfStock}
-                style={isOutOfStock ? { opacity: 0.5, cursor: 'not-allowed', filter: 'grayscale(1)' } : {}}
-              >
-                <ShoppingCart size={20} />
-                {isOutOfStock ? 'Out of Stock' : 'Add to order list'}
-              </button>
-              <a className="btn btn-outline btn-lg" href={whatsappUrl(`Hi EcommerceWale! Please quote for ${product.name}.\nSize: ${selectedSize || 'Standard'}\nQuantity: ${quantity}\nCatalogue estimate: ${formatMoney(totalAmount)} before GST and delivery.\nProduct: https://www.ecommercewale.in/product/${product.slug}\nPlease confirm availability and final price.`)} target="_blank" rel="noopener noreferrer"><MessageCircle size={19} /> Ask about this product</a>
-              
-              <div className={styles.trustSignals}>
-                <div className={styles.trustItem}>
-                  <CheckCircle2 size={16} className={styles.trustIcon} />
-                  <span>GST Invoice Available</span>
-                </div>
-                <div className={styles.trustItem}>
-                  <Package size={16} className={styles.trustIcon} />
-                  <span>Delivery estimate in your quote</span>
-                </div>
-              </div>
-            </div>
-            
-            {/* Marketplace Fit */}
-            {product.marketplaceCompatible && (
-              <div className={styles.marketplaces}>
-                <span>Marketplace Compatible:</span>
-                <div className={styles.mpIcons}>
-                  {product.marketplaceCompatible.map(mp => (
-                    <span key={mp} className={`${styles.mpBadge} ${styles[mp]}`}>
-                      {mp}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Tabs Content */}
-        <div className={styles.tabsSection}>
-          <div className={styles.tabList}>
-            <button 
-              className={`${styles.tabBtn} ${activeTab === 'specs' ? styles.tabActive : ''}`}
-              onClick={() => setActiveTab('specs')}
-            >
-              Specifications
-            </button>
-            <button 
-              className={`${styles.tabBtn} ${activeTab === 'features' ? styles.tabActive : ''}`}
-              onClick={() => setActiveTab('features')}
-            >
-              Features
-            </button>
-          </div>
-
-          <div className={styles.tabContent}>
-            {activeTab === 'specs' && (
-              <div className="animate-fadeIn">
-                <p className={styles.tabDesc}>{product.description}</p>
-                <div className={styles.specsGrid}>
-                  {product.specs && Object.entries(product.specs).map(([key, value]) => (
-                    <div key={key} className={styles.specItem}>
-                      <span className={styles.specKey}>{key.replace(/([A-Z])/g, ' $1').trim()}</span>
-                      <span className={styles.specValue}>{value}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {activeTab === 'features' && (
-              <div className="animate-fadeIn">
-                <ul className={styles.featuresList}>
-                  {product.features && product.features.map((feature, i) => (
-                    <li key={i}>
-                      <CheckCircle2 size={18} className={styles.featureIcon} />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Customer Reviews Section */}
-        <section className="section" style={{ marginTop: '2rem' }}>
-          <div className="section-header">
-            <h2>Customer Reviews</h2>
-          </div>
-          <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
-            <div style={{ flex: '1 1 300px' }}>
-              <div style={{ background: 'var(--color-bg-alt)', padding: '2rem', borderRadius: '12px' }}>
-                <h3 style={{ marginTop: 0 }}>Write a Review</h3>
-                <form onSubmit={handleReviewSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                  <div className="input-group">
-                    <label htmlFor="review-rating">Rating</label>
-                    <select id="review-rating" value={reviewRating} onChange={e => setReviewRating(e.target.value)} className="input" required>
-                      <option value="5">5 Stars - Excellent</option>
-                      <option value="4">4 Stars - Good</option>
-                      <option value="3">3 Stars - Average</option>
-                      <option value="2">2 Stars - Poor</option>
-                      <option value="1">1 Star - Terrible</option>
-                    </select>
-                  </div>
-                  <div className="input-group">
-                    <label htmlFor="review-name">Name</label>
-                    <input id="review-name" type="text" autoComplete="name" maxLength={100} value={reviewName} onChange={e => setReviewName(e.target.value)} className="input" required />
-                  </div>
-                  <div className="input-group">
-                    <label htmlFor="review-comment">Review</label>
-                    <textarea id="review-comment" rows="4" maxLength={2000} value={reviewComment} onChange={e => setReviewComment(e.target.value)} className="input" required></textarea>
-                  </div>
-                  <button type="submit" className="btn btn-primary" disabled={submittingReview}>
-                    {submittingReview ? 'Submitting...' : 'Submit Review'}
-                  </button>
-                </form>
-              </div>
-            </div>
-            <div style={{ flex: '2 1 500px' }}>
-              {product.reviews && product.reviews.length > 0 ? (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                  {product.reviews.slice().reverse().map((rev, idx) => (
-                    <div key={idx} style={{ padding: '1rem', border: '1px solid var(--color-border)', borderRadius: '8px' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                        <strong>{rev.userName}</strong>
-                        <span style={{ color: '#FFB800' }}>{'★'.repeat(rev.rating)}{'☆'.repeat(5 - rev.rating)}</span>
-                      </div>
-                      <p style={{ margin: 0, color: 'var(--color-text-muted)' }}>{rev.comment}</p>
-                      <div style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', marginTop: '0.5rem' }}>
-                        {new Date(rev.date).toLocaleDateString()}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <div style={{ padding: '2rem', textAlign: 'center', background: 'var(--color-bg-alt)', borderRadius: '12px' }}>
-                  <p>No reviews yet. Be the first to review this product!</p>
-                </div>
-              )}
-            </div>
-          </div>
+  return <div className={`container ${styles.page}`}>
+    <nav className={styles.breadcrumb} aria-label="Breadcrumb"><Link href="/shop"><ArrowLeft size={16} /> All packaging</Link><span>/</span><Link href={`/shop?category=${product.category}`}>{product.category==='labels'?'Labels':product.category.replaceAll('-', ' ')}</Link></nav>
+    <div className={styles.productLayout}>
+      <div className={styles.visualColumn}>
+        <div className={styles.mainImage}><Image src={images[imageIndex] || '/images/category-boxes.jpg'} alt={`${product.name} — view ${imageIndex + 1}`} fill sizes="(max-width:850px) 94vw, 55vw" priority />{unavailable && <span className={styles.imageLabel}>Currently unavailable</span>}</div>
+        {images.length > 1 && <div className={styles.thumbnails} aria-label="Product images">{images.map((src,index) => <button key={src} onClick={() => setImageIndex(index)} aria-label={`View image ${index+1}`} aria-current={imageIndex===index ? 'true' : undefined}><Image src={src} alt="" fill sizes="80px" /></button>)}</div>}
+        <div className={styles.imageFootnote}><span>THE DETAILS MATTER</span><p>{product.image?.startsWith('/images/catalogue/') ? 'AI-created product-family illustration, not an exact SKU photo. Confirm colour, printing, dimensions and pack contents in your quote.' : 'Check your packed dimensions before choosing a size. Need a second opinion? Our team can help.'}</p></div>
+      </div>
+      <div className={styles.configurator}>
+        <span className={styles.eyebrow}>{product.type || 'Everyday essentials'}</span>
+        <h1>{product.name}</h1><p className={styles.description}>{product.description}</p>
+        <div className={styles.price}><strong>{formatMoney(unitPrice)}</strong><span>per unit at your quantity</span></div>
+        <p className={styles.priceNote}>Estimate before GST & delivery. Final quote on WhatsApp.</p>
+        <section className={styles.optionSection}>
+          <div className={styles.sectionHeading}><h2><span>01</span> Find your fit.</h2><a href="#size-help" onClick={() => { document.getElementById('size-help').open = true; }}>Size advice</a></div>
+          <p>{size?.dimensions || 'Choose the option that works for your product.'}</p>
+          <div className={styles.sizes}>{(product.sizes || []).map((option,index) => <button key={option.value} aria-pressed={sizeIndex===index} onClick={() => {setSizeIndex(index); setAdded(false);}}><strong>{option.label}</strong>{option.dimensions && <span>{option.dimensions}</span>}{sizeIndex===index && <Check size={16} />}</button>)}</div>
         </section>
-
-        {/* Related Products */}
-        {relatedProducts.length > 0 && (
-          <section className="section">
-            <div className="section-header">
-              <h2>You Might Also Need</h2>
-            </div>
-            <div className={styles.relatedGrid}>
-              {relatedProducts.map((rp) => (
-                <ProductCard key={rp.id} product={rp} />
-              ))}
-            </div>
-          </section>
-        )}
+        <section className={styles.optionSection}>
+          <div className={styles.sectionHeading}><h2><span>02</span> Plan your quantity.</h2></div>
+          <p>Choose a price break, or enter your own quantity.</p>
+          <div className={styles.tiers}>{tiers.map(tier => <button key={tier.minQty} aria-pressed={activeTier===tier} onClick={() => updateQuantity(tier.minQty)}><span>{tier.label || `${tier.minQty}+ units`}</span><strong>{formatMoney(tier.pricePerUnit)}<small> / unit</small></strong></button>)}</div>
+          <div className={styles.quantityRow}><label htmlFor="product-quantity">Your quantity</label><div className={styles.stepper}><button onClick={() => updateQuantity(Math.max(1,Number(quantity)-1))} disabled={Number(quantity)<=1} aria-label="Decrease quantity"><Minus size={17} /></button><input id="product-quantity" aria-label="Order quantity" aria-invalid={!valid} aria-describedby={!valid ? 'quantity-error' : undefined} type="number" min="1" max="999999" step="1" value={quantity} onChange={event => updateQuantity(event.target.value)} /><button onClick={() => updateQuantity(Number(quantity)+1)} disabled={Number(quantity)>=999999} aria-label="Increase quantity"><Plus size={17} /></button></div></div>
+          {!valid && <p id="quantity-error" role="alert">Enter a whole quantity between 1 and 999,999.</p>}
+        </section>
+        <div className={styles.purchasePanel}>
+          <div className={styles.total}><div><span>Your selection</span><p>{size?.label || 'Standard'} · {valid ? `${units.toLocaleString('en-IN')} ${units===1 ? 'unit' : 'units'}` : 'Choose a valid quantity'}</p></div><strong aria-live="polite">{valid ? formatMoney(unitPrice*units) : '—'}</strong></div>
+          <button className={`btn btn-primary ${styles.addButton}`} onClick={add} disabled={unavailable || !valid}><ShoppingBag size={19} />{unavailable ? 'Currently unavailable' : 'Add to order list'}<ArrowRight size={19} /></button>
+          {added && <div className={styles.added} role="status"><Check size={17} /><span>Added to your order list.</span><Link href="/cart">View list <ArrowRight size={15} /></Link></div>}
+          <a className={styles.directQuote} href={whatsappUrl(`Hi EcommerceWale! Please help me with ${product.name}, size ${size?.label || 'Standard'}.${valid ? ` Quantity: ${units}. Catalogue estimate: ${formatMoney(unitPrice*units)} before GST and delivery.` : ' I need help choosing a quantity.'}`)} target="_blank" rel="noopener noreferrer"><MessageCircle size={18} />{unavailable ? 'Ask about availability' : 'Ask about this selection'}</a>
+          <small>No payment now. We confirm stock, GST and delivery with you.</small>
+        </div>
       </div>
     </div>
-  );
+    <section className={styles.detailsSection} aria-labelledby="details-heading"><div><span className={styles.eyebrow}>KNOW WHAT YOU’RE PACKING WITH</span><h2 id="details-heading">Good packaging.<br />Down to the details.</h2><ul className={styles.features}>{(product.features || []).map(feature => <li key={feature}><Check size={17} />{feature}</li>)}</ul></div><div className={styles.accordions}>
+      <details open><summary>Materials & specifications <Plus size={20} /></summary><dl>{Object.entries(product.specs || {}).map(([key,value]) => <div key={key}><dt>{key.replace(/([A-Z])/g,' $1')}</dt><dd>{value}</dd></div>)}</dl></details>
+      <details id="size-help"><summary>Choosing the right size <Plus size={20} /></summary><p>Measure your product with any protective wrap already in place. Allow space for closure and cushioning. Listed dimensions describe the catalogue option; confirm usable internal space and pack quantities with our team before ordering.</p><a href={whatsappUrl(`Hi! Please help me choose a size for ${product.name}.`)} target="_blank" rel="noopener noreferrer">Get personal size advice <ArrowRight size={16} /></a></details>
+      <details><summary>Ordering, delivery & payment <Plus size={20} /></summary><p>Add your chosen sizes and quantities to your order list. Share the list on WhatsApp, where our team confirms availability, pricing, GST and delivery. Your enquiry is not a confirmed purchase and no online payment is collected.</p><Link href="/faq">Visit the help centre <ArrowRight size={16} /></Link></details>
+    </div></section>
+    <section className={styles.reviews}><div><span className={styles.eyebrow}>FROM THE PEOPLE WHO PACK</span><h2>Customer feedback.</h2><p>{product.reviews?.length ? `${product.reviews.length} customer reviews` : 'No reviews yet. Have you used this product? Share your experience.'}</p></div><div><details className={styles.reviewForm}><summary>Write a review <Plus size={18} /></summary><form onSubmit={review}><label htmlFor="review-name">Your name</label><input className="input" id="review-name" name="userName" autoComplete="name" required maxLength={100} /><label htmlFor="review-rating">Rating</label><select className="input" id="review-rating" name="rating" defaultValue="5">{[5,4,3,2,1].map(value => <option key={value} value={value}>{value} stars</option>)}</select><label htmlFor="review-comment">Your experience</label><textarea className="input" id="review-comment" name="comment" rows={4} required maxLength={2000} /><button className="btn btn-primary" disabled={reviewPending}>{reviewPending ? 'Submitting…' : 'Submit review'}</button></form></details>{(product.reviews || []).slice().reverse().map((item,index) => <article className={styles.review} key={item._id || index}><header><strong>{item.userName}</strong><span>{item.rating} / 5</span></header><p>{item.comment}</p></article>)}</div></section>
+    {initialRelatedProducts.length > 0 && <section className={styles.related}><div className={styles.relatedHeading}><h2>Finish your packing list.</h2><Link href="/shop">Explore everything <ArrowRight size={17} /></Link></div><div className={styles.relatedGrid}>{initialRelatedProducts.map(item => <ProductCard key={item.id} product={item} />)}</div></section>}
+  </div>;
 }

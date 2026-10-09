@@ -8,8 +8,14 @@ import { useCart } from '@/context/CartContext';
 import { quantityPrice, validQuantity } from '@/lib/catalogue-pricing';
 import { formatMoney } from '@/lib/whatsapp';
 import styles from './QuickShop.module.css';
+import VariantQuickShop from './VariantQuickShop';
 
 export default function QuickShop({ product, onClose }) {
+  if (product.pricingMode==='variant') return <VariantQuickShop product={product} onClose={onClose}/>;
+  return <LegacyQuickShop product={product} onClose={onClose}/>;
+}
+
+function LegacyQuickShop({ product, onClose }) {
   const dialog = useRef(null);
   const heading = useId();
   const quantityId = useId();

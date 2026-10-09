@@ -8,6 +8,7 @@
 
 /* ---------- CSS Custom Properties ---------- */
 :root {
+  color-scheme: light;
   /* Primary Colors */
   --color-primary: #c84b23;
   --color-primary-light: #FF8F66;
@@ -115,33 +116,7 @@
   --container-padding: 2.5rem;
 
   /* Navbar height */
-  --navbar-height: 97px;
-}
-
-/* ---------- Dark Mode ---------- */
-[data-theme='dark'] {
-  --color-primary: #fa946d;
-  --color-primary-dark: #d56b43;
-  --color-bg: #171c18;
-  --color-bg-alt: #202720;
-  --color-bg-card: #222a23;
-  --color-bg-elevated: #293229;
-  --color-surface: #2d352d;
-  --color-border: #414a3f;
-  --color-border-light: #323c31;
-
-  --color-text: #f2f0e6;
-  --color-text-secondary: #b8bcae;
-  --color-text-muted: #a5ad9a;
-  --color-text-inverse: #0A1628;
-
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.15);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25), 0 2px 4px rgba(0, 0, 0, 0.15);
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
-  --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.35), 0 8px 16px rgba(0, 0, 0, 0.25);
-
-  --glass-bg: rgba(21, 34, 56, 0.7);
-  --glass-border: rgba(42, 61, 94, 0.4);
+  --navbar-height: 69px;
 }
 
 /* ---------- Reset & Base ---------- */
@@ -639,7 +614,7 @@ ul, ol {
 @media (max-width: 768px) {
   :root {
     --container-padding: 1rem;
-    --navbar-height: 97px;
+    --navbar-height: 69px;
   }
 
   .section {

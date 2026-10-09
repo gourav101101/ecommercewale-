@@ -6,7 +6,7 @@ export function proxy(request) {
   const isRead = ['GET', 'HEAD', 'OPTIONS'].includes(request.method);
   if (path === '/api/seed') return NextResponse.json({ error: 'Remote database seeding is disabled.' }, { status: 403 });
   const productWrite = path.startsWith('/api/products') && !isRead && !path.endsWith('/reviews');
-  const privateApi = ['/api/orders', '/api/customers', '/api/dashboard'].some((prefix) => path === prefix || path.startsWith(`${prefix}/`)) || path === '/api/contact' || productWrite;
+  const privateApi = ['/api/orders', '/api/customers', '/api/dashboard'].some((prefix) => path === prefix || path.startsWith(`${prefix}/`)) || (path.startsWith('/api/admin/') && path !== '/api/admin/session') || path === '/api/contact' || productWrite;
   const privatePage = path.startsWith('/admin') && path !== '/admin/login';
   if (!privateApi && !privatePage) return NextResponse.next();
   if (!validSession(request.cookies.get(SESSION_COOKIE)?.value)) {

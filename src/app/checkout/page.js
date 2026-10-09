@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import OrderJourney from '@/components/shop/OrderJourney/OrderJourney';
 import { MessageCircle, ArrowLeft, Check, Copy, ExternalLink } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { formatMoney, orderMessage, whatsappUrl } from '@/lib/whatsapp';
@@ -26,8 +28,9 @@ export default function CheckoutPage() {
   if (!isLoaded) return <div className="container section" role="status">Loading your order list…</div>;
   if (!cartItems.length) return <div className={`container ${styles.empty}`}><MessageCircle size={40} /><h1>Let’s build your order.</h1><p>Choose your packaging first, then we’ll help with the rest.</p><Link href="/shop" className="btn btn-primary">Explore packaging</Link></div>;
   return <div className={`container ${styles.page}`}>
+    <OrderJourney step={2} />
     <Link href="/cart" className={styles.back}><ArrowLeft size={16} /> Back to your order list</Link>
-    <span className={styles.label}>THE NEXT STEP IS A CONVERSATION</span><h1>Your packaging.<br />Our personal attention.</h1><p className={styles.intro}>Share your order on WhatsApp. We’ll confirm availability, final pricing, and delivery before you pay.</p>
+    <div className={styles.pageHeading}><div><span className={styles.label}>A QUOTE, NOT A COMMITMENT</span><h1>One step closer.<br />Let’s talk details.</h1></div><p className={styles.intro}>Share your order on WhatsApp. We’ll confirm availability, final pricing, and delivery before you pay.</p></div>
     <div className={styles.layout}>
       <form onSubmit={submit} className={styles.form}>
         <h2>A few details to get started.</h2><p>We’ll use these to prepare your quote. Your details are shared when you send the WhatsApp message.</p>
@@ -42,7 +45,7 @@ export default function CheckoutPage() {
         <div className={styles.note}><Check size={16} /><span>No online payment is taken. Your order is confirmed only after our team agrees the details with you.</span></div>
         {message && <div className={styles.recovery}><h3>Your message is ready.</h3><p>If WhatsApp didn’t open, use the link below or copy your enquiry. Your cart stays saved.</p><div className={styles.recoveryActions}><a href={whatsappUrl(message)} target="_blank" rel="noopener noreferrer" className="btn btn-outline">Open WhatsApp <ExternalLink size={16} /></a><button type="button" onClick={copy} className="btn btn-outline"><Copy size={16} /> Copy enquiry</button></div><p role="status">{copyStatus}</p><details><summary>View your enquiry</summary><pre>{message}</pre></details></div>}
       </form>
-      <aside className={styles.summary}><h2>Your order enquiry</h2><p>{cartItems.length} product {cartItems.length === 1 ? 'selection' : 'selections'}</p><div className={styles.items}>{cartItems.map((item) => <div key={`${item.id}-${item.selectedSize}`}><div><strong>{item.name}</strong><span>{item.sizeLabel || 'Standard'} · {item.quantity} units × {formatMoney(item.pricePerUnit)}</span></div><strong>{formatMoney(item.quantity * item.pricePerUnit)}</strong></div>)}</div><div className={styles.total}><span>Estimated subtotal</span><strong>{formatMoney(subtotal)}</strong></div><div className={styles.quoteNote}>GST and delivery charges will be included in your final quote. Catalogue prices are estimates, subject to confirmation.</div><div className={styles.next}><span>WHAT HAPPENS NEXT</span><p>1. Send your enquiry in WhatsApp.</p><p>2. We confirm stock, pricing, and delivery.</p><p>3. You approve the quote and arrange payment with our team.</p></div></aside>
+      <aside className={styles.summary}><div className={styles.summaryHeading}><h2>Your packing list</h2><Link href="/cart">Edit list</Link></div><p>{cartItems.length} product {cartItems.length === 1 ? 'selection' : 'selections'}</p><div className={styles.items}>{cartItems.map((item) => <div key={`${item.id}-${item.selectedSize}`}><div className={styles.itemImage}><Image src={item.image || '/images/category-boxes.jpg'} alt="" fill sizes="64px" /></div><div className={styles.itemInfo}><strong>{item.name}</strong><span>{item.sizeLabel || 'Standard'} · {item.quantity} {item.pricingMode==='variant'?'selected packs/items':'units'} × {formatMoney(item.pricePerUnit)}</span><strong>{formatMoney(item.quantity * item.pricePerUnit)}</strong></div></div>)}</div><div className={styles.total}><span>Estimated subtotal</span><strong>{formatMoney(subtotal)}</strong></div><div className={styles.quoteNote}>Supplier-listed prices are reference estimates. Our team confirms availability, final pricing, GST and delivery charges in your quote.</div><div className={styles.next}><span>WHAT HAPPENS NEXT</span><p>1. Send your enquiry in WhatsApp.</p><p>2. We confirm stock, pricing, and delivery.</p><p>3. You approve the quote and arrange payment with our team.</p></div></aside>
     </div>
   </div>;
 }

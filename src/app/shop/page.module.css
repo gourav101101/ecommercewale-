@@ -1,8 +1,23 @@
 .page { background: var(--color-bg); padding-bottom: 70px; }
-.intro { text-align: center; padding: 34px 20px 25px; }
-.intro p { font-size: 13px; color: var(--color-text-secondary); letter-spacing: .5px; margin-bottom: 10px; }
-.intro h1 { font-size: clamp(34px, 3vw, 44px); font-weight: 500; letter-spacing: -1.4px; }
-.intro > span { display: block; margin-top: 12px; font-size: 16px; color: var(--color-text-secondary); }
+.intro { display:grid; grid-template-columns:1.4fr 1fr; align-items:end; gap:60px; padding-block:65px 55px; }
+.intro p { font-size:12px; letter-spacing:2px; margin-bottom:22px; color:var(--color-text-secondary); }
+.intro h1 { font-size:clamp(40px,4.6vw,68px); font-weight:500; letter-spacing:-2.8px; line-height:1.08; white-space:pre-line; }
+.introAside { max-width:400px; justify-self:end; font-size:17px; color:var(--color-text-secondary); }
+.introAside a { display:flex; gap:20px; align-items:center; width:fit-content; border-bottom:1px solid; margin-top:22px; padding-bottom:8px; color:var(--color-text); }
+.collectionLayout { display:grid; grid-template-columns:220px minmax(0,1fr); gap:40px; scroll-margin-top:120px; }
+.collectionRail { align-self:start; position:sticky; top:calc(var(--navbar-height) + 24px); }
+.railLabel { font-size:12px; letter-spacing:1.5px; display:block; margin-bottom:20px; }
+.collectionRail .categories { display:flex; flex-direction:column; gap:4px; padding:0; overflow:visible; }
+.collectionRail .categories button { flex-direction:row; text-align:left; border:0; padding:10px; font-size:15px; gap:12px; width:100%; }
+.collectionRail .categories button[aria-pressed="true"] { background:var(--color-surface); font-weight:650; }
+.collectionRail .categoryImage { width:42px; height:44px; flex-shrink:0; }
+.categories small { margin-left:auto; font-weight:400; font-size:12px; }
+.railGuide { border-top:1px solid var(--color-border); margin-top:30px; padding-top:26px; }
+.railGuide > span { font-size:11px; letter-spacing:1.3px; color:var(--color-text-secondary); }
+.railGuide h2 { font-size:24px; font-weight:500; letter-spacing:-.8px; margin:12px 0; }
+.railGuide p { font-size:15px; color:var(--color-text-secondary); }
+.railGuide a { font-size:15px; display:flex; gap:12px; align-items:center; margin-top:20px; text-decoration:underline; text-underline-offset:5px; }
+.collectionResults { min-width:0; }
 .categories { display: flex; justify-content: center; gap: 36px; padding: 12px 0 28px; overflow-x: auto; }
 .categories button { display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 0 0 auto; color: var(--color-text-secondary); font-size: 14px; padding-bottom: 8px; border-bottom: 2px solid transparent; }
 .categories button[aria-pressed="true"] { color: var(--color-text); border-color: var(--color-primary); }
@@ -27,7 +42,7 @@
 .applied { display: flex; flex-wrap: wrap; gap: 10px; padding-bottom: 18px; }
 .applied button { display: inline-flex; align-items: center; gap: 10px; background: var(--color-surface); padding: 10px 13px; font-size: 13px; color: var(--color-text); overflow-wrap: anywhere; }
 .applied .clear { background: none; text-decoration: underline; text-underline-offset: 4px; }
-.grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px 16px; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 20px; }
 .empty { text-align: center; padding: 70px 20px; background: var(--color-surface); }
 .empty svg { margin-inline: auto; }
 .empty h2 { margin-block: 18px; font-size: 28px; }
@@ -38,6 +53,7 @@
 .help h2 { font-size: 30px; font-weight: 500; letter-spacing: -.7px; margin: 12px 0; }
 .help p { font-size: 16px; color: var(--color-text-secondary); }
 .help a { display: flex; align-items: center; gap: 18px; border-bottom: 1px solid; padding-block: 12px; white-space: nowrap; font-size: 16px; }
-@media(max-width: 1100px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .categories { gap: 26px; } }
+@media(max-width: 1100px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .collectionLayout { grid-template-columns:190px minmax(0,1fr); gap:24px; } .categories { gap: 26px; } }
 @media(max-width: 800px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .categories { justify-content: start; } .sort > span { display: none; } .toolbar { gap: 15px; } .help { flex-direction: column; align-items: start; padding: 28px; } }
 @media(max-width: 600px) { .intro { padding-block: 27px 19px; } .intro p { font-size: 12px; } .intro > span { font-size: 15px; } .categories { gap: 20px; padding-bottom: 20px; } .categories button { font-size: 13px; } .categoryImage { width: 80px; height: 65px; } .toolbar { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; padding: 6px 0; } .search { grid-row: 1; grid-column: 1 / -1; max-width: none; border-bottom: 1px solid var(--color-border-light); } .filterButton { border-right: none; } .sort { min-width: 0; } .sort select { max-width: 100%; padding-right: 0; } .grid { grid-template-columns: 1fr; gap: 30px; } .filters { padding: 20px 16px; gap: 14px; } .filters label { flex-wrap: wrap; } .resultHeading { font-size: 12px; } }
+@media(max-width:800px) { .intro { grid-template-columns:1fr; gap:22px; padding-block:35px; } .introAside { justify-self:start; max-width:540px; } .intro h1 { letter-spacing:-1.8px; } .collectionLayout { display:block; } .collectionRail { position:static; } .railGuide,.railLabel { display:none; } .collectionRail .categories { flex-direction:row; overflow-x:auto; padding-bottom:20px; gap:10px; } .collectionRail .categories button { width:auto; white-space:nowrap; padding:8px 14px 8px 8px; border:1px solid var(--color-border); } .categories small { display:none; } .collectionRail .categoryImage { width:34px; height:34px; } }

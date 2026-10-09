@@ -1,14 +1,22 @@
-.page { padding-block: 36px 75px; }
+.page { padding-block: 0 75px; }
 .back { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--color-text-secondary); margin-bottom: 32px; }
 .label { display: block; font-size: 14px; letter-spacing: 1.6px; font-weight: 600; color: var(--color-primary); }
 .page h1 { font-size: clamp(32px, 4vw, 49px); letter-spacing: -1.8px; font-weight: 600; margin: 15px 0; }
 .intro { max-width: 560px; font-size: 16px; color: var(--color-text-secondary); margin-bottom: 35px; }
 .layout { display: grid; grid-template-columns: 1.35fr 1fr; gap: 38px; align-items: start; }
-.form, .summary { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: 18px; padding: 32px; }
-.form h2, .summary h2 { font-size: 20px; font-weight: 600; letter-spacing: -.5px; }
+.form { background:var(--color-bg-card); padding:32px 0; border-top:1px solid var(--color-border); }
+.summary { background:var(--color-surface); padding:32px; }
+.form h2, .summary h2 { font-size: 25px; font-weight: 500; letter-spacing: -.7px; }
 .form > p, .summary > p { font-size: 14px; color: var(--color-text-secondary); margin: 12px 0 25px; }
 .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-.fields label { font-size: 14px; }
+.fields label { font-size: 15px; }
+.fields input,.fields textarea { background:var(--color-bg); border:1px solid var(--color-border); border-radius:4px; min-height:54px; }
+.pageHeading { display:flex; align-items:end; justify-content:space-between; gap:40px; margin-bottom:40px; }
+.pageHeading h1 { font-size:clamp(38px,4.5vw,62px); font-weight:500; line-height:1.08; letter-spacing:-2px; }
+.pageHeading .intro { max-width:350px; margin-bottom:12px; font-size:17px; }
+.summaryHeading { display:flex; justify-content:space-between; align-items:center; gap:18px; }.summaryHeading a { font-size:13px; text-decoration:underline; text-underline-offset:4px; }
+.items .itemImage { position:relative; width:64px; height:72px; flex-shrink:0; background:var(--color-bg); }.itemImage img { object-fit:contain; }.items .itemInfo { flex:1; }.items .itemInfo strong { font-size:15px; }
+.form .submit { border-radius:4px; min-height:58px; white-space:normal; }
 .fields label > span { font-weight: 400; color: var(--color-text-secondary); }
 .full { grid-column: 1 / -1; }
 .submit { width: 100%; margin-top: 25px; }
@@ -36,3 +44,4 @@
 .empty h1 { font-size: 32px; }.empty p { margin: 15px 0 25px; color: var(--color-text-secondary); }
 @media(max-width: 850px) { .layout { grid-template-columns: 1fr; gap: 20px; } .summary { position: static; } }
 @media(max-width: 500px) { .form, .summary { padding: 20px; } .fields { grid-template-columns: 1fr; gap: 18px; } .submit { font-size: 14px; padding-inline: 12px; } }
+@media(max-width:850px) { .pageHeading { flex-direction:column; align-items:start; gap:14px; }.pageHeading .intro { max-width:540px; }.form { padding-inline:0; }.back { margin-bottom:24px; }.summary { padding:24px; } }

@@ -1,0 +1,111 @@
+{
+  "date": "2026-10-09",
+  "tool": "built-in image_gen reference edits",
+  "review": "Visually checked labels and perspective arrow placement. Source box construction and colour are reference constrained; images are not physical SKU certification. Original supplier references preserved.",
+  "images": [
+    {
+      "imageId": "53028036018474",
+      "key": "box-dimensions-53028036018474",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2026-05-08_at_6.59.30_PM.jpg?v=1778247106",
+      "slug": "white-flap-boxes-corrugated-packaging-boxes-in-3-ply-virgin-kraft",
+      "dimensions": [
+        "6",
+        "4",
+        "2"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: EcommerceWale size-specific dimension product photo, square. Image 1 is actual supplier EDIT TARGET. Preserve the EXACT existing closed white flap mailer box, original camera perspective, construction, thumb notch, folded seams, white surface, kraft edges and 6x4x2 proportions. Replace background only with a clean pale warm neutral studio tabletop, soft shadows, keeping box large and centred with enough margin for arrows. Preserve the source measurement arrangement: a thin black double-headed line immediately below front lower edge parallel to that edge labelled \"6 Inches\"; a thin black diagonal double-headed line immediately beside left depth edge labelled \"4 Inches\"; a short vertical double-headed line beside left wall, base to rim only, labelled \"2 Inches\". Labels must exactly match these values; height must NOT measure lid top or extend above box. Place measurement text directly alongside the edge-aligned arrows within the photograph, like source, not detached UI bars. Legible understated sans-serif type. No giant blank frame, white caption pills, remote arrows at image margins, extra dimensions, marketing, logos, props or new box design. Product geometry and correct numbers take priority.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-5181f724-8d51-41ea-ad5d-eac68fb664dc.png"
+    },
+    {
+      "imageId": "53028068098346",
+      "key": "box-dimensions-53028068098346",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2026-05-08_at_7.02.49_PM.jpg?v=1778247238",
+      "slug": "white-flap-boxes-corrugated-packaging-boxes-in-3-ply-virgin-kraft",
+      "dimensions": [
+        "4",
+        "4",
+        "1.5"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: EcommerceWale size-specific dimension product photo, square. Image 1 is actual supplier EDIT TARGET. Preserve the EXACT existing closed white flap mailer box, original camera perspective, construction, thumb notch, folded seams, white surface, kraft edges and 4x4x1.5 proportions. Replace background only with a clean pale warm neutral studio tabletop, soft shadows, keeping box large and centred with enough margin for arrows. Preserve the source measurement arrangement: a thin black double-headed line immediately below front lower edge parallel to that edge labelled \"4 Inches\"; a thin black diagonal double-headed line immediately beside left depth edge labelled \"4 Inches\"; a short vertical double-headed line beside left wall, base to rim only, labelled \"1.5 Inches\". Labels must exactly match these values; height must NOT measure lid top or extend above box. Place measurement text directly alongside the edge-aligned arrows within the photograph, like source, not detached UI bars. Legible understated sans-serif type. No giant blank frame, white caption pills, remote arrows at image margins, extra dimensions, marketing, logos, props or new box design. Product geometry and correct numbers take priority.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-4b3e7642-c526-4f8f-b3d2-f322493fd7a0.png"
+    },
+    {
+      "imageId": "54121920823594",
+      "key": "box-dimensions-54121920823594",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2026-07-02_at_12.49.05_PM.jpg?v=1782976777",
+      "slug": "white-flap-boxes-corrugated-packaging-boxes-in-3-ply-virgin-kraft",
+      "dimensions": [
+        "4",
+        "3",
+        "1"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: EcommerceWale size-linked dimensional box photograph. Image 1: actual supplier EDIT TARGET. Keep the OPEN white box on the right, preserving its lid, round tabs, front corrugated edge and exact shallow rectangular geometry. Remove advert text, badges and background plants/cartons. Improve surroundings to a pale warm neutral seamless tabletop with soft natural contact shadows. Preserve product shape, colour, material, camera perspective, exact proportions 4x3x1, creases and open/closed state. Thin black double-headed measurement arrows INSIDE photograph, aligned closely with actual base edges, not remote UI rails: front length \"4 Inches\", side depth \"3 Inches\", short vertical wall height \"1 Inches\". Height arrow must measure ONLY base wall from bottom to rim, NEVER upright lid. Keep these three numeric labels verbatim, understated readable sans-serif. Remove original caption duplication and replace with exactly these three clear dimensions. Large box with balanced margins, source-like natural edge-linked diagram, no giant blank frame or white label pills. No extra dimensions, logos, marketing, inset photos, contents, new objects or redesigned product. Product accuracy and correct numeric labels above styling.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-824f7820-4c8b-48c7-9cf3-3b5e082ede7f.png"
+    },
+    {
+      "imageId": "54834127601962",
+      "key": "box-dimensions-54834127601962",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2026-08-05_at_4.44.00_PM.jpg?v=1785928518",
+      "slug": "white-flap-boxes-corrugated-packaging-boxes-in-3-ply-virgin-kraft",
+      "dimensions": [
+        "9.75",
+        "9.75",
+        "2"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: EcommerceWale size-linked dimensional box photograph. Image 1: actual supplier EDIT TARGET. Keep the TOP main OPEN white square flap box, retaining the exact lid and side tabs. Remove bottom inset panels and decorative props. Improve surroundings to a pale warm neutral seamless tabletop with soft natural contact shadows. Preserve product shape, colour, material, camera perspective, exact proportions 9.75x9.75x2, creases and open/closed state. Thin black double-headed measurement arrows INSIDE photograph, aligned closely with actual base edges, not remote UI rails: front length \"9.75 Inches\", side depth \"9.75 Inches\", short vertical wall height \"2 Inches\". Height arrow must measure ONLY base wall from bottom to rim, NEVER upright lid. Keep these three numeric labels verbatim, understated readable sans-serif. Remove original caption duplication and replace with exactly these three clear dimensions. Large box with balanced margins, source-like natural edge-linked diagram, no giant blank frame or white label pills. No extra dimensions, logos, marketing, inset photos, contents, new objects or redesigned product. Product accuracy and correct numeric labels above styling.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-cd45aca6-b529-448c-9892-27ecf45b50a8.png"
+    },
+    {
+      "imageId": "54834132746538",
+      "key": "box-dimensions-54834132746538",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2026-08-05_at_4.43.59_PM.jpg?v=1785928547",
+      "slug": "white-flap-boxes-corrugated-packaging-boxes-in-3-ply-virgin-kraft",
+      "dimensions": [
+        "7",
+        "7",
+        "2"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: EcommerceWale size-linked dimensional box photograph. Image 1: actual supplier EDIT TARGET. Keep the TOP main OPEN white square flap box, retaining exact lid and side tabs. Remove bottom inset panels and decorative plants/lamp. Improve surroundings to a pale warm neutral seamless tabletop with soft natural contact shadows. Preserve product shape, colour, material, camera perspective, exact proportions 7x7x2, creases and open/closed state. Thin black double-headed measurement arrows INSIDE photograph, aligned closely with actual base edges, not remote UI rails: front length \"7 Inches\", side depth \"7 Inches\", short vertical wall height \"2 Inches\". Height arrow must measure ONLY base wall from bottom to rim, NEVER upright lid. Keep these three numeric labels verbatim, understated readable sans-serif. Remove original caption duplication and replace with exactly these three clear dimensions. Large box with balanced margins, source-like natural edge-linked diagram, no giant blank frame or white label pills. No extra dimensions, logos, marketing, inset photos, contents, new objects or redesigned product. Product accuracy and correct numeric labels above styling.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-14dec158-114d-4ce7-b96a-4be8ceef2d72.png"
+    },
+    {
+      "imageId": "54834133926186",
+      "key": "box-dimensions-54834133926186",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2026-08-05_at_4.43.59_PM_1.jpg?v=1785928581",
+      "slug": "white-flap-boxes-corrugated-packaging-boxes-in-3-ply-virgin-kraft",
+      "dimensions": [
+        "8",
+        "4",
+        "2"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: EcommerceWale size-linked dimensional box photograph. Image 1: actual supplier EDIT TARGET. Keep the TOP main OPEN white long narrow rectangular flap box, retaining exact lid and side tabs. Remove bottom inset panels and plants/vase. Improve surroundings to a pale warm neutral seamless tabletop with soft natural contact shadows. Preserve product shape, colour, material, camera perspective, exact proportions 8x4x2, creases and open/closed state. Thin black double-headed measurement arrows INSIDE photograph, aligned closely with actual base edges, not remote UI rails: front length \"8 Inches\", side depth \"4 Inches\", short vertical wall height \"2 Inches\". Height arrow must measure ONLY base wall from bottom to rim, NEVER upright lid. Keep these three numeric labels verbatim, understated readable sans-serif. Remove original caption duplication and replace with exactly these three clear dimensions. Large box with balanced margins, source-like natural edge-linked diagram, no giant blank frame or white label pills. No extra dimensions, logos, marketing, inset photos, contents, new objects or redesigned product. Product accuracy and correct numeric labels above styling.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-36278b6c-2b73-4de0-92e0-9ef88abfb621.png"
+    },
+    {
+      "imageId": "51844340580650",
+      "key": "box-dimensions-51844340580650",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2026-02-09_at_12.41.10_PM.jpg?v=1770622664",
+      "slug": "jewellery-packaging-flap-boxes-4x4-x1-5-inches",
+      "dimensions": [
+        "6",
+        "4",
+        "2"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: EcommerceWale size-linked dimensional box photograph. Image 1: actual supplier EDIT TARGET. Keep the BOTTOM CLOSED brown rectangular flap box, retaining exact closed lid, kraft texture and folded seams. Remove entire top lifestyle photo and all bottles/filler/props. Improve surroundings to a pale warm neutral seamless tabletop with soft natural contact shadows. Preserve product shape, colour, material, camera perspective, exact proportions 6x4x2, creases and open/closed state. Thin black double-headed measurement arrows INSIDE photograph, aligned closely with actual base edges, not remote UI rails: front length \"6 Inches\", side depth \"4 Inches\", short vertical wall height \"2 Inches\". Height arrow must measure ONLY base wall from bottom to rim, NEVER upright lid. Keep these three numeric labels verbatim, understated readable sans-serif. Remove original caption duplication and replace with exactly these three clear dimensions. Large box with balanced margins, source-like natural edge-linked diagram, no giant blank frame or white label pills. No extra dimensions, logos, marketing, inset photos, contents, new objects or redesigned product. Product accuracy and correct numeric labels above styling.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-ae6719b9-877c-4bce-8a16-85ece0597c32.png"
+    },
+    {
+      "imageId": "51844341104938",
+      "key": "box-dimensions-51844341104938",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2026-02-09_at_12.41.10_PM_1.jpg?v=1770622708",
+      "slug": "jewellery-packaging-flap-boxes-4x4-x1-5-inches",
+      "dimensions": [
+        "9",
+        "6",
+        "2"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: EcommerceWale size-linked dimensional box photograph. Image 1: actual supplier EDIT TARGET. Keep the BOTTOM CLOSED brown wide rectangular flap box, retaining exact closed lid, kraft texture and folded seams. Remove entire top lifestyle photo and all bottles/filler/props. Improve surroundings to a pale warm neutral seamless tabletop with soft natural contact shadows. Preserve product shape, colour, material, camera perspective, exact proportions 9x6x2, creases and open/closed state. Thin black double-headed measurement arrows INSIDE photograph, aligned closely with actual base edges, not remote UI rails: front length \"9 Inches\", side depth \"6 Inches\", short vertical wall height \"2 Inches\". Height arrow must measure ONLY base wall from bottom to rim, NEVER upright lid. Keep these three numeric labels verbatim, understated readable sans-serif. Remove original caption duplication and replace with exactly these three clear dimensions. Large box with balanced margins, source-like natural edge-linked diagram, no giant blank frame or white label pills. No extra dimensions, logos, marketing, inset photos, contents, new objects or redesigned product. Product accuracy and correct numeric labels above styling.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-fd21b415-10bd-4ff6-803e-d024884d6065.png"
+    }
+  ]
+}

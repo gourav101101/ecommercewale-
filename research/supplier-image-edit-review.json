@@ -1,0 +1,46 @@
+{
+  "reviewDate": "2026-10-09",
+  "publishedCount": 0,
+  "edits": [
+    {
+      "sourceImageId": "51143444496682",
+      "title": "Amazon Prime Tape",
+      "sourceReference": "D:/ecommercewale/research/supplier-image-references/51143444496682.jpg",
+      "tool": "image_gen built-in reference edit",
+      "prompt": "Use case: precise-object-edit. Asset type: EcommerceWale supplier-product catalogue image. Image 1 is the EDIT TARGET, the actual Ecosoft reference for \"Amazon Prime Tape\". Improve only the presentation: replace the surroundings/background with a clean warm ivory studio backdrop and surface, with soft contact shadows. Keep the product completely unchanged: same exact colour, material, geometry, orientation, components, quantity shown, labels, logos, tiny text, printed patterns and proportions. Preserve all lettering on the product verbatim; do not redraw, simplify, add or remove printed artwork. Do not substitute a similar product. Do not add accessories or a tape roll where absent. For the dispenser poster keep all three original dispensers with their exact colours and shapes, remove only the surrounding promotional headings/icons. For the review-card poster retain the two actual front/back cards with their entire exact printed Hindi/English artwork; remove only surrounding marketing titles, icons, leaves and gift props. Product images should fit fully within a square canvas with comfortable margins. Accuracy takes priority over visual polish.",
+      "outputPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-37e2cd82-9de1-457a-88ed-caa37dcd9d0e.png",
+      "status": "rejected-not-published",
+      "reason": "Reference-based generation still redraws lettering/artwork or product details. Not approved as exact SKU photography."
+    },
+    {
+      "sourceImageId": "51130859553066",
+      "title": "Amazon Courier bag without pocket",
+      "sourceReference": "D:/ecommercewale/research/supplier-image-references/51130859553066.jpg",
+      "tool": "image_gen built-in reference edit",
+      "prompt": "Use case: precise-object-edit. Asset type: EcommerceWale supplier-product catalogue image. Image 1 is the EDIT TARGET, the actual Ecosoft reference for \"Amazon Courier bag without pocket\". Improve only the presentation: replace the surroundings/background with a clean warm ivory studio backdrop and surface, with soft contact shadows. Keep the product completely unchanged: same exact colour, material, geometry, orientation, components, quantity shown, labels, logos, tiny text, printed patterns and proportions. Preserve all lettering on the product verbatim; do not redraw, simplify, add or remove printed artwork. Do not substitute a similar product. Do not add accessories or a tape roll where absent. For the dispenser poster keep all three original dispensers with their exact colours and shapes, remove only the surrounding promotional headings/icons. For the review-card poster retain the two actual front/back cards with their entire exact printed Hindi/English artwork; remove only surrounding marketing titles, icons, leaves and gift props. Product images should fit fully within a square canvas with comfortable margins. Accuracy takes priority over visual polish.",
+      "outputPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-c0575d61-3d34-4a63-95a8-7af221a34e0b.png",
+      "status": "rejected-not-published",
+      "reason": "Reference-based generation still redraws lettering/artwork or product details. Not approved as exact SKU photography."
+    },
+    {
+      "sourceImageId": "56294639436074",
+      "title": "TAPE DISPENSER",
+      "sourceReference": "D:/ecommercewale/research/supplier-image-references/56294639436074.jpg",
+      "tool": "image_gen built-in reference edit",
+      "prompt": "Use case: precise-object-edit. Asset type: EcommerceWale supplier-product catalogue image. Image 1 is the EDIT TARGET, the actual Ecosoft reference for \"TAPE DISPENSER\". Improve only the presentation: replace the surroundings/background with a clean warm ivory studio backdrop and surface, with soft contact shadows. Keep the product completely unchanged: same exact colour, material, geometry, orientation, components, quantity shown, labels, logos, tiny text, printed patterns and proportions. Preserve all lettering on the product verbatim; do not redraw, simplify, add or remove printed artwork. Do not substitute a similar product. Do not add accessories or a tape roll where absent. For the dispenser poster keep all three original dispensers with their exact colours and shapes, remove only the surrounding promotional headings/icons. For the review-card poster retain the two actual front/back cards with their entire exact printed Hindi/English artwork; remove only surrounding marketing titles, icons, leaves and gift props. Product images should fit fully within a square canvas with comfortable margins. Accuracy takes priority over visual polish.",
+      "outputPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-696508cc-567c-4ca2-811b-7d4c481e4df5.png",
+      "status": "rejected-not-published",
+      "reason": "Reference-based generation still redraws lettering/artwork or product details. Not approved as exact SKU photography."
+    },
+    {
+      "sourceImageId": "55458696102186",
+      "title": "THANK YOU + REVIEW CARD",
+      "sourceReference": "D:/ecommercewale/research/supplier-image-references/55458696102186.jpg",
+      "tool": "image_gen built-in reference edit",
+      "prompt": "Use case: precise-object-edit. Asset type: EcommerceWale supplier-product catalogue image. Image 1 is the EDIT TARGET, the actual Ecosoft reference for \"THANK YOU + REVIEW CARD\". Improve only the presentation: replace the surroundings/background with a clean warm ivory studio backdrop and surface, with soft contact shadows. Keep the product completely unchanged: same exact colour, material, geometry, orientation, components, quantity shown, labels, logos, tiny text, printed patterns and proportions. Preserve all lettering on the product verbatim; do not redraw, simplify, add or remove printed artwork. Do not substitute a similar product. Do not add accessories or a tape roll where absent. For the dispenser poster keep all three original dispensers with their exact colours and shapes, remove only the surrounding promotional headings/icons. For the review-card poster retain the two actual front/back cards with their entire exact printed Hindi/English artwork; remove only surrounding marketing titles, icons, leaves and gift props. Product images should fit fully within a square canvas with comfortable margins. Accuracy takes priority over visual polish.",
+      "outputPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-9419f96f-1279-4a86-bd5d-a2304ac3d63c.png",
+      "status": "rejected-not-published",
+      "reason": "Reference-based generation still redraws lettering/artwork or product details. Not approved as exact SKU photography."
+    }
+  ]
+}

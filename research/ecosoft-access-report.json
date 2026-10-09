@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-10-09T06:02:19.276Z",
+  "completeCatalogue": false,
+  "checks": [
+    {
+      "url": "https://www.ecosoftindia.in/products.json?limit=250",
+      "status": 200,
+      "accessible": true
+    },
+    {
+      "url": "https://www.ecosoftindia.in/sitemap.xml",
+      "status": 200,
+      "accessible": true
+    },
+    {
+      "url": "https://www.ecosoftindia.in/collections/all",
+      "status": 200,
+      "accessible": true
+    }
+  ]
+}

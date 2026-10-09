@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-09",
+  "images": [
+    {
+      "imageId": "54538453647658",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsAppImage2026-07-21at6.17.02PM.jpg?v=1784638047",
+      "slug": "blue-paper-shredded",
+      "colour": "royal blue",
+      "image": "/images/supplier-edited/blue-paper-shredded-v2.webp",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-dd5aee7d-9792-4516-8adb-acc228d00271.png",
+      "prompt": "Use case: compositing.\nAsset type: square EcommerceWale Shredded Paper catalogue presentation.\nImage 1: actual Ecosoft PRODUCT REFERENCE and edit target. Its royal blue paper is the only product identity reference.\nImage 2: PRESENTATION STYLE REFERENCE ONLY: ceramic bowl, warm off-white studio background, camera angle, mound framing and soft lighting. Do NOT copy its light-blue paper colour or substitute its product.\nPrimary request: re-present ONLY the paper from Image 1 in the same low ivory speckled ceramic bowl format as Image 2, a centred mound with a few same-paper strands on the tabletop. Remove cardboard boxes, mug, jar, promotional graphics, circular inset and all other props from Image 1. The bowl is a styling prop, not sold.\nPreserve exact royal blue hue from Image 1, matte paper texture, thickness, narrow strip width and characteristic lengths. CRITICAL: preserve the tiny regular accordion/zigzag crimps visible on Image 1; do not make straight strips, ribbon curls, tinsel or confetti.\nMatch Image 2 framing, bowl proportions and pale warm background. Full bowl visible, margins, photorealistic texture. No lettering, labels, logos, claims, weight markings or additional products. This changes the arrangement/styling only, not the paper product. Colour/material/cut accuracy beats prettiness.",
+      "tool": "built-in image_gen compositing/reference edit",
+      "review": "Visually reviewed for source colour family and cut style; white is straight-cut, blue/orange crinkle-cut. Styling arrangement changed with owner approval, not pixel-identical or physically SKU-verified."
+    },
+    {
+      "imageId": "54538198483242",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsAppImage2026-07-21at5.49.30PM.jpg?v=1784636499",
+      "slug": "orange-paper-shredded",
+      "colour": "orange",
+      "image": "/images/supplier-edited/orange-paper-shredded-v2.webp",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-50cd59de-13db-4ff3-9179-36faf74f4a73.png",
+      "prompt": "Use case: compositing.\nAsset type: square EcommerceWale Shredded Paper catalogue presentation.\nImage 1: actual Ecosoft PRODUCT REFERENCE and edit target. Its orange paper is the only product identity reference.\nImage 2: PRESENTATION STYLE REFERENCE ONLY: ceramic bowl, warm off-white studio background, camera angle, mound framing and soft lighting. Do NOT copy its light-blue paper colour or substitute its product.\nPrimary request: re-present ONLY the paper from Image 1 in the same low ivory speckled ceramic bowl format as Image 2, a centred mound with a few same-paper strands on the tabletop. Remove cardboard boxes, mug, jar, promotional graphics, circular inset and all other props from Image 1. The bowl is a styling prop, not sold.\nPreserve exact orange hue from Image 1, matte paper texture, thickness, narrow strip width and characteristic lengths. CRITICAL: preserve the tiny regular accordion/zigzag crimps visible on Image 1; do not make straight strips, ribbon curls, tinsel or confetti.\nMatch Image 2 framing, bowl proportions and pale warm background. Full bowl visible, margins, photorealistic texture. No lettering, labels, logos, claims, weight markings or additional products. This changes the arrangement/styling only, not the paper product. Colour/material/cut accuracy beats prettiness.",
+      "tool": "built-in image_gen compositing/reference edit",
+      "review": "Visually reviewed for source colour family and cut style; white is straight-cut, blue/orange crinkle-cut. Styling arrangement changed with owner approval, not pixel-identical or physically SKU-verified."
+    },
+    {
+      "imageId": "52743990378794",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsAppImage2026-04-17at3.46.41PM.jpg?v=1776421021",
+      "slug": "paper-shredded-white",
+      "colour": "white",
+      "image": "/images/supplier-edited/paper-shredded-white-v2.webp",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-d55c8185-fdb5-4f2e-9e57-1f98c4393852.png",
+      "prompt": "Use case: compositing.\nAsset type: square EcommerceWale Shredded Paper catalogue presentation.\nImage 1: actual Ecosoft PRODUCT REFERENCE and edit target. Its white paper is the only product identity reference.\nImage 2: PRESENTATION STYLE REFERENCE ONLY: ceramic bowl, warm off-white studio background, camera angle, mound framing and soft lighting. Do NOT copy its light-blue paper colour or substitute its product.\nPrimary request: re-present ONLY the paper from Image 1 in the same low ivory speckled ceramic bowl format as Image 2, a centred mound with a few same-paper strands on the tabletop. Remove cardboard boxes, mug, jar, promotional graphics, circular inset and all other props from Image 1. The bowl is a styling prop, not sold.\nPreserve exact white hue from Image 1, matte paper texture, thickness, narrow strip width and characteristic lengths. CRITICAL: white paper is STRAIGHT-CUT, flat irregular straight strips; natural loose bends are okay but absolutely NO accordion crimps, zigzag cut, crinkle texture or curly ribbon. Ignore Image 2 crimp texture.\nMatch Image 2 framing, bowl proportions and pale warm background. Full bowl visible, margins, photorealistic texture. No lettering, labels, logos, claims, weight markings or additional products. This changes the arrangement/styling only, not the paper product. Colour/material/cut accuracy beats prettiness.",
+      "tool": "built-in image_gen compositing/reference edit",
+      "review": "Visually reviewed for source colour family and cut style; white is straight-cut, blue/orange crinkle-cut. Styling arrangement changed with owner approval, not pixel-identical or physically SKU-verified."
+    }
+  ]
+}

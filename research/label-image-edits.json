@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-09",
+  "images": [
+    {
+      "imageId": "51204503929130",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsAppImage2025-12-19at5.32.47PM.jpg?v=1766145818",
+      "key": "barcode-label-roll",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-de107583-4a22-4d77-b72a-c90dd930b147.png",
+      "prompt": "Use case: precise-object-edit.\nAsset type: square EcommerceWale label-roll catalogue photo.\nImage 1 is the actual Ecosoft supplier photo EDIT TARGET for White Plain Barcode Label Roll, image ID 51204503929130.\nRequest: improve ONLY background and framing to a clean very pale warm off-white seamless studio surface with gentle contact shadows and comfortable margins. Keep the exact existing roll(s), quantity of rolls shown, orientation, core size, layer thickness, label dimensions/aspect ratio, die-cut corners, seams, white surface and backing colour unchanged. Do not whiten yellow backing. Do not substitute another roll or add accessories.\nCRITICAL: keep each barcode printed on the roll exactly as supplied, same bars, positions and digits \"123456789012\". Remove only the bottom external promotional caption \"50*25 mm 2000 Label\" from the background, not printing on the roll. Do not assert this is a working barcode or that blank labels arrive printed.\nNo new text, logos, labels, props, barcode designs or packaging claims. Product accuracy above styling. Preserve actual product pixels and fine detail as closely as possible; edit surroundings only. Square framing without cropping product edges.",
+      "tool": "built-in image_gen reference edit",
+      "review": "Visually compared to supplier reference for roll count, surface/backing colour, label shape and displayed digits/dimensions. Not pixel-identical, scannability verified or physical SKU certified."
+    },
+    {
+      "imageId": "51161841041706",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-17_at_2.36.15_PM.jpg?v=1765962414",
+      "key": "thermal-label-4x6",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-8cdd5869-8a9b-41e2-afa8-7b07e3def4d0.png",
+      "prompt": "Use case: precise-object-edit.\nAsset type: square EcommerceWale label-roll catalogue photo.\nImage 1 is the actual Ecosoft supplier photo EDIT TARGET for Thermal Shipping Label Roll, image ID 51161841041706.\nRequest: improve ONLY background and framing to a clean very pale warm off-white seamless studio surface with gentle contact shadows and comfortable margins. Keep the exact existing roll(s), quantity of rolls shown, orientation, core size, layer thickness, label dimensions/aspect ratio, die-cut corners, seams, white surface and backing colour unchanged. Do not whiten yellow backing. Do not substitute another roll or add accessories.\nCRITICAL: preserve the actual printed size lettering on all rolls, including \"100×150 mm\" and \"4×6 inch\", exactly as the input. Keep 3 tall rolls. Do not erase/redraw text.\nNo new text, logos, labels, props, barcode designs or packaging claims. Product accuracy above styling. Preserve actual product pixels and fine detail as closely as possible; edit surroundings only. Square framing without cropping product edges.",
+      "tool": "built-in image_gen reference edit",
+      "review": "Visually compared to supplier reference for roll count, surface/backing colour, label shape and displayed digits/dimensions. Not pixel-identical, scannability verified or physical SKU certified."
+    },
+    {
+      "imageId": "51161850085674",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-17_at_2.36.14_PM.jpg?v=1765962466",
+      "key": "thermal-label-3x5",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-be7c8020-50ed-4869-90df-19f3b8b8024c.png",
+      "prompt": "Use case: precise-object-edit.\nAsset type: square EcommerceWale label-roll catalogue photo.\nImage 1 is the actual Ecosoft supplier photo EDIT TARGET for Thermal Shipping Label Roll, image ID 51161850085674.\nRequest: improve ONLY background and framing to a clean very pale warm off-white seamless studio surface with gentle contact shadows and comfortable margins. Keep the exact existing roll(s), quantity of rolls shown, orientation, core size, layer thickness, label dimensions/aspect ratio, die-cut corners, seams, white surface and backing colour unchanged. Do not whiten yellow backing. Do not substitute another roll or add accessories.\nKeep the exact 3 shorter rolls with cream-yellow backing and blank die-cut white labels. Remove only the external bottom \"3 x 5\" background caption. Keep the product geometry unchanged.\nNo new text, logos, labels, props, barcode designs or packaging claims. Product accuracy above styling. Preserve actual product pixels and fine detail as closely as possible; edit surroundings only. Square framing without cropping product edges.",
+      "tool": "built-in image_gen reference edit",
+      "review": "Visually compared to supplier reference for roll count, surface/backing colour, label shape and displayed digits/dimensions. Not pixel-identical, scannability verified or physical SKU certified."
+    }
+  ]
+}

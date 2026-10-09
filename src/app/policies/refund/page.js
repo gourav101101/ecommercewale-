@@ -1,3 +1,6 @@
+import Link from 'next/link';
+import { whatsappUrl } from '@/lib/whatsapp';
+
 export const metadata = {
   title: 'Refund Policy | EcommerceWale',
   description: 'Refund Policy for EcommerceWale',
@@ -8,7 +11,7 @@ export default function RefundPolicy() {
     <div className="container section" style={{ maxWidth: '800px' }}>
       <div style={{ marginBottom: '2rem' }}>
         <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>Refund & Return Policy</h1>
-        <p style={{ color: 'var(--color-text-secondary)' }}>Last updated: July 24, 2026</p>
+        <p style={{ color: 'var(--color-text-secondary)' }}>Last updated: October 9, 2026</p>
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', lineHeight: '1.7' }}>
@@ -42,8 +45,8 @@ export default function RefundPolicy() {
         <h2>5. Contact Us</h2>
         <p>If you have any questions about our Returns and Refunds Policy, please contact us:</p>
         <ul style={{ listStyleType: 'disc', paddingLeft: '2rem' }}>
-          <li>By email: returns@ecommercewale.in</li>
-          <li>By visiting this page on our website: https://ecommercewale.in/contact</li>
+          <li><a href={whatsappUrl('Hi EcommerceWale! I need help with a return or refund for my order.')} target="_blank" rel="noopener noreferrer">Message our team on WhatsApp</a></li>
+          <li><Link href="/contact">Visit our contact page</Link></li>
         </ul>
       </div>
     </div>

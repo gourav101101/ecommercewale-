@@ -1,0 +1,5 @@
+.summary,.warning { display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px 16px; margin-block:16px; font-size:13px; line-height:1.6; color:var(--color-text-secondary); }
+.summary span:first-child { color:var(--color-text); font-weight:550; }
+.warning { justify-content:flex-start; padding-block:12px; border-block:1px solid var(--color-border); }
+.warning a { color:var(--color-text); text-decoration:underline; text-underline-offset:3px; }
+.warning a:focus-visible { outline:2px solid var(--color-primary); outline-offset:3px; }

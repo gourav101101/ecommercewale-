@@ -52,13 +52,19 @@ export const marketplaceCompatibility = {
     myntra: { compatible: true, note: 'Opaque bags for fashion items' },
     meesho: { compatible: true, note: 'Transparent bags often required' },
   },
-  'boxes-tapes': {
+  'boxes': {
     flipkart: { compatible: true, note: '3-ply for standard, 5-ply for heavy' },
     amazon: { compatible: true, note: 'FBA has specific box size requirements' },
     myntra: { compatible: true, note: 'Clean boxes for fashion shipments' },
     meesho: { compatible: true, note: 'Cost-effective 3-ply boxes' },
   },
-  'labels-stickers': {
+  'tapes': {
+    flipkart: { compatible: true, note: 'Confirm the permitted tape design for your shipping workflow' },
+    amazon: { compatible: true, note: 'Confirm sealing requirements and permitted artwork before ordering' },
+    myntra: { compatible: true, note: 'Choose the listed tape width, length and design' },
+    meesho: { compatible: true, note: 'Confirm the tape design required for your shipments' },
+  },
+  'labels': {
     flipkart: { compatible: true, note: 'Thermal labels for AWB printing' },
     amazon: { compatible: true, note: 'FNSKU & shipping labels required' },
     myntra: { compatible: true, note: 'Standard shipping labels' },

@@ -1,7 +1,6 @@
 import './globals.css';
 import localFont from 'next/font/local';
 import { CartProvider } from '@/context/CartContext';
-import { ThemeProvider } from '@/context/ThemeContext';
 import { ToastProvider } from '@/context/ToastContext';
 import { WishlistProvider } from '@/context/WishlistContext';
 import LayoutWrapper from '@/components/layout/LayoutWrapper/LayoutWrapper';
@@ -12,11 +11,12 @@ const manrope = localFont({ src: '../../public/fonts/manrope-variable.ttf', vari
 export const metadata = {
   metadataBase: new URL('https://www.ecommercewale.in'),
   title: 'EcommerceWale | Packaging that means business',
-  description: 'Discover courier bags, corrugated boxes, tapes, labels and packaging fillers for your business. Compare volume pricing and request your order on WhatsApp.',
+  description: 'Discover courier bags, corrugated boxes, tapes, labels and packaging fillers for your business. Choose your size and request your quote on WhatsApp.',
   keywords: 'courier bags, packaging, e-commerce, flipkart packaging, amazon packaging, corrugated boxes, thermal labels, shipping supplies India',
   icons: {
-    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
-    shortcut: ['/icon.svg'],
+    icon: [{ url: '/icon.png', type: 'image/png', sizes: '256x256' }],
+    shortcut: ['/favicon.ico'],
+    apple: [{ url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }],
   },
   alternates: { canonical: '/' },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 } },
@@ -32,15 +32,14 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'EcommerceWale | Packaging that means business',
-    description: 'Explore everyday packaging and volume pricing. Build your order list and request your quote on WhatsApp.',
+    description: 'Explore everyday packaging in the size and pack you need. Build your order list and request your quote on WhatsApp.',
   },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={manrope.variable} suppressHydrationWarning>
+    <html lang="en" className={manrope.variable} data-theme="light">
       <body>
-        <ThemeProvider>
           <ToastProvider>
               <WishlistProvider>
                 <CartProvider>
@@ -51,7 +50,6 @@ export default function RootLayout({ children }) {
                 </CartProvider>
               </WishlistProvider>
           </ToastProvider>
-        </ThemeProvider>
       </body>
     </html>
   );

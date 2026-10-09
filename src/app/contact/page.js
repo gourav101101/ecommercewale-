@@ -1,7 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, Phone, MapPin, MessageCircle, ArrowUpRight, Copy } from 'lucide-react';
+import Link from 'next/link';
+import { Phone, MapPin, MessageCircle, ArrowUpRight, Copy } from 'lucide-react';
+import Instagram from '@/components/ui/InstagramIcon';
 import { whatsappUrl } from '@/lib/whatsapp';
 import styles from './page.module.css';
 
@@ -18,11 +20,12 @@ export default function ContactPage() {
   const copy = async () => { try { await navigator.clipboard.writeText(ready); setCopied('Message copied.'); } catch { setCopied('Please select the message below and copy it manually.'); } };
   return <div className={`container ${styles.page}`}>
     <span className={styles.label}>REAL PEOPLE. PRACTICAL ANSWERS.</span><h1>Let’s talk<br /><span>about your next order.</span></h1><p className={styles.intro}>A question about sizes, a bigger order, or just getting started? We’re here to help you find your fit.</p>
-    <div className={styles.layout}>
+    <nav className={styles.routes} aria-label="Choose your support route"><a href="#packaging-enquiry"><span>01 / PRODUCT ADVICE</span><strong>Find your fit.</strong><p>Sizes, materials and quantities.</p><ArrowUpRight size={22} /></a><Link href="/track-order"><span>02 / EXISTING ORDERS</span><strong>Check your delivery.</strong><p>Updates on an order you’ve placed.</p><ArrowUpRight size={22} /></Link><Link href="/faq"><span>03 / QUICK ANSWERS</span><strong>A little clarity.</strong><p>Ordering, pricing and common questions.</p><ArrowUpRight size={22} /></Link></nav>
+    <div className={styles.layout} id="packaging-enquiry">
       <div className={styles.info}>
         <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className={styles.feature}><MessageCircle size={25} /><h2>A message away.</h2><p>Get help with product selection, bulk quotes, and order enquiries on WhatsApp.</p><span>Start a conversation <ArrowUpRight size={17} /></span></a>
         <a href="tel:+919827787080" className={styles.contact}><Phone size={18} /><div><span>GIVE US A CALL</span><strong>+91 98277 87080</strong></div><ArrowUpRight size={16} /></a>
-        <a href="mailto:hello@ecommercewale.in" className={styles.contact}><Mail size={18} /><div><span>DROP US A NOTE</span><strong>hello@ecommercewale.in</strong></div><ArrowUpRight size={16} /></a>
+        <a href="https://www.instagram.com/ecommercewale.in/" target="_blank" rel="noopener noreferrer" className={styles.contact}><Instagram size={18} /><div><span>FOLLOW ALONG</span><strong>@ecommercewale.in</strong></div><ArrowUpRight size={16} /></a>
         <div className={styles.contact}><MapPin size={18} /><div><span>BASED IN INDORE</span><strong>Madhya Pradesh, India</strong><p>Serving businesses across India.</p></div></div>
       </div>
       <form onSubmit={submit} className={styles.form}><h2>What are you packing?</h2><p>Share a few details. We’ll prepare your message for WhatsApp.</p>

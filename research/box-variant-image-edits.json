@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-09",
+  "tool": "built-in image_gen reference edits",
+  "review": "Compared visually to original for box construction, colour family and open/closed state. Not pixel-identical or physical SKU certification. External captions, insets and non-included props removed; original measurement reference retained separately. Prices and option measurements unchanged.",
+  "images": [
+    {
+      "imageId": "54121920823594",
+      "key": "box-variant-54121920823594",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2026-07-02_at_12.49.05_PM.jpg?v=1782976777",
+      "slug": "white-flap-boxes-corrugated-packaging-boxes-in-3-ply-virgin-kraft",
+      "prompt": "Use case: precise-object-edit. Asset type: square EcommerceWale size-linked box product photo. Image 1: actual supplier reference EDIT TARGET. Subject selection: the single OPEN white 4x3x1 inch flap mailer box on the right. Remove only surrounding promotional text, icon badges, plants, background cartons and dimension arrows/captions. Retain its open lid, rounded lid locking tabs, white interior, kraft corrugated edges, creases and exact rectangular shallow proportions. Reframe selected existing box on very pale warm off-white seamless studio surface, soft contact shadow, entire box visible with margins. Change only surroundings/layout, not the physical product. Keep original camera angle, folds, material, colour, panel dimensions, depth, open/closed state and structural details. Do not replace with another generic box or infer hidden features. No contents, props, text, measurements, badges or new printing. Dimensions are displayed in website UI; original dimension image retained separately. Photorealistic source edit, accuracy above styling.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-92aebeaf-32c5-4cce-90ee-8b68d0fa51c9.png"
+    },
+    {
+      "imageId": "54834127601962",
+      "key": "box-variant-54834127601962",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2026-08-05_at_4.44.00_PM.jpg?v=1785928518",
+      "slug": "white-flap-boxes-corrugated-packaging-boxes-in-3-ply-virgin-kraft",
+      "prompt": "Use case: precise-object-edit. Asset type: square EcommerceWale size-linked box product photo. Image 1: actual supplier reference EDIT TARGET. Subject selection: the large TOP main OPEN white square 9.75x9.75x2 inch flap mailer box. Remove decorative plants/vases/picture frame, dimension arrows/captions and the entire bottom three inset photo panels. Preserve the top box ONLY, its white lining, shallow square base, tall open lid, rounded side locking tabs, edges and exact geometry. Reframe selected existing box on very pale warm off-white seamless studio surface, soft contact shadow, entire box visible with margins. Change only surroundings/layout, not the physical product. Keep original camera angle, folds, material, colour, panel dimensions, depth, open/closed state and structural details. Do not replace with another generic box or infer hidden features. No contents, props, text, measurements, badges or new printing. Dimensions are displayed in website UI; original dimension image retained separately. Photorealistic source edit, accuracy above styling.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-6b99d09d-9929-467b-ad23-015734a146f5.png"
+    },
+    {
+      "imageId": "54834132746538",
+      "key": "box-variant-54834132746538",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2026-08-05_at_4.43.59_PM.jpg?v=1785928547",
+      "slug": "white-flap-boxes-corrugated-packaging-boxes-in-3-ply-virgin-kraft",
+      "prompt": "Use case: precise-object-edit. Asset type: square EcommerceWale size-linked box product photo. Image 1: actual supplier reference EDIT TARGET. Subject selection: the large TOP main OPEN white square 7x7x2 inch flap mailer box. Remove decorative plants/lamp, dimension arrows/captions and bottom inset photo panels. Preserve the top box ONLY, white lining, shallow square base, open lid, rounded locking tabs and exact geometry. Reframe selected existing box on very pale warm off-white seamless studio surface, soft contact shadow, entire box visible with margins. Change only surroundings/layout, not the physical product. Keep original camera angle, folds, material, colour, panel dimensions, depth, open/closed state and structural details. Do not replace with another generic box or infer hidden features. No contents, props, text, measurements, badges or new printing. Dimensions are displayed in website UI; original dimension image retained separately. Photorealistic source edit, accuracy above styling.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-89244a2a-00e6-4be8-8852-e184972388f0.png"
+    },
+    {
+      "imageId": "54834133926186",
+      "key": "box-variant-54834133926186",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2026-08-05_at_4.43.59_PM_1.jpg?v=1785928581",
+      "slug": "white-flap-boxes-corrugated-packaging-boxes-in-3-ply-virgin-kraft",
+      "prompt": "Use case: precise-object-edit. Asset type: square EcommerceWale size-linked box product photo. Image 1: actual supplier reference EDIT TARGET. Subject selection: the large TOP main OPEN white rectangular 8x4x2 inch flap mailer box. Remove plants/vase, dimension arrows/captions and bottom inset photo panels. Preserve top box ONLY, especially long narrow base and rectangular lid proportions, white lining and locking tabs. Reframe selected existing box on very pale warm off-white seamless studio surface, soft contact shadow, entire box visible with margins. Change only surroundings/layout, not the physical product. Keep original camera angle, folds, material, colour, panel dimensions, depth, open/closed state and structural details. Do not replace with another generic box or infer hidden features. No contents, props, text, measurements, badges or new printing. Dimensions are displayed in website UI; original dimension image retained separately. Photorealistic source edit, accuracy above styling.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-485ccb0b-d49c-450b-9316-d2f4f9ff932c.png"
+    },
+    {
+      "imageId": "51844340580650",
+      "key": "box-variant-51844340580650",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2026-02-09_at_12.41.10_PM.jpg?v=1770622664",
+      "slug": "jewellery-packaging-flap-boxes-4x4-x1-5-inches",
+      "prompt": "Use case: precise-object-edit. Asset type: square EcommerceWale size-linked box product photo. Image 1: actual supplier reference EDIT TARGET. Subject selection: the CLOSED brown 6x4x2 inch flap mailer box in the BOTTOM half. Keep that exact bottom closed box only. Remove top lifestyle photo entirely (bottles, jar, filler, candle and foliage are NOT sold with box), external dimension captions/arrows. Preserve bottom box colour, kraft surface, long rectangular shallow proportions, closed lid, folded seams and locking construction. Reframe selected existing box on very pale warm off-white seamless studio surface, soft contact shadow, entire box visible with margins. Change only surroundings/layout, not the physical product. Keep original camera angle, folds, material, colour, panel dimensions, depth, open/closed state and structural details. Do not replace with another generic box or infer hidden features. No contents, props, text, measurements, badges or new printing. Dimensions are displayed in website UI; original dimension image retained separately. Photorealistic source edit, accuracy above styling.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-12456d09-553d-42f5-b8c0-4d4a9accc6df.png"
+    },
+    {
+      "imageId": "51844341104938",
+      "key": "box-variant-51844341104938",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2026-02-09_at_12.41.10_PM_1.jpg?v=1770622708",
+      "slug": "jewellery-packaging-flap-boxes-4x4-x1-5-inches",
+      "prompt": "Use case: precise-object-edit. Asset type: square EcommerceWale size-linked box product photo. Image 1: actual supplier reference EDIT TARGET. Subject selection: the CLOSED brown 9x6x2 inch flap mailer box in the BOTTOM half. Keep exact bottom closed box only. Remove top lifestyle photo entirely (bottles, jar, filler, candle and foliage are NOT sold with box), external dimension captions/arrows. Preserve bottom box colour, kraft texture, wide rectangular shallow proportions, closed lid, folded seams and locking construction. Reframe selected existing box on very pale warm off-white seamless studio surface, soft contact shadow, entire box visible with margins. Change only surroundings/layout, not the physical product. Keep original camera angle, folds, material, colour, panel dimensions, depth, open/closed state and structural details. Do not replace with another generic box or infer hidden features. No contents, props, text, measurements, badges or new printing. Dimensions are displayed in website UI; original dimension image retained separately. Photorealistic source edit, accuracy above styling.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-59c73f33-f9ee-44a0-9046-065a63ebe08c.png"
+    }
+  ]
+}

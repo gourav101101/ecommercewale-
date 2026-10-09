@@ -1,29 +1,41 @@
+import { excludedFromStorefront } from '../lib/storefront-policy.js';
+import { canonicalProductCategory } from '../lib/product-category.js';
+
 export const categories = [
   {
     id: 'courier-bags',
     name: 'Courier Bags',
     slug: 'courier-bags',
-    description: 'Tamper-proof packaging bags for secure e-commerce shipping',
+    description: 'Paper, opaque and transparent mailers for your next dispatch.',
     icon: 'Package',
-    image: '/images/category-courier-bags.jpg',
+    image: '/images/supplier/51132052472106.webp',
     color: '#FF6B35',
   },
   {
-    id: 'boxes-tapes',
-    name: 'Boxes & Tapes',
-    slug: 'boxes-tapes',
-    description: 'Corrugated boxes & BOPP tapes for all your shipping needs',
+    id: 'boxes',
+    name: 'Boxes',
+    slug: 'boxes',
+    description: 'Corrugated shipping boxes and flap boxes in the listed sizes',
     icon: 'Box',
-    image: '/images/category-boxes.jpg',
+    image: '/images/supplier-edited/box-tape-51698465407274-v1.webp',
     color: '#00C9A7',
   },
   {
-    id: 'labels-stickers',
-    name: 'Labels & Stickers',
-    slug: 'labels-stickers',
-    description: 'Thermal labels, barcode stickers & warning labels',
+    id: 'tapes',
+    name: 'Tapes',
+    slug: 'tapes',
+    description: 'Packing tapes with plain and printed designs, sold by selected pack',
+    icon: 'Package',
+    image: '/images/supplier-edited/box-tape-51143049675050-v1.webp',
+    color: '#D49C52',
+  },
+  {
+    id: 'labels',
+    name: 'Labels',
+    slug: 'labels',
+    description: 'Thermal shipping labels and barcode label rolls',
     icon: 'Tag',
-    image: '/images/category-labels.jpg',
+    image: '/images/supplier-edited/thermal-label-4x6-v1.webp',
     color: '#7C5CFC',
   },
   {
@@ -32,12 +44,12 @@ export const categories = [
     slug: 'shredded-paper',
     description: 'Premium packaging fillers for a delightful unboxing experience',
     icon: 'Scissors',
-    image: '/images/category-shredded.jpg',
+    image: '/images/supplier-edited/orange-paper-shredded-v2.webp',
     color: '#FF4081',
   },
 ];
 
-export const products = [
+const legacyProducts = [
   // ========== COURIER BAGS ==========
   {
     id: 'transparent-pod-bag',
@@ -183,7 +195,7 @@ export const products = [
     slug: '3-ply-corrugated-box',
     name: '3-Ply Corrugated Box',
     shortName: '3-Ply Box',
-    category: 'boxes-tapes',
+    category: 'boxes',
     type: 'Box',
     description: 'Lightweight yet durable 3-ply single wall corrugated boxes. Ideal for shipping apparel, books, cosmetics, and small electronics.',
     features: [
@@ -229,7 +241,7 @@ export const products = [
     slug: '5-ply-corrugated-box',
     name: '5-Ply Corrugated Box',
     shortName: '5-Ply Box',
-    category: 'boxes-tapes',
+    category: 'boxes',
     type: 'Box',
     description: 'Heavy-duty 5-ply double wall corrugated boxes for maximum protection. Built for electronics, appliances, and fragile shipments.',
     features: [
@@ -274,7 +286,7 @@ export const products = [
     slug: 'bopp-brown-packaging-tape',
     name: 'BOPP Brown Packaging Tape',
     shortName: 'Brown Tape',
-    category: 'boxes-tapes',
+    category: 'tapes',
     type: 'Tape',
     description: 'Industrial-grade BOPP brown packaging tape with strong adhesive. The industry standard for sealing corrugated boxes securely.',
     features: [
@@ -317,7 +329,7 @@ export const products = [
     slug: 'printed-fragile-warning-tape',
     name: 'Printed Fragile Warning Tape',
     shortName: 'Fragile Tape',
-    category: 'boxes-tapes',
+    category: 'tapes',
     type: 'Tape',
     description: 'Pre-printed "FRAGILE - Handle with Care" warning tape. Essential for shipping delicate items — electronics, glassware, ceramics.',
     features: [
@@ -361,7 +373,7 @@ export const products = [
     slug: 'thermal-shipping-label-4x6',
     name: 'Thermal Shipping Labels (4×6")',
     shortName: 'Thermal Labels 4×6',
-    category: 'labels-stickers',
+    category: 'labels',
     type: 'Thermal Label',
     description: 'Premium direct thermal shipping labels — no ink, no toner, no ribbons needed. Compatible with all major thermal printers (Zebra, TSC, Rollo).',
     features: [
@@ -405,7 +417,7 @@ export const products = [
     slug: 'barcode-labels-roll',
     name: 'Barcode Labels (Roll)',
     shortName: 'Barcode Labels',
-    category: 'labels-stickers',
+    category: 'labels',
     type: 'Barcode Label',
     description: 'Precision barcode labels on rolls for high-volume product labeling. Compatible with thermal transfer and direct thermal printers.',
     features: [
@@ -446,7 +458,7 @@ export const products = [
     slug: 'a4-sheet-labels',
     name: 'A4 Sheet Labels',
     shortName: 'A4 Labels',
-    category: 'labels-stickers',
+    category: 'labels',
     type: 'A4 Label',
     description: 'Self-adhesive A4 label sheets for standard inkjet and laser printers. Perfect for small sellers who need product labels, address labels, or FBA labels.',
     features: [
@@ -487,7 +499,7 @@ export const products = [
     slug: 'warning-fragile-stickers',
     name: 'Warning / Fragile Stickers',
     shortName: 'Fragile Stickers',
-    category: 'labels-stickers',
+    category: 'labels',
     type: 'Warning Sticker',
     description: 'Pre-printed warning and fragile stickers for boxes and packages. Bright colors ensure handlers notice the warning immediately.',
     features: [
@@ -650,6 +662,10 @@ export const products = [
     inStock: true,
   },
 ];
+
+// Keep retired source definitions recoverable, but never export them to any
+// consumer of the legacy catalogue or its search/category helper functions.
+export const products = legacyProducts.filter(product=>!excludedFromStorefront(product)).map(canonicalProductCategory);
 
 export function getProductBySlug(slug) {
   return products.find((p) => p.slug === slug);

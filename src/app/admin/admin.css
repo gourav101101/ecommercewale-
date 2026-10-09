@@ -4,6 +4,8 @@
    ============================================================ */
 
 /* ---------- Admin Layout ---------- */
+.adminNotice { padding: 18px 22px; margin-bottom: 22px; background: var(--color-surface); border: 1px solid var(--color-border); color: var(--color-text-secondary); font-size: 15px; line-height: 1.7; }
+.adminNotice button, .adminNotice a { margin-left: 10px; color: var(--color-primary); text-decoration: underline; font-size: 15px; }
 .adminLayout {
   display: flex;
   min-height: 100vh;
@@ -13,7 +15,7 @@
 /* ---------- Sidebar ---------- */
 .adminSidebar {
   width: 260px;
-  background: linear-gradient(180deg, #0f1729 0%, #1a2744 100%);
+  background: #202a23;
   color: #e0e6f0;
   display: flex;
   flex-direction: column;

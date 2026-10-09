@@ -1,13 +1,15 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import { storefrontImage } from '@/lib/product-visuals';
+import { excludedFromStorefront, archiveExcludedSelections } from '@/lib/storefront-policy';
 // Removed mock data dependency
 
 const WishlistContext = createContext();
 
 function normalizeWishlistItem(item) {
-  if (!item || !item.name) return null;
-  return item;
+  if (!item || !item.name || excludedFromStorefront(item)) return null;
+  return {...item, image:storefrontImage(item)};
 }
 
 export function WishlistProvider({ children }) {
@@ -21,6 +23,7 @@ export function WishlistProvider({ children }) {
         const saved = localStorage.getItem('ecommercewale_wishlist');
         const items = saved ? JSON.parse(saved) : [];
         if (Array.isArray(items)) {
+          archiveExcludedSelections(items,'wishlist');
           setWishlistItems(items.map(normalizeWishlistItem).filter(Boolean));
         }
       } catch (e) {
@@ -38,6 +41,7 @@ export function WishlistProvider({ children }) {
   }, [wishlistItems, isLoaded]);
 
   const addToWishlist = useCallback((product) => {
+    if(excludedFromStorefront(product)) return;
     setWishlistItems((prev) => {
       if (prev.find((item) => item.id === product.id)) return prev;
       return [
@@ -47,6 +51,9 @@ export function WishlistProvider({ children }) {
           slug: product.slug,
           name: product.name,
           image: product.image,
+          sourceImageId: product.sourceImageId,
+          sourceImageUrl: product.sourceImageUrl,
+          imageStatus: product.imageStatus,
           basePrice: product.basePrice,
           bulkPrice: product.bulkPrice,
           pricing: product.pricing,
@@ -56,6 +63,8 @@ export function WishlistProvider({ children }) {
           sizes: product.sizes,
           inStock: product.inStock,
           type: product.type,
+          pricingMode: product.pricingMode,
+          variantCount: product.variantCount,
           marketplaceCompatible: product.marketplaceCompatible,
         },
       ];

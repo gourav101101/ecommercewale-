@@ -1,127 +1,20 @@
 'use client';
-
 import { useState } from 'react';
-import { Search, ChevronDown, MessageCircle } from 'lucide-react';
+import Link from 'next/link';
+import { Search, Plus, ArrowRight, MessageCircle, X } from 'lucide-react';
 import { faqData } from '@/data/faqs';
+import { whatsappUrl } from '@/lib/whatsapp';
 import styles from './page.module.css';
 
 export default function FAQPage() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [openItems, setOpenItems] = useState({});
-
-  const toggleItem = (categoryId, qIndex) => {
-    const key = `${categoryId}-${qIndex}`;
-    setOpenItems(prev => ({ ...prev, [key]: !prev[key] }));
-  };
-
-  const filteredFaqs = faqData.map((category, catIndex) => {
-    const filteredQuestions = category.questions.filter(
-      q => 
-        q.q.toLowerCase().includes(searchQuery.toLowerCase()) || 
-        q.a.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    return { ...category, id: catIndex, questions: filteredQuestions };
-  }).filter(cat => cat.questions.length > 0);
-
-  return (
-    <div className={styles.faqPage}>
-      <div className={styles.faqHeader}>
-        <div className="container">
-          <h1 className="animate-fadeInUp">Frequently Asked Questions</h1>
-          <p className="animate-fadeInUp delay-1">
-            Find answers to common questions about our products, shipping, and policies.
-          </p>
-          
-          <div className={`${styles.searchBox} animate-fadeInUp delay-2`}>
-            <Search size={20} className={styles.searchIcon} />
-            <input 
-              type="text" 
-              aria-label="Search frequently asked questions"
-              placeholder="Search for answers..."
-              className={styles.searchInput}
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </div>
-        </div>
-      </div>
-
-      <div className="container section">
-        <div className={styles.faqLayout}>
-          {/* Sidebar Navigation */}
-          <div className={styles.faqSidebar}>
-            <h3>Categories</h3>
-            <ul className={styles.categoryList}>
-              {faqData.map((cat, i) => (
-                <li key={i}>
-                  <a href={`#cat-${i}`} className={styles.categoryLink}>
-                    {cat.category}
-                  </a>
-                </li>
-              ))}
-            </ul>
-
-            <div className={styles.contactSupport}>
-              <h4>Still have questions?</h4>
-              <p>We&apos;re here to help you.</p>
-              <a href="https://wa.me/919827787080" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ width: '100%', marginTop: '1rem' }}>
-                <MessageCircle size={18} /> Chat with Support
-              </a>
-            </div>
-          </div>
-
-          {/* FAQ Content */}
-          <div className={styles.faqContent}>
-            {filteredFaqs.length > 0 ? (
-              filteredFaqs.map((category) => (
-                <div key={`cat-${category.id}`} id={`cat-${category.id}`} className={styles.faqCategory}>
-                  <h2>{category.category}</h2>
-                  <div className={styles.accordion}>
-                    {category.questions.map((item, qIndex) => {
-                      const key = `${category.id}-${qIndex}`;
-                      const isOpen = openItems[key];
-                      
-                      return (
-                        <div key={qIndex} className={`${styles.accordionItem} ${isOpen ? styles.open : ''}`}>
-                          <button 
-                            className={styles.accordionHeader}
-                            aria-expanded={Boolean(isOpen)}
-                            aria-controls={`answer-${key}`}
-                            onClick={() => toggleItem(category.id, qIndex)}
-                          >
-                            <h3>{item.q}</h3>
-                            <div className={styles.iconWrap}>
-                              <ChevronDown size={20} />
-                            </div>
-                          </button>
-                          <div id={`answer-${key}`} className={styles.accordionBody} inert={!isOpen}>
-                            <div className={styles.accordionContent}>
-                              <p>{item.a}</p>
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              ))
-            ) : (
-              <div className={styles.noResults}>
-                <Search size={48} />
-                <h3>No answers found</h3>
-                <p>We couldn&apos;t find any questions matching &quot;{searchQuery}&quot;</p>
-                <button 
-                  className="btn btn-outline" 
-                  onClick={() => setSearchQuery('')}
-                  style={{ marginTop: '1rem' }}
-                >
-                  Clear Search
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  const [query,setQuery] = useState('');
+  const [topic,setTopic] = useState('all');
+  const filtered = faqData.filter(item => topic==='all' || item.category===topic).map(item => ({...item, questions:item.questions.filter(question => `${question.q} ${question.a}`.toLowerCase().includes(query.trim().toLowerCase()))})).filter(item => item.questions.length);
+  const count = filtered.reduce((sum,item) => sum+item.questions.length,0);
+  return <div className={`container ${styles.page}`}>
+    <header className={styles.hero}><div><span>THE HELP CENTRE</span><h1>A little clarity.<br />A lot less guesswork.</h1></div><div><p>From your first packing list to your next restock. Find the answers, or talk to someone who can help.</p><form role="search" className={styles.search} onSubmit={event => event.preventDefault()}><Search size={20} /><input type="search" aria-label="Search frequently asked questions" placeholder="What would you like to know?" value={query} onChange={event => setQuery(event.target.value)} />{query && <button type="button" aria-label="Clear FAQ search" onClick={() => setQuery('')}><X size={18} /></button>}</form></div></header>
+    <div className={styles.layout}><aside><nav className={styles.topics} aria-label="Help topics">{['all',...faqData.map(item => item.category)].map(category => <button key={category} aria-pressed={topic===category} onClick={() => setTopic(category)}>{category==='all' ? 'All questions' : category}<ArrowRight size={16} /></button>)}</nav><Link className={styles.track} href="/track-order">Looking for an order update? <ArrowRight size={17} /></Link></aside>
+      <section className={styles.answers} aria-label="Help answers"><p className={styles.resultCount} aria-live="polite">{count} {count===1 ? 'answer' : 'answers'}{query ? ` for “${query}”` : ' to help you get started'}</p>{filtered.map(category => <section key={category.category} className={styles.group}><h2>{category.category}</h2>{category.questions.map(question => <details key={question.q}><summary>{question.q}<Plus size={21} /></summary><p>{question.a}</p></details>)}</section>)}{!count && <div className={styles.empty}><h2>Let’s try another question.</h2><p>Try a shorter search, choose another topic, or ask our team.</p><button className="btn btn-outline" onClick={() => {setQuery('');setTopic('all');}}>Reset search & topics</button></div>}</section></div>
+    <section className={styles.support}><MessageCircle size={34} strokeWidth={1.3} /><div><h2>Some questions need a conversation.</h2><p>Share your product, quantity and pincode. We’ll take it from there.</p></div><a href={whatsappUrl('Hi! I have a question about packaging or placing an order.')} target="_blank" rel="noopener noreferrer">Talk to our team <ArrowRight size={18} /></a></section>
+  </div>;
 }

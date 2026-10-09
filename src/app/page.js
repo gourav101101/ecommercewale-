@@ -16,7 +16,7 @@ export default async function Home() {
   return <div className={styles.home}>
     <section className={styles.hero}>
       <div className={styles.heroCopy}><p>THOUGHTFUL PACKAGING. EVERY DAY.</p><h1>Good products.<br />Beautifully packed.</h1><span>Boxes, bags and finishing touches.<br />For every order that has your name on it.</span><Link href="/shop">Discover the collection <ArrowRight size={21} /></Link></div>
-      <div className={styles.heroImage}><Image src="/images/packaging-campaign.webp" alt="Kraft boxes, mailers, labels and packing tape arranged in a warm studio" fill sizes="(max-width: 700px) 100vw, 60vw" priority /></div>
+      <div className={styles.heroImage}><Image src="/images/packaging-campaign.webp" alt="Kraft boxes, mailers, labels and packing tape arranged in a warm studio" width={1536} height={1024} sizes="(max-width: 700px) 100vw, 57.5vw" priority /></div>
     </section>
     <nav className={`container ${styles.categoryNav}`} aria-label="Explore packaging categories">{categories.map(category => <Link key={category.id} href={`/shop?category=${category.id}`}><span className={styles.categoryThumb}><Image src={category.image} alt="" fill sizes="80px" /></span><span>{category.name}</span><ArrowUpRight size={18} /></Link>)}</nav>
     <section className={`container ${styles.collection}`}>
@@ -25,7 +25,7 @@ export default async function Home() {
       <Link href="/shop" className={styles.allProducts}>Explore the whole collection <ArrowRight size={18} /></Link>
     </section>
     <section className={styles.editorial}>
-      <div className={styles.editorialImage}><Image src="/images/category-shredded.jpg" alt="An open kraft box with shredded paper packaging filler" fill sizes="(max-width: 700px) 100vw, 50vw" /></div>
+      <div className={styles.editorialImage}><Image src="/images/finishing-editorial.webp" alt="Packaging inspiration: an open kraft box, crinkle paper, tissue and a blank card" fill sizes="(max-width: 700px) 100vw, 50vw" /><span className={styles.artCaption}>AI-created packaging inspiration</span></div>
       <div className={styles.editorialCopy}><p>IT’S ALL IN THE DETAILS</p><h2>A good first impression.<br />Before it’s even opened.</h2><span>Make the last step of packing feel like the first step of something special. Explore the finishing touches for your next delivery.</span><Link href="/shop?category=shredded-paper">Discover finishing touches <ArrowRight size={18} /></Link></div>
     </section>
     <section className={`container ${styles.services}`} aria-label="How ordering works">

@@ -1,7 +1,7 @@
 .card { display: flex; flex-direction: column; min-width: 0; height: 100%; background: transparent; }
 .imageWrap { position: relative; aspect-ratio: .94; background: var(--color-surface); overflow: hidden; }
 .imageWrap > a { position: absolute; inset: 0; }
-.image { object-fit: cover; transition: transform 450ms cubic-bezier(.2,.65,.3,1); }
+.image { object-fit: contain; transition: transform 450ms cubic-bezier(.2,.65,.3,1); }
 .card:hover .image { transform: scale(1.045); }
 .badge { position: absolute; top: 16px; left: 16px; color: #363b34; background: #ffffffdc; padding: 5px 9px; font-size: 12px; letter-spacing: .2px; }
 .wishlist { display: grid; place-items: center; position: absolute; right: 10px; top: 10px; width: 44px; height: 44px; background: #ffffffdc; color: #303730; border-radius: 50%; }

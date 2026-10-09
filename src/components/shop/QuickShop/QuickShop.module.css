@@ -5,7 +5,7 @@
 .header button { width: 44px; height: 44px; display: grid; place-items: center; color: inherit; }
 .product { display: grid; grid-template-columns: 120px 1fr; gap: 22px; padding-block: 28px; align-items: center; }
 .image { position: relative; aspect-ratio: 1; overflow: hidden; background: var(--color-surface); }
-.image img { object-fit: cover; }
+.image img { object-fit: contain; }
 .product span { font-size: 13px; color: var(--color-text-secondary); }
 .product h2 { font-size: 23px; line-height: 1.25; letter-spacing: -.5px; margin-block: 8px 12px; font-weight: 600; }
 .product a { display: flex; align-items: center; gap: 8px; font-size: 14px; text-decoration: underline; text-underline-offset: 4px; }
@@ -41,3 +41,7 @@
 .success > p { margin-block: 16px 26px; font-size: 16px; }
 .continue { padding: 18px 0; width: 100%; color: inherit; text-decoration: underline; text-underline-offset: 5px; font-size: 16px; }
 @media(max-width: 500px) { .panel { padding: 18px 20px 0; } .product { grid-template-columns: 90px 1fr; gap: 16px; } .product h2 { font-size: 21px; } .purchase { position: sticky; bottom: 0; padding: 0 0 max(12px, env(safe-area-inset-bottom)); border-top: 1px solid var(--color-border); box-shadow: 0 -12px 20px var(--color-bg-card); } .total { padding-block: 14px 12px; } .total p { font-size: 12px; margin-top: 5px; } .purchase > .note { font-size: 12px; margin-top: 7px; } }
+.imageDisclosure { margin-top:18px; color:var(--color-text-secondary); font-size:13px; }
+.imageDisclosure summary { cursor:pointer; width:fit-content; padding-block:6px; }
+.imageDisclosure p { margin-top:10px; line-height:1.65; }
+.imageDisclosure summary:focus-visible { outline:2px solid var(--color-primary); outline-offset:4px; }

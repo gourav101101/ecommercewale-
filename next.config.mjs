@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   poweredByHeader: false,
-  images: { formats: ['image/avif', 'image/webp'] },
+  images: { formats: ['image/avif', 'image/webp'], remotePatterns: [
+    { protocol: 'https', hostname: 'cdn.shopify.com', pathname: '/s/files/1/0965/0018/7434/**' },
+    { protocol: 'https', hostname: 'images.unsplash.com' },
+  ] },
   async headers() {
     return [{ source: '/(.*)', headers: [
       { key: 'X-Content-Type-Options', value: 'nosniff' },

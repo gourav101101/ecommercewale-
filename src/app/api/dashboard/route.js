@@ -8,9 +8,10 @@ export async function GET() {
   try {
     await dbConnect();
     
-    // Total Revenue (all orders for now, or just delivered)
-    const orders = await Order.find({});
-    const totalRevenue = orders.reduce((sum, order) => sum + order.total, 0);
+    // Recorded delivered-order values are not proof of payment received.
+    const orders = await Order.find({}).lean();
+    const delivered = orders.filter(order => order.status === 'delivered');
+    const totalRevenue = delivered.reduce((sum, order) => sum + (Number(order.total) || 0), 0);
     const totalOrders = orders.length;
 
     const totalProducts = await Product.countDocuments({});
@@ -19,20 +20,23 @@ export async function GET() {
     // Recent 8 orders
     const recentOrders = await Order.find({}).sort({ date: -1 }).limit(8);
 
-    // Top 5 Products (by reviewCount as a proxy for sales since we don't track sales yet)
-    const topProductsRaw = await Product.find({}).sort({ reviewCount: -1 }).limit(5);
-    const topProducts = topProductsRaw.map(p => ({
-      name: p.shortName || p.name,
-      sales: p.reviewCount * 3 + Math.floor(Math.random() * 50), // Mocking sales numbers based on reviews
-      revenue: `₹${(p.basePrice * (p.reviewCount * 3)).toLocaleString()}`
-    }));
+    const grouped = new Map();
+    for (const order of delivered) for (const item of order.products || []) {
+      const key = item.id || item.name;
+      const previous = grouped.get(key) || { name: item.name || 'Product', sales: 0, amount: 0 };
+      const units = Math.max(0, Number(item.quantity) || 0);
+      previous.sales += units;
+      previous.amount += units * Math.max(0, Number(item.price) || 0);
+      grouped.set(key, previous);
+    }
+    const topProducts = [...grouped.values()].sort((a, b) => b.sales - a.sales).slice(0, 5).map(product => ({ name: product.name, sales: product.sales, revenue: `₹${product.amount.toLocaleString('en-IN')}` }));
 
     return NextResponse.json({
       stats: [
-        { id: 'revenue', label: 'Total Revenue', value: `₹${totalRevenue.toLocaleString()}`, change: '+12.5%', trend: 'up', icon: 'IndianRupee' },
-        { id: 'orders', label: 'Total Orders', value: totalOrders.toLocaleString(), change: '+8.2%', trend: 'up', icon: 'ShoppingBag' },
-        { id: 'products', label: 'Active Products', value: totalProducts.toLocaleString(), change: '0%', trend: 'neutral', icon: 'Package' },
-        { id: 'customers', label: 'Customers', value: totalCustomers.toLocaleString(), change: '+15.3%', trend: 'up', icon: 'Users' },
+        { id: 'revenue', label: 'Delivered order value', value: `₹${totalRevenue.toLocaleString('en-IN')}`, change: 'Recorded', trend: 'neutral', icon: 'IndianRupee' },
+        { id: 'orders', label: 'Recorded orders', value: totalOrders.toLocaleString(), change: '', trend: 'neutral', icon: 'ShoppingBag' },
+        { id: 'products', label: 'Catalogue products', value: totalProducts.toLocaleString(), change: '', trend: 'neutral', icon: 'Package' },
+        { id: 'customers', label: 'Customers', value: totalCustomers.toLocaleString(), change: '', trend: 'neutral', icon: 'Users' },
       ],
       recentOrders,
       topProducts

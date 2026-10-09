@@ -1,5 +1,6 @@
 import ShopClient from './ShopClient';
 import { getShopProducts } from '@/lib/products';
+import { permanentRedirect } from 'next/navigation';
 
 export const metadata = {
   title: 'Shop Wholesale Packaging Supplies | EcommerceWale',
@@ -12,7 +13,20 @@ export const metadata = {
   },
 };
 
-export default async function ShopPage() {
+export default async function ShopPage({ searchParams }) {
+  const params = await searchParams;
+  if (['labels-stickers', 'boxes-tapes'].includes(params?.category)) {
+    const nextParams = new URLSearchParams();
+    for (const [key, value] of Object.entries(params)) {
+      if (Array.isArray(value)) value.forEach(item => nextParams.append(key, item));
+      else if (value !== undefined) nextParams.set(key, value);
+    }
+    // The retired combined collection has no single equivalent: show all
+    // packaging so bookmarked tape shoppers are not silently sent to boxes.
+    if (params.category === 'labels-stickers') nextParams.set('category', 'labels');
+    else nextParams.delete('category');
+    permanentRedirect(`/shop?${nextParams.toString()}`);
+  }
   const products = await getShopProducts();
   return <ShopClient initialProducts={products} />;
 }

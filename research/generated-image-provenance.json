@@ -1,0 +1,226 @@
+[
+  {
+    "key": "mailer-white-pocket",
+    "output": "public/images/catalogue/mailer-white-pocket.webp",
+    "bytes": 31284,
+    "prompt": "Use case: product-mockup. Asset type: original EcommerceWale product-family catalogue illustration. Create a new photorealistic square studio product image. Scene: seamless warm off-white background and matte ivory surface. Subject: A small stack of opaque white plastic shipping mailers, with a separate transparent document pocket clearly visible on the front of the top mailer, self adhesive fold-over closure visible. No printed marks. Composition: high three-quarter view, centered subject fully visible with generous 15 percent margins, realistic proportions, soft contact shadows. Lighting: large diffused studio softbox from upper left, premium restrained commercial photography. Material detail crisp and believable. No props, no people, no text, no logos, no brand marks, no watermarks, no measurements. This is a conceptual product-family visual, not a photo of a verified SKU; do not suggest exact dimensions or pack count.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "mailer-kraft-pocket",
+    "output": "public/images/catalogue/mailer-kraft-pocket.webp",
+    "bytes": 39272,
+    "prompt": "Use case: product-mockup. Asset type: original EcommerceWale product-family catalogue illustration. Create a new photorealistic square studio product image. Scene: seamless warm off-white background and matte ivory surface. Subject: Three unprinted brown opaque plastic shipping mailers arranged flat with one transparent document pocket visibly attached to the front of the top mailer and a fold-over adhesive flap. Matte brown polymer, not a cardboard envelope. Composition: high three-quarter view, centered subject fully visible with generous 15 percent margins, realistic proportions, soft contact shadows. Lighting: large diffused studio softbox from upper left, premium restrained commercial photography. Material detail crisp and believable. No props, no people, no text, no logos, no brand marks, no watermarks, no measurements. This is a conceptual product-family visual, not a photo of a verified SKU; do not suggest exact dimensions or pack count.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "mailer-clear-pocket",
+    "output": "public/images/catalogue/mailer-clear-pocket.webp",
+    "bytes": 44692,
+    "prompt": "Use case: product-mockup. Asset type: original EcommerceWale product-family catalogue illustration. Create a photorealistic square studio image. Scene: seamless warm off-white background and matte ivory surface. Subject: Two transparent plastic shipping mailers with a clearly visible clear document pocket on the front of the top mailer, fold-over adhesive flap open. Clear glossy flexible polymer with subtle natural creases, no merchandise inside. Composition: high three-quarter view, centered fully visible subject with 15 percent margins and soft contact shadows. Lighting: large diffused studio softbox from upper left. Materials crisp and believable. No props, text, logos, brand marks, measurements, people or watermark. Conceptual product-family visual; do not imply exact dimensions or pack count.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "mailer-clear",
+    "output": "public/images/catalogue/mailer-clear.webp",
+    "bytes": 36980,
+    "prompt": "Use case: product-mockup. Asset type: original EcommerceWale product-family catalogue illustration. Create a photorealistic square studio image. Scene: seamless warm off-white background and matte ivory surface. Subject: Three transparent plastic shipping mailers, no document pockets, one fold-over adhesive flap open. Clear glossy flexible polymer with subtle natural creases, no merchandise inside. Composition: high three-quarter view, centered fully visible subject with 15 percent margins and soft contact shadows. Lighting: large diffused studio softbox from upper left. Materials crisp and believable. No props, text, logos, brand marks, measurements, people or watermark. Conceptual product-family visual; do not imply exact dimensions or pack count.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "mailer-white",
+    "output": "public/images/catalogue/mailer-white.webp",
+    "bytes": 37192,
+    "prompt": "Use case: product-mockup. Asset type: original EcommerceWale product-family catalogue illustration. Create a photorealistic square studio image. Scene: seamless warm off-white background and matte ivory surface. Subject: A neat offset stack of opaque white plastic shipping mailers, no document pockets, one fold-over adhesive flap open, smooth matte polymer with subtle natural creases. Composition: high three-quarter view, centered fully visible subject with 15 percent margins and soft contact shadows. Lighting: large diffused studio softbox from upper left. Materials crisp and believable. No props, text, logos, brand marks, measurements, people or watermark. Conceptual product-family visual; do not imply exact dimensions or pack count.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "mailer-paper",
+    "output": "public/images/catalogue/mailer-paper.webp",
+    "bytes": 66142,
+    "prompt": "Use case: product-mockup. Asset type: original EcommerceWale product-family catalogue illustration. Create a photorealistic square studio image. Scene: seamless warm off-white background and matte ivory surface. Subject: Two blank kraft paper shipping envelopes with squared corners and fold-over closure, one standing and one resting flat. Tactile brown paper surface, empty and unprinted. Composition: high three-quarter view, centered fully visible subject with 15 percent margins and soft contact shadows. Lighting: large diffused studio softbox from upper left. Materials crisp and believable. No props, text, logos, brand marks, measurements, people or watermark. Conceptual product-family visual; do not imply exact dimensions or pack count.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "mailer-black-pocket",
+    "output": "public/images/catalogue/mailer-black-pocket.webp",
+    "bytes": 55986,
+    "prompt": "Create an original photorealistic square studio product-family illustration for EcommerceWale. A stack of three opaque black plastic shipping mailers with a transparent document pocket attached to the front of the top mailer and an open fold-over adhesive flap. Centered high three-quarter composition with 15% margins, seamless warm off-white background, soft diffuse upper-left lighting, realistic materials and gentle contact shadow. No props, people, logos, brand marks or watermark. No text except explicitly requested FRAGILE. Do not imply exact dimensions or pack count.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "mailer-blue-pocket",
+    "output": "public/images/catalogue/mailer-blue-pocket.webp",
+    "bytes": 72936,
+    "prompt": "Create an original photorealistic square studio product-family illustration for EcommerceWale. A stack of three opaque blue plastic shipping mailers with a transparent document pocket attached to the front of the top mailer and an open fold-over adhesive flap. Centered high three-quarter composition with 15% margins, seamless warm off-white background, soft diffuse upper-left lighting, realistic materials and gentle contact shadow. No props, people, logos, brand marks or watermark. No text except explicitly requested FRAGILE. Do not imply exact dimensions or pack count.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "mailer-red-pocket",
+    "output": "public/images/catalogue/mailer-red-pocket.webp",
+    "bytes": 72964,
+    "prompt": "Create an original photorealistic square studio product-family illustration for EcommerceWale. A stack of three opaque red plastic shipping mailers with a transparent document pocket attached to the front of the top mailer and an open fold-over adhesive flap. Centered high three-quarter composition with 15% margins, seamless warm off-white background, soft diffuse upper-left lighting, realistic materials and gentle contact shadow. No props, people, logos, brand marks or watermark. No text except explicitly requested FRAGILE. Do not imply exact dimensions or pack count.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "mailer-pink-pocket",
+    "output": "public/images/catalogue/mailer-pink-pocket.webp",
+    "bytes": 58028,
+    "prompt": "Create an original photorealistic square studio product-family illustration for EcommerceWale. A stack of three opaque pink plastic shipping mailers with a transparent document pocket attached to the front of the top mailer and an open fold-over adhesive flap. Centered high three-quarter composition with 15% margins, seamless warm off-white background, soft diffuse upper-left lighting, realistic materials and gentle contact shadow. No props, people, logos, brand marks or watermark. No text except explicitly requested FRAGILE. Do not imply exact dimensions or pack count.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "mailer-green-pocket",
+    "output": "public/images/catalogue/mailer-green-pocket.webp",
+    "bytes": 72440,
+    "prompt": "Create an original photorealistic square studio product-family illustration for EcommerceWale. A stack of three opaque green plastic shipping mailers with a transparent document pocket attached to the front of the top mailer and an open fold-over adhesive flap. Centered high three-quarter composition with 15% margins, seamless warm off-white background, soft diffuse upper-left lighting, realistic materials and gentle contact shadow. No props, people, logos, brand marks or watermark. No text except explicitly requested FRAGILE. Do not imply exact dimensions or pack count.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "mailer-yellow-pocket",
+    "output": "public/images/catalogue/mailer-yellow-pocket.webp",
+    "bytes": 57262,
+    "prompt": "Create an original photorealistic square studio product-family illustration for EcommerceWale. A stack of three opaque yellow plastic shipping mailers with a transparent document pocket attached to the front of the top mailer and an open fold-over adhesive flap. Centered high three-quarter composition with 15% margins, seamless warm off-white background, soft diffuse upper-left lighting, realistic materials and gentle contact shadow. No props, people, logos, brand marks or watermark. No text except explicitly requested FRAGILE. Do not imply exact dimensions or pack count.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "box-brown",
+    "output": "public/images/catalogue/box-brown.webp",
+    "bytes": 66078,
+    "prompt": "Remove only the red FRAGILE stamp, glass icon and its border from the front panel of this cardboard box. Make that panel plain unprinted kraft cardboard matching the rest. Preserve the box geometry, open flaps, warm off-white background, lighting, texture and composition exactly. No text, no logo, no mark anywhere.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "box-flap-brown",
+    "output": "public/images/catalogue/box-flap-brown.webp",
+    "bytes": 90782,
+    "prompt": "Create an original photorealistic square studio product-family illustration for EcommerceWale. One blank kraft brown cardboard fold-over postal mailer box, lid open showing its empty interior and front tuck flap. Centered high three-quarter composition with 15% margins, seamless warm off-white background, soft diffuse upper-left lighting, realistic materials and gentle contact shadow. No props, people, logos, brand marks or watermark. No text except explicitly requested FRAGILE. Do not imply exact dimensions or pack count.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "box-flap-white",
+    "output": "public/images/catalogue/box-flap-white.webp",
+    "bytes": 29132,
+    "prompt": "Create an original photorealistic square studio product-family illustration for EcommerceWale. One blank white cardboard fold-over postal mailer box, lid open showing its empty interior and front tuck flap. Centered high three-quarter composition with 15% margins, seamless warm off-white background, soft diffuse upper-left lighting, realistic materials and gentle contact shadow. No props, people, logos, brand marks or watermark. No text except explicitly requested FRAGILE. Do not imply exact dimensions or pack count.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "tape-brown",
+    "output": "public/images/catalogue/tape-brown.webp",
+    "bytes": 50496,
+    "prompt": "Create an original photorealistic square studio product-family illustration for EcommerceWale. Three rolls of brown packing tape with plain unprinted cardboard cores. Centered high three-quarter composition with 15% margins, seamless warm off-white background, soft diffuse upper-left lighting, realistic materials and gentle contact shadow. No props, people, logos, brand marks or watermark. No text except explicitly requested FRAGILE. Do not imply exact dimensions or pack count.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "tape-clear",
+    "output": "public/images/catalogue/tape-clear.webp",
+    "bytes": 42230,
+    "prompt": "Create an original photorealistic square studio product-family illustration for EcommerceWale. Three rolls of transparent packing tape with plain unprinted cardboard cores. Centered high three-quarter composition with 15% margins, seamless warm off-white background, soft diffuse upper-left lighting, realistic materials and gentle contact shadow. No props, people, logos, brand marks or watermark. No text except explicitly requested FRAGILE. Do not imply exact dimensions or pack count.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "tape-fragile",
+    "output": "public/images/catalogue/tape-fragile.webp",
+    "bytes": 45960,
+    "prompt": "Create an original photorealistic square studio product-family illustration for EcommerceWale. Two rolls of white shipping tape with legible repeated red FRAGILE text. No other text or brand. Centered high three-quarter composition with 15% margins, seamless warm off-white background, soft diffuse upper-left lighting, realistic materials and gentle contact shadow. No props, people, logos, brand marks or watermark. No text except explicitly requested FRAGILE. Do not imply exact dimensions or pack count.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "tape-dispenser",
+    "output": "public/images/catalogue/tape-dispenser.webp",
+    "bytes": 57334,
+    "prompt": "Create an original photorealistic square studio product-family illustration for EcommerceWale. One handheld packing tape dispenser with a blue grip, metal cutting edge and clear tape roll. Centered high three-quarter composition with 15% margins, seamless warm off-white background, soft diffuse upper-left lighting, realistic materials and gentle contact shadow. No props, people, logos, brand marks or watermark. No text except explicitly requested FRAGILE. Do not imply exact dimensions or pack count.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "label-shipping",
+    "output": "public/images/catalogue/label-shipping.webp",
+    "bytes": 27204,
+    "prompt": "Original EcommerceWale product-family image, photorealistic square premium studio photograph. A roll of large blank white rectangular thermal shipping labels, one label pulled forward, unprinted. Centered three-quarter view with 15% empty margins, seamless warm ivory background, soft upper-left diffused light and realistic gentle contact shadow. Crisp believable texture. No props, people, brands, watermark or dimensions. Only the explicitly requested THANK YOU text may appear. Representative product illustration, not a verified SKU photo.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "label-barcode",
+    "output": "public/images/catalogue/label-barcode.webp",
+    "bytes": 36276,
+    "prompt": "Original EcommerceWale product-family image, photorealistic square premium studio photograph. Two small rolls of blank white rectangular barcode labels, unprinted, one strip peeled forward. Centered three-quarter view with 15% empty margins, seamless warm ivory background, soft upper-left diffused light and realistic gentle contact shadow. Crisp believable texture. No props, people, brands, watermark or dimensions. Only the explicitly requested THANK YOU text may appear. Representative product illustration, not a verified SKU photo.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "thankyou-card",
+    "output": "public/images/catalogue/thankyou-card.webp",
+    "bytes": 44954,
+    "prompt": "Original EcommerceWale product-family image, photorealistic square premium studio photograph. A small offset stack of cream paper thank-you enclosure cards with elegant black text reading THANK YOU and no other text or logo. Centered three-quarter view with 15% empty margins, seamless warm ivory background, soft upper-left diffused light and realistic gentle contact shadow. Crisp believable texture. No props, people, brands, watermark or dimensions. Only the explicitly requested THANK YOU text may appear. Representative product illustration, not a verified SKU photo.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "thankyou-sticker",
+    "output": "public/images/catalogue/thankyou-sticker.webp",
+    "bytes": 48756,
+    "prompt": "Original EcommerceWale product-family image, photorealistic square premium studio photograph. A roll of circular cream stickers with clear black text THANK YOU on the visible front sticker, no other text or logo. Centered three-quarter view with 15% empty margins, seamless warm ivory background, soft upper-left diffused light and realistic gentle contact shadow. Crisp believable texture. No props, people, brands, watermark or dimensions. Only the explicitly requested THANK YOU text may appear. Representative product illustration, not a verified SKU photo.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "shred-dark-cyan-green",
+    "output": "public/images/catalogue/shred-dark-cyan-green.webp",
+    "bytes": 136520,
+    "prompt": "Original EcommerceWale product-family image, photorealistic square premium studio photograph. A loose generous mound of thin crinkle-cut dark cyan green shredded paper gift packaging filler. Only paper, no container. Distinct dark cyan green colour, matte natural paper, not metallic unless gold which is muted warm ochre gold paper. Centered three-quarter view with 15% empty margins, seamless warm ivory background, soft upper-left diffused light and realistic gentle contact shadow. Crisp believable texture. No props, people, brands, watermark or dimensions. Only the explicitly requested THANK YOU text may appear. Representative product illustration, not a verified SKU photo.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "shred-light-blue",
+    "output": "public/images/catalogue/shred-light-blue.webp",
+    "bytes": 118666,
+    "prompt": "Original EcommerceWale product-family image, photorealistic square premium studio photograph. A loose generous mound of thin crinkle-cut light blue shredded paper gift packaging filler. Only paper, no container. Distinct light blue colour, matte natural paper, not metallic unless gold which is muted warm ochre gold paper. Centered three-quarter view with 15% empty margins, seamless warm ivory background, soft upper-left diffused light and realistic gentle contact shadow. Crisp believable texture. No props, people, brands, watermark or dimensions. Only the explicitly requested THANK YOU text may appear. Representative product illustration, not a verified SKU photo.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "shred-gold",
+    "output": "public/images/catalogue/shred-gold.webp",
+    "bytes": 135068,
+    "prompt": "Original EcommerceWale product-family image, photorealistic square premium studio photograph. A loose generous mound of thin crinkle-cut gold shredded paper gift packaging filler. Only paper, no container. Distinct gold colour, matte natural paper, not metallic unless gold which is muted warm ochre gold paper. Centered three-quarter view with 15% empty margins, seamless warm ivory background, soft upper-left diffused light and realistic gentle contact shadow. Crisp believable texture. No props, people, brands, watermark or dimensions. Only the explicitly requested THANK YOU text may appear. Representative product illustration, not a verified SKU photo.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "shred-yellow",
+    "output": "public/images/catalogue/shred-yellow.webp",
+    "bytes": 113546,
+    "prompt": "Original EcommerceWale product-family image, photorealistic square premium studio photograph. A loose generous mound of thin crinkle-cut yellow shredded paper gift packaging filler. Only paper, no container. Distinct yellow colour, matte natural paper, not metallic unless gold which is muted warm ochre gold paper. Centered three-quarter view with 15% empty margins, seamless warm ivory background, soft upper-left diffused light and realistic gentle contact shadow. Crisp believable texture. No props, people, brands, watermark or dimensions. Only the explicitly requested THANK YOU text may appear. Representative product illustration, not a verified SKU photo.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "shred-light-green",
+    "output": "public/images/catalogue/shred-light-green.webp",
+    "bytes": 124674,
+    "prompt": "Original EcommerceWale product-family image, photorealistic square premium studio photograph. A loose generous mound of thin crinkle-cut light green shredded paper gift packaging filler. Only paper, no container. Distinct light green colour, matte natural paper, not metallic unless gold which is muted warm ochre gold paper. Centered three-quarter view with 15% empty margins, seamless warm ivory background, soft upper-left diffused light and realistic gentle contact shadow. Crisp believable texture. No props, people, brands, watermark or dimensions. Only the explicitly requested THANK YOU text may appear. Representative product illustration, not a verified SKU photo.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "shred-green",
+    "output": "public/images/catalogue/shred-green.webp",
+    "bytes": 125556,
+    "prompt": "Original EcommerceWale product-family image, photorealistic square premium studio photograph. A loose generous mound of thin crinkle-cut green shredded paper gift packaging filler. Only paper, no container. Distinct green colour, matte natural paper, not metallic unless gold which is muted warm ochre gold paper. Centered three-quarter view with 15% empty margins, seamless warm ivory background, soft upper-left diffused light and realistic gentle contact shadow. Crisp believable texture. No props, people, brands, watermark or dimensions. Only the explicitly requested THANK YOU text may appear. Representative product illustration, not a verified SKU photo.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "shred-blue",
+    "output": "public/images/catalogue/shred-blue.webp",
+    "bytes": 136588,
+    "prompt": "Original EcommerceWale product-family image, photorealistic square premium studio photograph. A loose generous mound of thin crinkle-cut blue shredded paper gift packaging filler. Only paper, no container. Distinct blue colour, matte natural paper, not metallic unless gold which is muted warm ochre gold paper. Centered three-quarter view with 15% empty margins, seamless warm ivory background, soft upper-left diffused light and realistic gentle contact shadow. Crisp believable texture. No props, people, brands, watermark or dimensions. Only the explicitly requested THANK YOU text may appear. Representative product illustration, not a verified SKU photo.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "shred-orange",
+    "output": "public/images/catalogue/shred-orange.webp",
+    "bytes": 112542,
+    "prompt": "Original EcommerceWale product-family image, photorealistic square premium studio photograph. A loose generous mound of thin crinkle-cut orange shredded paper gift packaging filler. Only paper, no container. Distinct orange colour, matte natural paper, not metallic unless gold which is muted warm ochre gold paper. Centered three-quarter view with 15% empty margins, seamless warm ivory background, soft upper-left diffused light and realistic gentle contact shadow. Crisp believable texture. No props, people, brands, watermark or dimensions. Only the explicitly requested THANK YOU text may appear. Representative product illustration, not a verified SKU photo.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  },
+  {
+    "key": "shred-white",
+    "output": "public/images/catalogue/shred-white.webp",
+    "bytes": 89770,
+    "prompt": "Original EcommerceWale product-family image, photorealistic square premium studio photograph. A loose generous mound of thin crinkle-cut white shredded paper gift packaging filler. Only paper, no container. Distinct white colour, matte natural paper, not metallic unless gold which is muted warm ochre gold paper. Centered three-quarter view with 15% empty margins, seamless warm ivory background, soft upper-left diffused light and realistic gentle contact shadow. Crisp believable texture. No props, people, brands, watermark or dimensions. Only the explicitly requested THANK YOU text may appear. Representative product illustration, not a verified SKU photo.",
+    "origin": "Original AI-generated product-family illustration; not a verified SKU photograph"
+  }
+]

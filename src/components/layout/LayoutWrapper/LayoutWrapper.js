@@ -9,6 +9,7 @@ import BackToTop from '@/components/ui/BackToTop/BackToTop';
 export default function LayoutWrapper({ children }) {
   const pathname = usePathname();
   const isAdmin = pathname.startsWith('/admin');
+  const focusedForm = ['/checkout', '/contact', '/track-order'].includes(pathname);
 
   return (
     <>
@@ -18,8 +19,8 @@ export default function LayoutWrapper({ children }) {
         {children}
       </main>
       {!isAdmin && <Footer />}
-      {!isAdmin && <WhatsAppWidget />}
-      {!isAdmin && <BackToTop />}
+      {!isAdmin && !focusedForm && <WhatsAppWidget />}
+      {!isAdmin && !focusedForm && <BackToTop />}
     </>
   );
 }

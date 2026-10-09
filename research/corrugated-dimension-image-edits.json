@@ -1,0 +1,372 @@
+{
+  "date": "2026-10-09",
+  "tool": "built-in image_gen reference edits",
+  "scope": "All 26 remaining corrugated size-linked reference images currently used by the supplier catalogue. Unused promotional gallery images are not newly imported.",
+  "review": "Every output visually inspected against its supplier reference for three exact measurement labels, arrow placement, kraft colour family, construction, open/closed state. These are presentation edits, not physical SKU certification or pixel-identical geometry. Source originals and prices preserved.",
+  "images": [
+    {
+      "imageId": "51132674867498",
+      "key": "corrugated-dimensions-51132674867498",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-15_at_9.11.32_PM.jpg?v=1765813350",
+      "sourcePath": "D:\\ecommercewale\\research\\supplier-image-references\\51132674867498.jpg",
+      "slug": "corrugated-packaging-boxes",
+      "dimensions": [
+        "5.3",
+        "5.3",
+        "5.3"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: premium EcommerceWale size-selected product photograph. Image 1 is the edit target: actual Ecosoft supplier box reference. Improve only lighting, backdrop, framing and measurement typography. Preserve the exact depicted brown kraft corrugated box, construction, colour family, aspect proportions, visible folds and seams, tape and OPEN flaps; do not invent another product. Use the single open box in the foreground; remove the stack behind. The source dimension print is diagram annotation, not physical artwork: remove it from faces and place measurements outside edges. Studio seamless warm off-white surface and backdrop, soft natural contact shadow, accurate detailed kraft texture, large central box with generous but not excessive breathing space, square composition. Replace existing measurement annotations with thin dark-charcoal double-headed arrows immediately beside their corresponding physical edges in perspective, legible understated sans-serif labels. Exact labels: \"5.3 in\" for length on long front base edge, \"5.3 in\" for depth beside receding base edge, \"5.3 in\" vertically for body height (not raised flaps). All three dimensions must be present exactly, independently readable even if numbers repeat. Do not swap dimensions or change decimals. No floating UI pills, remote rails, headings, logos, promotional copy, props, contents, extra boxes or scale claims. Dimensions are source-listed annotation, not permission to change the box geometry. Photorealistic catalogue photo, not an illustration.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-ed11df07-3fb3-445a-a6fb-aeecf81906f0.png"
+    },
+    {
+      "imageId": "51132736012586",
+      "key": "corrugated-dimensions-51132736012586",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-15_at_9.17.25_PM.jpg?v=1765813703",
+      "sourcePath": "D:\\ecommercewale\\research\\supplier-image-references\\51132736012586.jpg",
+      "slug": "corrugated-packaging-boxes",
+      "dimensions": [
+        "8.5",
+        "6",
+        "3"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: premium EcommerceWale size-selected product photograph. Image 1 is the edit target: actual Ecosoft supplier box reference. Improve only lighting, backdrop, framing and measurement typography. Preserve the exact depicted brown kraft corrugated box, construction, colour family, aspect proportions, visible folds and seams, tape and closed state; do not invent another product. Retain the same perspective and box view. Studio seamless warm off-white surface and backdrop, soft natural contact shadow, accurate detailed kraft texture, large central box with generous but not excessive breathing space, square composition. Replace existing measurement annotations with thin dark-charcoal double-headed arrows immediately beside their corresponding physical edges in perspective, legible understated sans-serif labels. Exact labels: \"8.5 in\" for length on long front base edge, \"6 in\" for depth beside receding base edge, \"3 in\" vertically for body height (not raised flaps). All three dimensions must be present exactly, independently readable even if numbers repeat. Do not swap dimensions or change decimals. No floating UI pills, remote rails, headings, logos, promotional copy, props, contents, extra boxes or scale claims. Dimensions are source-listed annotation, not permission to change the box geometry. Photorealistic catalogue photo, not an illustration.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-d6a4d314-6501-4958-9709-3b226d18923a.png"
+    },
+    {
+      "imageId": "51132682731818",
+      "key": "corrugated-dimensions-51132682731818",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-15_at_9.15.01_PM.jpg?v=1765813532",
+      "sourcePath": "D:\\ecommercewale\\research\\supplier-image-references\\51132682731818.jpg",
+      "slug": "corrugated-packaging-boxes",
+      "dimensions": [
+        "4.5",
+        "4.5",
+        "1.5"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: premium EcommerceWale size-selected product photograph. Image 1 is the edit target: actual Ecosoft supplier box reference. Improve only lighting, backdrop, framing and measurement typography. Preserve the exact depicted brown kraft corrugated box, construction, colour family, aspect proportions, visible folds and seams, tape and closed state; do not invent another product. Retain the same perspective and box view. Studio seamless warm off-white surface and backdrop, soft natural contact shadow, accurate detailed kraft texture, large central box with generous but not excessive breathing space, square composition. Replace existing measurement annotations with thin dark-charcoal double-headed arrows immediately beside their corresponding physical edges in perspective, legible understated sans-serif labels. Exact labels: \"4.5 in\" for length on long front base edge, \"4.5 in\" for depth beside receding base edge, \"1.5 in\" vertically for body height (not raised flaps). All three dimensions must be present exactly, independently readable even if numbers repeat. Do not swap dimensions or change decimals. No floating UI pills, remote rails, headings, logos, promotional copy, props, contents, extra boxes or scale claims. Dimensions are source-listed annotation, not permission to change the box geometry. Photorealistic catalogue photo, not an illustration.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-65820b5e-27aa-4acf-8785-d20edc598ca0.png"
+    },
+    {
+      "imageId": "51132679356714",
+      "key": "corrugated-dimensions-51132679356714",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-15_at_9.13.13_PM.jpg?v=1765813428",
+      "sourcePath": "D:\\ecommercewale\\research\\supplier-image-references\\51132679356714.jpg",
+      "slug": "corrugated-packaging-boxes",
+      "dimensions": [
+        "8",
+        "5",
+        "2.5"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: premium EcommerceWale size-selected product photograph. Image 1 is the edit target: actual Ecosoft supplier box reference. Improve only lighting, backdrop, framing and measurement typography. Preserve the exact depicted brown kraft corrugated box, construction, colour family, aspect proportions, visible folds and seams, tape and closed state; do not invent another product. Retain the same perspective and box view. Studio seamless warm off-white surface and backdrop, soft natural contact shadow, accurate detailed kraft texture, large central box with generous but not excessive breathing space, square composition. Replace existing measurement annotations with thin dark-charcoal double-headed arrows immediately beside their corresponding physical edges in perspective, legible understated sans-serif labels. Exact labels: \"8 in\" for length on long front base edge, \"5 in\" for depth beside receding base edge, \"2.5 in\" vertically for body height (not raised flaps). All three dimensions must be present exactly, independently readable even if numbers repeat. Do not swap dimensions or change decimals. No floating UI pills, remote rails, headings, logos, promotional copy, props, contents, extra boxes or scale claims. Dimensions are source-listed annotation, not permission to change the box geometry. Photorealistic catalogue photo, not an illustration.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-67b792e8-fba2-4b37-b20f-04ada796334e.png"
+    },
+    {
+      "imageId": "51224765464874",
+      "key": "corrugated-dimensions-51224765464874",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-20_at_9.43.40_PM_551b9d9e-675b-4b9d-b787-35733dc1c29f.jpg?v=1766247293",
+      "sourcePath": "D:\\ecommercewale\\research\\supplier-image-references\\51224765464874.jpg",
+      "slug": "corrugated-packaging-boxes",
+      "dimensions": [
+        "7",
+        "5.25",
+        "4.25"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: premium EcommerceWale size-selected product photograph. Image 1 is the edit target: actual Ecosoft supplier box reference. Improve only lighting, backdrop, framing and measurement typography. Preserve the exact depicted brown kraft corrugated box, construction, colour family, aspect proportions, visible folds and seams, tape and closed state; do not invent another product. Retain the same perspective and box view. Studio seamless warm off-white surface and backdrop, soft natural contact shadow, accurate detailed kraft texture, large central box with generous but not excessive breathing space, square composition. Replace existing measurement annotations with thin dark-charcoal double-headed arrows immediately beside their corresponding physical edges in perspective, legible understated sans-serif labels. Exact labels: \"7 in\" for length on long front base edge, \"5.25 in\" for depth beside receding base edge, \"4.25 in\" vertically for body height (not raised flaps). All three dimensions must be present exactly, independently readable even if numbers repeat. Do not swap dimensions or change decimals. No floating UI pills, remote rails, headings, logos, promotional copy, props, contents, extra boxes or scale claims. Dimensions are source-listed annotation, not permission to change the box geometry. Photorealistic catalogue photo, not an illustration.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-26f63b1d-e5c3-4f4d-9f04-10bbc5e6fd99.png"
+    },
+    {
+      "imageId": "51224782111018",
+      "key": "corrugated-dimensions-51224782111018",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-20_at_9.49.55_PM.jpg?v=1766247613",
+      "sourcePath": "D:\\ecommercewale\\research\\supplier-image-references\\51224782111018.jpg",
+      "slug": "corrugated-packaging-boxes",
+      "dimensions": [
+        "7.5",
+        "4.5",
+        "3.5"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: premium EcommerceWale size-selected product photograph. Image 1 is the edit target: actual Ecosoft supplier box reference. Improve only lighting, backdrop, framing and measurement typography. Preserve the exact depicted brown kraft corrugated box, construction, colour family, aspect proportions, visible folds and seams, tape and closed state; do not invent another product. Retain the same perspective and box view. Studio seamless warm off-white surface and backdrop, soft natural contact shadow, accurate detailed kraft texture, large central box with generous but not excessive breathing space, square composition. Replace existing measurement annotations with thin dark-charcoal double-headed arrows immediately beside their corresponding physical edges in perspective, legible understated sans-serif labels. Exact labels: \"7.5 in\" for length on long front base edge, \"4.5 in\" for depth beside receding base edge, \"3.5 in\" vertically for body height (not raised flaps). All three dimensions must be present exactly, independently readable even if numbers repeat. Do not swap dimensions or change decimals. No floating UI pills, remote rails, headings, logos, promotional copy, props, contents, extra boxes or scale claims. Dimensions are source-listed annotation, not permission to change the box geometry. Photorealistic catalogue photo, not an illustration.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-22d3e7d3-3f9e-47fb-a235-f328f4eac022.png"
+    },
+    {
+      "imageId": "51224777949482",
+      "key": "corrugated-dimensions-51224777949482",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-20_at_9.48.19_PM.jpg?v=1766247544",
+      "sourcePath": "D:\\ecommercewale\\research\\supplier-image-references\\51224777949482.jpg",
+      "slug": "corrugated-packaging-boxes",
+      "dimensions": [
+        "8",
+        "7",
+        "5"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: premium EcommerceWale size-selected product photograph. Image 1 is the edit target: actual Ecosoft supplier box reference. Improve only lighting, backdrop, framing and measurement typography. Preserve the exact depicted brown kraft corrugated box, construction, colour family, aspect proportions, visible folds and seams, tape and closed state; do not invent another product. Retain the same perspective and box view. Studio seamless warm off-white surface and backdrop, soft natural contact shadow, accurate detailed kraft texture, large central box with generous but not excessive breathing space, square composition. Replace existing measurement annotations with thin dark-charcoal double-headed arrows immediately beside their corresponding physical edges in perspective, legible understated sans-serif labels. Exact labels: \"8 in\" for length on long front base edge, \"7 in\" for depth beside receding base edge, \"5 in\" vertically for body height (not raised flaps). All three dimensions must be present exactly, independently readable even if numbers repeat. Do not swap dimensions or change decimals. No floating UI pills, remote rails, headings, logos, promotional copy, props, contents, extra boxes or scale claims. Dimensions are source-listed annotation, not permission to change the box geometry. Photorealistic catalogue photo, not an illustration.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-275aaa4e-0fb6-4c7b-99eb-fd5da999f836.png"
+    },
+    {
+      "imageId": "51224770838826",
+      "key": "corrugated-dimensions-51224770838826",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-20_at_9.45.59_PM.jpg?v=1766247400",
+      "sourcePath": "D:\\ecommercewale\\research\\supplier-image-references\\51224770838826.jpg",
+      "slug": "corrugated-packaging-boxes",
+      "dimensions": [
+        "5",
+        "4.5",
+        "3.5"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: premium EcommerceWale size-selected product photograph. Image 1 is the edit target: actual Ecosoft supplier box reference. Improve only lighting, backdrop, framing and measurement typography. Preserve the exact depicted brown kraft corrugated box, construction, colour family, aspect proportions, visible folds and seams, tape and closed state; do not invent another product. Retain the same perspective and box view. Studio seamless warm off-white surface and backdrop, soft natural contact shadow, accurate detailed kraft texture, large central box with generous but not excessive breathing space, square composition. Replace existing measurement annotations with thin dark-charcoal double-headed arrows immediately beside their corresponding physical edges in perspective, legible understated sans-serif labels. Exact labels: \"5 in\" for length on long front base edge, \"4.5 in\" for depth beside receding base edge, \"3.5 in\" vertically for body height (not raised flaps). All three dimensions must be present exactly, independently readable even if numbers repeat. Do not swap dimensions or change decimals. No floating UI pills, remote rails, headings, logos, promotional copy, props, contents, extra boxes or scale claims. Dimensions are source-listed annotation, not permission to change the box geometry. Photorealistic catalogue photo, not an illustration.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-f4266751-1600-4c94-b988-1e3cb476cd01.png"
+    },
+    {
+      "imageId": "51224727945514",
+      "key": "corrugated-dimensions-51224727945514",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-20_at_9.36.23_PM.jpg?v=1766246851",
+      "sourcePath": "D:\\ecommercewale\\research\\supplier-image-references\\51224727945514.jpg",
+      "slug": "corrugated-packaging-boxes",
+      "dimensions": [
+        "8",
+        "5",
+        "2"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: premium EcommerceWale size-selected product photograph. Image 1 is the edit target: actual Ecosoft supplier box reference. Improve only lighting, backdrop, framing and measurement typography. Preserve the exact depicted brown kraft corrugated box, construction, colour family, aspect proportions, visible folds and seams, tape and closed state; do not invent another product. Retain the same perspective and box view. Studio seamless warm off-white surface and backdrop, soft natural contact shadow, accurate detailed kraft texture, large central box with generous but not excessive breathing space, square composition. Replace existing measurement annotations with thin dark-charcoal double-headed arrows immediately beside their corresponding physical edges in perspective, legible understated sans-serif labels. Exact labels: \"8 in\" for length on long front base edge, \"5 in\" for depth beside receding base edge, \"2 in\" vertically for body height (not raised flaps). All three dimensions must be present exactly, independently readable even if numbers repeat. Do not swap dimensions or change decimals. No floating UI pills, remote rails, headings, logos, promotional copy, props, contents, extra boxes or scale claims. Dimensions are source-listed annotation, not permission to change the box geometry. Photorealistic catalogue photo, not an illustration.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-ca7f7bad-c303-4e49-8077-03f56fc327bf.png"
+    },
+    {
+      "imageId": "51224574591274",
+      "key": "corrugated-dimensions-51224574591274",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-20_at_9.11.32_PM.jpg?v=1766245337",
+      "sourcePath": "D:\\ecommercewale\\research\\supplier-image-references\\51224574591274.jpg",
+      "slug": "corrugated-packaging-boxes",
+      "dimensions": [
+        "7",
+        "4",
+        "2"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: premium EcommerceWale size-selected product photograph. Image 1 is the edit target: actual Ecosoft supplier box reference. Improve only lighting, backdrop, framing and measurement typography. Preserve the exact depicted brown kraft corrugated box, construction, colour family, aspect proportions, visible folds and seams, tape and closed state; do not invent another product. Retain the same perspective and box view. Studio seamless warm off-white surface and backdrop, soft natural contact shadow, accurate detailed kraft texture, large central box with generous but not excessive breathing space, square composition. Replace existing measurement annotations with thin dark-charcoal double-headed arrows immediately beside their corresponding physical edges in perspective, legible understated sans-serif labels. Exact labels: \"7 in\" for length on long front base edge, \"4 in\" for depth beside receding base edge, \"2 in\" vertically for body height (not raised flaps). All three dimensions must be present exactly, independently readable even if numbers repeat. Do not swap dimensions or change decimals. No floating UI pills, remote rails, headings, logos, promotional copy, props, contents, extra boxes or scale claims. Dimensions are source-listed annotation, not permission to change the box geometry. Photorealistic catalogue photo, not an illustration.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-79897e65-f4d3-46f1-997f-66c5f17dcf4a.png"
+    },
+    {
+      "imageId": "51224564367658",
+      "key": "corrugated-dimensions-51224564367658",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-20_at_9.07.51_PM.jpg?v=1766245096",
+      "sourcePath": "D:\\ecommercewale\\research\\supplier-image-references\\51224564367658.jpg",
+      "slug": "corrugated-packaging-boxes",
+      "dimensions": [
+        "7",
+        "4",
+        "3.5"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: premium EcommerceWale size-selected product photograph. Image 1 is the edit target: actual Ecosoft supplier box reference. Improve only lighting, backdrop, framing and measurement typography. Preserve the exact depicted brown kraft corrugated box, construction, colour family, aspect proportions, visible folds and seams, tape and closed state; do not invent another product. Retain the same perspective and box view. Studio seamless warm off-white surface and backdrop, soft natural contact shadow, accurate detailed kraft texture, large central box with generous but not excessive breathing space, square composition. Replace existing measurement annotations with thin dark-charcoal double-headed arrows immediately beside their corresponding physical edges in perspective, legible understated sans-serif labels. Exact labels: \"7 in\" for length on long front base edge, \"4 in\" for depth beside receding base edge, \"3.5 in\" vertically for body height (not raised flaps). All three dimensions must be present exactly, independently readable even if numbers repeat. Do not swap dimensions or change decimals. No floating UI pills, remote rails, headings, logos, promotional copy, props, contents, extra boxes or scale claims. Dimensions are source-listed annotation, not permission to change the box geometry. Photorealistic catalogue photo, not an illustration.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-17379c07-458d-460b-95c6-dcbada4a646f.png"
+    },
+    {
+      "imageId": "51224542937386",
+      "key": "corrugated-dimensions-51224542937386",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-20_at_9.03.21_PM.jpg?v=1766244900",
+      "sourcePath": "D:\\ecommercewale\\research\\supplier-image-references\\51224542937386.jpg",
+      "slug": "corrugated-packaging-boxes",
+      "dimensions": [
+        "8",
+        "4",
+        "4"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: premium EcommerceWale size-selected product photograph. Image 1 is the edit target: actual Ecosoft supplier box reference. Improve only lighting, backdrop, framing and measurement typography. Preserve the exact depicted brown kraft corrugated box, construction, colour family, aspect proportions, visible folds and seams, tape and closed state; do not invent another product. Retain the same perspective and box view. Studio seamless warm off-white surface and backdrop, soft natural contact shadow, accurate detailed kraft texture, large central box with generous but not excessive breathing space, square composition. Replace existing measurement annotations with thin dark-charcoal double-headed arrows immediately beside their corresponding physical edges in perspective, legible understated sans-serif labels. Exact labels: \"8 in\" for length on long front base edge, \"4 in\" for depth beside receding base edge, \"4 in\" vertically for body height (not raised flaps). All three dimensions must be present exactly, independently readable even if numbers repeat. Do not swap dimensions or change decimals. No floating UI pills, remote rails, headings, logos, promotional copy, props, contents, extra boxes or scale claims. Dimensions are source-listed annotation, not permission to change the box geometry. Photorealistic catalogue photo, not an illustration.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-7c19d787-36f8-4f94-9e62-577e375a5cab.png"
+    },
+    {
+      "imageId": "51224422285610",
+      "key": "corrugated-dimensions-51224422285610",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-20_at_9.00.45_PM.jpg?v=1766244681",
+      "sourcePath": "D:\\ecommercewale\\research\\supplier-image-references\\51224422285610.jpg",
+      "slug": "corrugated-packaging-boxes",
+      "dimensions": [
+        "9",
+        "8",
+        "8"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: premium EcommerceWale size-selected product photograph. Image 1 is the edit target: actual Ecosoft supplier box reference. Improve only lighting, backdrop, framing and measurement typography. Preserve the exact depicted brown kraft corrugated box, construction, colour family, aspect proportions, visible folds and seams, tape and closed state; do not invent another product. Retain the same perspective and box view. Studio seamless warm off-white surface and backdrop, soft natural contact shadow, accurate detailed kraft texture, large central box with generous but not excessive breathing space, square composition. Replace existing measurement annotations with thin dark-charcoal double-headed arrows immediately beside their corresponding physical edges in perspective, legible understated sans-serif labels. Exact labels: \"9 in\" for length on long front base edge, \"8 in\" for depth beside receding base edge, \"8 in\" vertically for body height (not raised flaps). All three dimensions must be present exactly, independently readable even if numbers repeat. Do not swap dimensions or change decimals. No floating UI pills, remote rails, headings, logos, promotional copy, props, contents, extra boxes or scale claims. Dimensions are source-listed annotation, not permission to change the box geometry. Photorealistic catalogue photo, not an illustration.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-e01380e1-1326-4efd-ab8f-8455ba887a7a.png"
+    },
+    {
+      "imageId": "51224405279018",
+      "key": "corrugated-dimensions-51224405279018",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-20_at_8.59.19_PM.jpg?v=1766244589",
+      "sourcePath": "D:\\ecommercewale\\research\\supplier-image-references\\51224405279018.jpg",
+      "slug": "corrugated-packaging-boxes",
+      "dimensions": [
+        "4",
+        "4",
+        "4"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: premium EcommerceWale size-selected product photograph. Image 1 is the edit target: actual Ecosoft supplier box reference. Improve only lighting, backdrop, framing and measurement typography. Preserve the exact depicted brown kraft corrugated box, construction, colour family, aspect proportions, visible folds and seams, tape and closed state; do not invent another product. Retain the same perspective and box view. Studio seamless warm off-white surface and backdrop, soft natural contact shadow, accurate detailed kraft texture, large central box with generous but not excessive breathing space, square composition. Replace existing measurement annotations with thin dark-charcoal double-headed arrows immediately beside their corresponding physical edges in perspective, legible understated sans-serif labels. Exact labels: \"4 in\" for length on long front base edge, \"4 in\" for depth beside receding base edge, \"4 in\" vertically for body height (not raised flaps). All three dimensions must be present exactly, independently readable even if numbers repeat. Do not swap dimensions or change decimals. No floating UI pills, remote rails, headings, logos, promotional copy, props, contents, extra boxes or scale claims. Dimensions are source-listed annotation, not permission to change the box geometry. Photorealistic catalogue photo, not an illustration.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-5de7d9ce-c45b-4294-a409-ebf762a90a4e.png"
+    },
+    {
+      "imageId": "51224402133290",
+      "key": "corrugated-dimensions-51224402133290",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-20_at_8.57.20_PM_f6463136-8ba7-4ba8-a105-f0f6d5738c15.jpg?v=1766244544",
+      "sourcePath": "D:\\ecommercewale\\research\\supplier-image-references\\51224402133290.jpg",
+      "slug": "corrugated-packaging-boxes",
+      "dimensions": [
+        "10",
+        "6",
+        "2"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: premium EcommerceWale size-selected product photograph. Image 1 is the edit target: actual Ecosoft supplier box reference. Improve only lighting, backdrop, framing and measurement typography. Preserve the exact depicted brown kraft corrugated box, construction, colour family, aspect proportions, visible folds and seams, tape and closed state; do not invent another product. Retain the same perspective and box view. Studio seamless warm off-white surface and backdrop, soft natural contact shadow, accurate detailed kraft texture, large central box with generous but not excessive breathing space, square composition. Replace existing measurement annotations with thin dark-charcoal double-headed arrows immediately beside their corresponding physical edges in perspective, legible understated sans-serif labels. Exact labels: \"10 in\" for length on long front base edge, \"6 in\" for depth beside receding base edge, \"2 in\" vertically for body height (not raised flaps). All three dimensions must be present exactly, independently readable even if numbers repeat. Do not swap dimensions or change decimals. No floating UI pills, remote rails, headings, logos, promotional copy, props, contents, extra boxes or scale claims. Dimensions are source-listed annotation, not permission to change the box geometry. Photorealistic catalogue photo, not an illustration.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-6a4a03ac-5619-402b-ad03-65ed15679cc5.png"
+    },
+    {
+      "imageId": "51222172664106",
+      "key": "corrugated-dimensions-51222172664106",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-20_at_6.27.29_PM.jpg?v=1766235501",
+      "sourcePath": "D:\\ecommercewale\\research\\supplier-image-references\\51222172664106.jpg",
+      "slug": "corrugated-packaging-boxes",
+      "dimensions": [
+        "8",
+        "4",
+        "8"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: premium EcommerceWale size-selected product photograph. Image 1 is the edit target: actual Ecosoft supplier box reference. Improve only lighting, backdrop, framing and measurement typography. Preserve the exact depicted brown kraft corrugated box, construction, colour family, aspect proportions, visible folds and seams, tape and closed state; do not invent another product. Retain the same perspective and box view. Studio seamless warm off-white surface and backdrop, soft natural contact shadow, accurate detailed kraft texture, large central box with generous but not excessive breathing space, square composition. Replace existing measurement annotations with thin dark-charcoal double-headed arrows immediately beside their corresponding physical edges in perspective, legible understated sans-serif labels. Exact labels: \"8 in\" for length on long front base edge, \"4 in\" for depth beside receding base edge, \"8 in\" vertically for body height (not raised flaps). All three dimensions must be present exactly, independently readable even if numbers repeat. Do not swap dimensions or change decimals. No floating UI pills, remote rails, headings, logos, promotional copy, props, contents, extra boxes or scale claims. Dimensions are source-listed annotation, not permission to change the box geometry. Photorealistic catalogue photo, not an illustration.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-3a9d98ff-b545-4891-a388-1488d49a8096.png"
+    },
+    {
+      "imageId": "51222211559722",
+      "key": "corrugated-dimensions-51222211559722",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-20_at_6.28.47_PM.jpg?v=1766235596",
+      "sourcePath": "D:\\ecommercewale\\research\\supplier-image-references\\51222211559722.jpg",
+      "slug": "corrugated-packaging-boxes",
+      "dimensions": [
+        "8",
+        "6",
+        "6"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: premium EcommerceWale size-selected product photograph. Image 1 is the edit target: actual Ecosoft supplier box reference. Improve only lighting, backdrop, framing and measurement typography. Preserve the exact depicted brown kraft corrugated box, construction, colour family, aspect proportions, visible folds and seams, tape and closed state; do not invent another product. Retain the same perspective and box view. Studio seamless warm off-white surface and backdrop, soft natural contact shadow, accurate detailed kraft texture, large central box with generous but not excessive breathing space, square composition. Replace existing measurement annotations with thin dark-charcoal double-headed arrows immediately beside their corresponding physical edges in perspective, legible understated sans-serif labels. Exact labels: \"8 in\" for length on long front base edge, \"6 in\" for depth beside receding base edge, \"6 in\" vertically for body height (not raised flaps). All three dimensions must be present exactly, independently readable even if numbers repeat. Do not swap dimensions or change decimals. No floating UI pills, remote rails, headings, logos, promotional copy, props, contents, extra boxes or scale claims. Dimensions are source-listed annotation, not permission to change the box geometry. Photorealistic catalogue photo, not an illustration.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-a238d6c9-717f-4013-adbe-d2241672d286.png"
+    },
+    {
+      "imageId": "51222624567594",
+      "key": "corrugated-dimensions-51222624567594",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-20_at_6.49.43_PM.jpg?v=1766236878",
+      "sourcePath": "D:\\ecommercewale\\research\\supplier-image-references\\51222624567594.jpg",
+      "slug": "corrugated-packaging-boxes",
+      "dimensions": [
+        "8",
+        "8",
+        "5.5"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: premium EcommerceWale size-selected product photograph. Image 1 is the edit target: actual Ecosoft supplier box reference. Improve only lighting, backdrop, framing and measurement typography. Preserve the exact depicted brown kraft corrugated box, construction, colour family, aspect proportions, visible folds and seams, tape and closed state; do not invent another product. Retain the same perspective and box view. Studio seamless warm off-white surface and backdrop, soft natural contact shadow, accurate detailed kraft texture, large central box with generous but not excessive breathing space, square composition. Replace existing measurement annotations with thin dark-charcoal double-headed arrows immediately beside their corresponding physical edges in perspective, legible understated sans-serif labels. Exact labels: \"8 in\" for length on long front base edge, \"8 in\" for depth beside receding base edge, \"5.5 in\" vertically for body height (not raised flaps). All three dimensions must be present exactly, independently readable even if numbers repeat. Do not swap dimensions or change decimals. No floating UI pills, remote rails, headings, logos, promotional copy, props, contents, extra boxes or scale claims. Dimensions are source-listed annotation, not permission to change the box geometry. Photorealistic catalogue photo, not an illustration.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-100ad067-1be4-4954-9cdf-f753efb0c2de.png"
+    },
+    {
+      "imageId": "51222700884266",
+      "key": "corrugated-dimensions-51222700884266",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-20_at_6.56.43_PM.jpg?v=1766237452",
+      "sourcePath": "D:\\ecommercewale\\research\\supplier-image-references\\51222700884266.jpg",
+      "slug": "corrugated-packaging-boxes",
+      "dimensions": [
+        "5",
+        "3",
+        "6.25"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: premium EcommerceWale size-selected product photograph. Image 1 is the edit target: actual Ecosoft supplier box reference. Improve only lighting, backdrop, framing and measurement typography. Preserve the exact depicted brown kraft corrugated box, construction, colour family, aspect proportions, visible folds and seams, tape and closed state; do not invent another product. Retain the same perspective and box view. Studio seamless warm off-white surface and backdrop, soft natural contact shadow, accurate detailed kraft texture, large central box with generous but not excessive breathing space, square composition. Replace existing measurement annotations with thin dark-charcoal double-headed arrows immediately beside their corresponding physical edges in perspective, legible understated sans-serif labels. Exact labels: \"5 in\" for length on long front base edge, \"3 in\" for depth beside receding base edge, \"6.25 in\" vertically for body height (not raised flaps). All three dimensions must be present exactly, independently readable even if numbers repeat. Do not swap dimensions or change decimals. No floating UI pills, remote rails, headings, logos, promotional copy, props, contents, extra boxes or scale claims. Dimensions are source-listed annotation, not permission to change the box geometry. Photorealistic catalogue photo, not an illustration.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-5ddfe080-97b9-4377-ac9c-abc8e997af8e.png"
+    },
+    {
+      "imageId": "51222760358186",
+      "key": "corrugated-dimensions-51222760358186",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-20_at_7.03.04_PM_1.jpg?v=1766237891",
+      "sourcePath": "D:\\ecommercewale\\research\\supplier-image-references\\51222760358186.jpg",
+      "slug": "corrugated-packaging-boxes",
+      "dimensions": [
+        "6",
+        "4.2",
+        "4"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: premium EcommerceWale size-selected product photograph. Image 1 is the edit target: actual Ecosoft supplier box reference. Improve only lighting, backdrop, framing and measurement typography. Preserve the exact depicted brown kraft corrugated box, construction, colour family, aspect proportions, visible folds and seams, tape and closed state; do not invent another product. Retain the same perspective and box view. Studio seamless warm off-white surface and backdrop, soft natural contact shadow, accurate detailed kraft texture, large central box with generous but not excessive breathing space, square composition. Replace existing measurement annotations with thin dark-charcoal double-headed arrows immediately beside their corresponding physical edges in perspective, legible understated sans-serif labels. Exact labels: \"6 in\" for length on long front base edge, \"4.2 in\" for depth beside receding base edge, \"4 in\" vertically for body height (not raised flaps). All three dimensions must be present exactly, independently readable even if numbers repeat. Do not swap dimensions or change decimals. No floating UI pills, remote rails, headings, logos, promotional copy, props, contents, extra boxes or scale claims. Dimensions are source-listed annotation, not permission to change the box geometry. Photorealistic catalogue photo, not an illustration.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-1811c07e-c2ee-45d1-92c6-96c97f3e6a4c.png"
+    },
+    {
+      "imageId": "51224364089642",
+      "key": "corrugated-dimensions-51224364089642",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-20_at_7.06.34_PM.jpg?v=1766244251",
+      "sourcePath": "D:\\ecommercewale\\research\\supplier-image-references\\51224364089642.jpg",
+      "slug": "corrugated-packaging-boxes",
+      "dimensions": [
+        "2",
+        "2",
+        "6"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: premium EcommerceWale size-selected product photograph. Image 1 is the edit target: actual Ecosoft supplier box reference. Improve only lighting, backdrop, framing and measurement typography. Preserve the exact depicted brown kraft corrugated box, construction, colour family, aspect proportions, visible folds and seams, tape and closed state; do not invent another product. Retain the same perspective and box view. Studio seamless warm off-white surface and backdrop, soft natural contact shadow, accurate detailed kraft texture, large central box with generous but not excessive breathing space, square composition. Replace existing measurement annotations with thin dark-charcoal double-headed arrows immediately beside their corresponding physical edges in perspective, legible understated sans-serif labels. Exact labels: \"2 in\" for length on long front base edge, \"2 in\" for depth beside receding base edge, \"6 in\" vertically for body height (not raised flaps). All three dimensions must be present exactly, independently readable even if numbers repeat. Do not swap dimensions or change decimals. No floating UI pills, remote rails, headings, logos, promotional copy, props, contents, extra boxes or scale claims. Dimensions are source-listed annotation, not permission to change the box geometry. Photorealistic catalogue photo, not an illustration.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-747ba0e9-68dc-4377-bc0b-c05ca0708576.png"
+    },
+    {
+      "imageId": "51224811077930",
+      "key": "corrugated-dimensions-51224811077930",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-20_at_9.57.28_PM.jpg?v=1766248073",
+      "sourcePath": "D:\\ecommercewale\\research\\supplier-image-references\\51224811077930.jpg",
+      "slug": "corrugated-packaging-boxes",
+      "dimensions": [
+        "3",
+        "3",
+        "10"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: premium EcommerceWale size-selected product photograph. Image 1 is the edit target: actual Ecosoft supplier box reference. Improve only lighting, backdrop, framing and measurement typography. Preserve the exact depicted brown kraft corrugated box, construction, colour family, aspect proportions, visible folds and seams, tape and closed state; do not invent another product. Retain the same perspective and box view. Studio seamless warm off-white surface and backdrop, soft natural contact shadow, accurate detailed kraft texture, large central box with generous but not excessive breathing space, square composition. Replace existing measurement annotations with thin dark-charcoal double-headed arrows immediately beside their corresponding physical edges in perspective, legible understated sans-serif labels. Exact labels: \"3 in\" for length on long front base edge, \"3 in\" for depth beside receding base edge, \"10 in\" vertically for body height (not raised flaps). All three dimensions must be present exactly, independently readable even if numbers repeat. Do not swap dimensions or change decimals. No floating UI pills, remote rails, headings, logos, promotional copy, props, contents, extra boxes or scale claims. Dimensions are source-listed annotation, not permission to change the box geometry. Photorealistic catalogue photo, not an illustration.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-b50c1f94-a931-41d7-ad5f-53392c55e146.png"
+    },
+    {
+      "imageId": "53955049390378",
+      "key": "corrugated-dimensions-53955049390378",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2026-06-24_at_4.23.43_PM.jpg?v=1782298476",
+      "sourcePath": "D:\\ecommercewale\\research\\supplier-image-references\\53955049390378.jpg",
+      "slug": "corrugated-packaging-boxes",
+      "dimensions": [
+        "9",
+        "6",
+        "3"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: premium EcommerceWale size-selected product photograph. Image 1 is the edit target: actual Ecosoft supplier box reference. Improve only lighting, backdrop, framing and measurement typography. Preserve the exact depicted brown kraft corrugated box, construction, colour family, aspect proportions, visible folds and seams, tape and closed state; do not invent another product. Use the large top perspective box only; omit the tiny front/side inset panels while preserving their measurements on the main box. Studio seamless warm off-white surface and backdrop, soft natural contact shadow, accurate detailed kraft texture, large central box with generous but not excessive breathing space, square composition. Replace existing measurement annotations with thin dark-charcoal double-headed arrows immediately beside their corresponding physical edges in perspective, legible understated sans-serif labels. Exact labels: \"9 in\" for length on long front base edge, \"6 in\" for depth beside receding base edge, \"3 in\" vertically for body height (not raised flaps). All three dimensions must be present exactly, independently readable even if numbers repeat. Do not swap dimensions or change decimals. No floating UI pills, remote rails, headings, logos, promotional copy, props, contents, extra boxes or scale claims. Dimensions are source-listed annotation, not permission to change the box geometry. Photorealistic catalogue photo, not an illustration.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-80f30283-38de-4517-b024-c36a5c329274.png"
+    },
+    {
+      "imageId": "53955059646762",
+      "key": "corrugated-dimensions-53955059646762",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2026-06-24_at_4.23.44_PM.jpg?v=1782298504",
+      "sourcePath": "D:\\ecommercewale\\research\\supplier-image-references\\53955059646762.jpg",
+      "slug": "corrugated-packaging-boxes",
+      "dimensions": [
+        "9",
+        "6",
+        "2"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: premium EcommerceWale size-selected product photograph. Image 1 is the edit target: actual Ecosoft supplier box reference. Improve only lighting, backdrop, framing and measurement typography. Preserve the exact depicted brown kraft corrugated box, construction, colour family, aspect proportions, visible folds and seams, tape and closed state; do not invent another product. Use the large top perspective box only; omit the tiny front/side inset panels while preserving their measurements on the main box. Studio seamless warm off-white surface and backdrop, soft natural contact shadow, accurate detailed kraft texture, large central box with generous but not excessive breathing space, square composition. Replace existing measurement annotations with thin dark-charcoal double-headed arrows immediately beside their corresponding physical edges in perspective, legible understated sans-serif labels. Exact labels: \"9 in\" for length on long front base edge, \"6 in\" for depth beside receding base edge, \"2 in\" vertically for body height (not raised flaps). All three dimensions must be present exactly, independently readable even if numbers repeat. Do not swap dimensions or change decimals. No floating UI pills, remote rails, headings, logos, promotional copy, props, contents, extra boxes or scale claims. Dimensions are source-listed annotation, not permission to change the box geometry. Photorealistic catalogue photo, not an illustration.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-08a7172f-e357-4194-ad95-0bc05c088d78.png"
+    },
+    {
+      "imageId": "53955908895018",
+      "key": "corrugated-dimensions-53955908895018",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2026-06-24_at_4.32.00_PM_b9eb4a51-a504-4b46-a662-11438a24bc8b.jpg?v=1782301073",
+      "sourcePath": "D:\\ecommercewale\\research\\supplier-image-references\\53955908895018.jpg",
+      "slug": "corrugated-packaging-boxes",
+      "dimensions": [
+        "10",
+        "4",
+        "4"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: premium EcommerceWale size-selected product photograph. Image 1 is the edit target: actual Ecosoft supplier box reference. Improve only lighting, backdrop, framing and measurement typography. Preserve the exact depicted brown kraft corrugated box, construction, colour family, aspect proportions, visible folds and seams, tape and closed state; do not invent another product. Use the large top perspective box only; omit the tiny front/side inset panels while preserving their measurements on the main box. Studio seamless warm off-white surface and backdrop, soft natural contact shadow, accurate detailed kraft texture, large central box with generous but not excessive breathing space, square composition. Replace existing measurement annotations with thin dark-charcoal double-headed arrows immediately beside their corresponding physical edges in perspective, legible understated sans-serif labels. Exact labels: \"10 in\" for length on long front base edge, \"4 in\" for depth beside receding base edge, \"4 in\" vertically for body height (not raised flaps). All three dimensions must be present exactly, independently readable even if numbers repeat. Do not swap dimensions or change decimals. No floating UI pills, remote rails, headings, logos, promotional copy, props, contents, extra boxes or scale claims. Dimensions are source-listed annotation, not permission to change the box geometry. Photorealistic catalogue photo, not an illustration.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-f24a935a-9143-4d38-976d-d457a5aef6ab.png"
+    },
+    {
+      "imageId": "53955896770858",
+      "key": "corrugated-dimensions-53955896770858",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2026-06-24_at_4.55.13_PM_1.jpg?v=1782301039",
+      "sourcePath": "D:\\ecommercewale\\research\\supplier-image-references\\53955896770858.jpg",
+      "slug": "corrugated-packaging-boxes",
+      "dimensions": [
+        "4",
+        "3",
+        "3"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset: premium EcommerceWale size-selected product photograph. Image 1 is the edit target: actual Ecosoft supplier box reference. Improve only lighting, backdrop, framing and measurement typography. Preserve the exact depicted brown kraft corrugated box, construction, colour family, aspect proportions, visible folds and seams, tape and closed state; do not invent another product. Use the large top perspective box only; omit the tiny front/side inset panels while preserving their measurements on the main box. Studio seamless warm off-white surface and backdrop, soft natural contact shadow, accurate detailed kraft texture, large central box with generous but not excessive breathing space, square composition. Replace existing measurement annotations with thin dark-charcoal double-headed arrows immediately beside their corresponding physical edges in perspective, legible understated sans-serif labels. Exact labels: \"4 in\" for length on long front base edge, \"3 in\" for depth beside receding base edge, \"3 in\" vertically for body height (not raised flaps). All three dimensions must be present exactly, independently readable even if numbers repeat. Do not swap dimensions or change decimals. No floating UI pills, remote rails, headings, logos, promotional copy, props, contents, extra boxes or scale claims. Dimensions are source-listed annotation, not permission to change the box geometry. Photorealistic catalogue photo, not an illustration.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-5b0b00e5-c2f0-4d30-a7c7-fc271cc43c55.png"
+    }
+  ]
+}

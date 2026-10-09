@@ -11,7 +11,9 @@ export function formatMoney(amount) {
 export function orderMessage(items, customer, subtotal) {
   return [
     'Hi EcommerceWale! I would like a quote for this order:', '',
-    ...items.map((item, index) => `${index + 1}. ${item.name}\nSize: ${item.sizeLabel || item.selectedSize || 'Standard'} | Quantity: ${item.quantity}\nCatalogue unit price: ${formatMoney(item.pricePerUnit)} | Line estimate: ${formatMoney(item.pricePerUnit * item.quantity)}`),
+    ...items.map((item, index) => item.pricingMode==='variant'
+      ? `${index+1}. ${item.name}\nVariant: ${item.sizeLabel}\nVariant ID: ${item.variantId}${item.sku ? ` | SKU: ${item.sku}` : ''}\nQuantity: ${item.quantity} selected packs/items (not individual pieces)${item.packConfirmationRequired?'\nBag count: not confirmed — please verify this saved selection':item.packQuantity?`\nBags per pack: ${item.packQuantity} | Total bags: ${item.packQuantity*item.quantity}`:''}\n${item.priceBasis==='supplier-reference'?'Supplier reference':'Catalogue estimate'} per selected pack/item: ${formatMoney(item.pricePerUnit)} | Line estimate: ${formatMoney(item.pricePerUnit*item.quantity)}`
+      : `${index + 1}. ${item.name}\nSize: ${item.sizeLabel || item.selectedSize || 'Standard'} | Quantity: ${item.quantity}\nCatalogue unit price: ${formatMoney(item.pricePerUnit)} | Line estimate: ${formatMoney(item.pricePerUnit * item.quantity)}`),
     '', `Catalogue subtotal: ${formatMoney(subtotal)} (before GST and delivery)`, '',
     `Name: ${customer.name.trim()}`,
     customer.company?.trim() && `Business: ${customer.company.trim()}`,

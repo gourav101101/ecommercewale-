@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { Package, Mail, Lock, ArrowLeft, LogIn, Eye, EyeOff } from 'lucide-react';
+import Image from 'next/image';
+import { Mail, Lock, ArrowLeft, LogIn, Eye, EyeOff } from 'lucide-react';
 import { useAdminAuth } from '@/context/AdminAuthContext';
 import { useToast } from '@/context/ToastContext';
 import styles from './page.module.css';
@@ -52,7 +53,7 @@ export default function AdminLogin() {
       <div className={styles.loginBox}>
         <div className={styles.loginHeader}>
           <div className={styles.logoIcon}>
-            <Package size={28} />
+            <Image src="/images/brand/logo-circle.webp" alt="EcommerceWale" width={56} height={56} style={{ borderRadius: '50%' }} />
           </div>
           <h1>Admin Portal</h1>
           <p>Sign in to manage your store</p>

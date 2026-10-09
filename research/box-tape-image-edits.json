@@ -1,0 +1,135 @@
+{
+  "date": "2026-10-09",
+  "tool": "built-in image_gen reference edits",
+  "review": "Visually compared for product construction, count, colour family and visible designs; not pixel-identical or physically SKU-certified. Background/captions edited; no sizes, pack quantities or prices changed.",
+  "images": [
+    {
+      "imageId": "51132411478314",
+      "key": "box-tape-51132411478314",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsAppImage2025-12-15at8.30.33PM.jpg?v=1765810912",
+      "slug": "corrugated-packaging-boxes",
+      "prompt": "Use case: precise-object-edit. Asset type: square ecommerce catalogue photograph. Image 1 is the EDIT TARGET actual supplier photo of an open brown corrugated shipping box. Replace only the dark wood background with a very pale warm off-white seamless studio surface and soft contact shadow. Preserve the exact single box, brown kraft colour, texture, corrugated edges, proportions, flaps, creases, open state, orientation and camera angle. Fit entire product with comfortable margins. No contents, props, text, labels, logos or redesign. Photorealistic supplier-reference background edit, not a different product. Accuracy above styling.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-f8fc4d38-4032-4b48-a6a2-bf4416fba7fa.png"
+    },
+    {
+      "imageId": "53028036018474",
+      "key": "box-tape-53028036018474",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2026-05-08_at_6.59.30_PM.jpg?v=1778247106",
+      "slug": "white-flap-boxes-corrugated-packaging-boxes-in-3-ply-virgin-kraft",
+      "prompt": "Use case: precise-object-edit. Asset type: square EcommerceWale catalogue photo. Image 1: actual supplier photo EDIT TARGET. Subject: single closed white flap mailer box; retain semicircular thumb notch, brown corrugated edges, interlocking side seams and exact 6x4x2 proportions. Remove only external dimension arrows and captions from the background, not box parts.. Change only surroundings and framing to a consistent very pale warm off-white seamless studio background, soft contact shadows, comfortable margins and balanced lighting. Preserve existing product geometry, count, texture, colour family, construction, layer thickness and camera angle. Do not invent a new SKU, change dimensions, add contents, props, text or logos. Product accuracy takes priority over polish.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-7d1ea205-29ff-42ff-ba93-c0346267fdd7.png"
+    },
+    {
+      "imageId": "51698465407274",
+      "key": "box-tape-51698465407274",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsAppImage2026-01-24at6.35.43PM_1.jpg?v=1769501645",
+      "slug": "jewellery-packaging-flap-boxes-4x4-x1-5-inches",
+      "prompt": "Use case: precise-object-edit. Asset type: square EcommerceWale catalogue photo. Image 1: actual supplier photo EDIT TARGET. Subject: single OPEN brown flap mailer box; retain its hinged lid, side locking tabs, folded walls and kraft texture. Remove background twine, scissors, plants and wrapping paper; no additional props.. Change only surroundings and framing to a consistent very pale warm off-white seamless studio background, soft contact shadows, comfortable margins and balanced lighting. Preserve existing product geometry, count, texture, colour family, construction, layer thickness and camera angle. Do not invent a new SKU, change dimensions, add contents, props, text or logos. Product accuracy takes priority over polish.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-7b1f1cec-f446-408e-8c55-4f924783625d.png"
+    },
+    {
+      "imageId": "51132806201642",
+      "key": "box-tape-51132806201642",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-15_at_9.26.07_PM_1.jpg?v=1765814549",
+      "slug": "transparent-tape-use-for-packaging",
+      "prompt": "Use case: precise-object-edit. Asset type: square EcommerceWale catalogue photo. Image 1: actual supplier photo EDIT TARGET. Subject: exact THREE transparent packing tape rolls with cream translucent wound edges, white cores, same orientation and width; remove external bottom caption only.. Change only surroundings and framing to a consistent very pale warm off-white seamless studio background, soft contact shadows, comfortable margins and balanced lighting. Preserve existing product geometry, count, texture, colour family, construction, layer thickness and camera angle. Do not invent a new SKU, change dimensions, add contents, props, text or logos. Product accuracy takes priority over polish.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-7e1fcb33-698e-4933-9e31-e00270f3fd8c.png"
+    },
+    {
+      "imageId": "51143049675050",
+      "key": "box-tape-51143049675050",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-16_at_12.38.34_PM_2.jpg?v=1765869214",
+      "slug": "brown-tape-use-for-packaging",
+      "prompt": "Use case: precise-object-edit. Asset type: square EcommerceWale catalogue photo. Image 1: actual supplier photo EDIT TARGET. Subject: exact THREE brown packing tape rolls, two upright and one flat, white cores, same kraft-brown tape colour and width. Change only surroundings and framing to a consistent very pale warm off-white seamless studio background, soft contact shadows, comfortable margins and balanced lighting. Preserve existing product geometry, count, texture, colour family, construction, layer thickness and camera angle. Do not invent a new SKU, change dimensions, add contents, props, text or logos. Product accuracy takes priority over polish.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-56f8bc6f-ba76-4cbe-ac82-f2a8cff4b850.png"
+    },
+    {
+      "imageId": "53876252442922",
+      "key": "box-tape-53876252442922",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsAppImage2026-06-20at12.04.43PM.jpg?v=1781937366",
+      "slug": "fragile-tape-2-inch-130-mtr",
+      "prompt": "Use case: precise-object-edit. Asset type: square EcommerceWale product catalogue photo. Input Image 1: actual supplier photo EDIT TARGET. Subject: FRAGILE tape: retain the FOUR existing white tape rolls and their exact red FRAGILE / HANDLE WITH CARE printing, inner WONDER 555 core print. Remove advertising headers, icon row, bottom promotional banners and quality badge. Remove the background cardboard carton, which is a styling prop; do not add rolls.. Improve ONLY background and framing to very pale warm off-white seamless studio surface and soft natural contact shadows, fit entire product with comfortable margins. Preserve actual product silhouette, roll count, width/proportions, surface colours, translucent/opaque material, layers, core, logos, printed words, icons and artwork. Edit surroundings only, keep product pixels as closely as possible; no redraw, no redesigned text, no new features, props or marketing claims. Accuracy above styling.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-6f78f16d-20de-4c97-9580-f826bb08703b.png"
+    },
+    {
+      "imageId": "51143324336426",
+      "key": "box-tape-51143324336426",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-16_at_1.13.32_PM_1.jpg?v=1765871121",
+      "slug": "myntra-tape-use-for-packaging",
+      "prompt": "Use case: precise-object-edit. Asset type: square EcommerceWale product catalogue photo. Input Image 1: actual supplier photo EDIT TARGET. Subject: Myntra transparent printed tape roll standing on its existing demonstration carton with its applied strip. Retain black Myntra lettering, M symbols, print placement and transparent tape. Preserve the carton and strip; carton is only a demonstration prop.. Improve ONLY background and framing to very pale warm off-white seamless studio surface and soft natural contact shadows, fit entire product with comfortable margins. Preserve actual product silhouette, roll count, width/proportions, surface colours, translucent/opaque material, layers, core, logos, printed words, icons and artwork. Edit surroundings only, keep product pixels as closely as possible; no redraw, no redesigned text, no new features, props or marketing claims. Accuracy above styling.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-55c71048-7c07-4d80-a579-905974e56dc5.png"
+    },
+    {
+      "imageId": "51143431946538",
+      "key": "box-tape-51143431946538",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsAppImage2025-12-16at1.24.07PM.jpg?v=1765871696",
+      "slug": "meesho-tape",
+      "prompt": "Use case: precise-object-edit. Asset type: square EcommerceWale product catalogue photo. Input Image 1: actual supplier photo EDIT TARGET. Subject: single red Meesho tape roll. Keep exact white lowercase meesho lettering, red colour, roll width, orientation and printed core. Remove only external bottom size caption.. Improve ONLY background and framing to very pale warm off-white seamless studio surface and soft natural contact shadows, fit entire product with comfortable margins. Preserve actual product silhouette, roll count, width/proportions, surface colours, translucent/opaque material, layers, core, logos, printed words, icons and artwork. Edit surroundings only, keep product pixels as closely as possible; no redraw, no redesigned text, no new features, props or marketing claims. Accuracy above styling.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-cc417645-4a79-4e0a-ad49-bba5cc835ad3.png"
+    },
+    {
+      "imageId": "51143184548138",
+      "key": "box-tape-51143184548138",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-16_at_1.09.10_PM.jpg?v=1765870818",
+      "slug": "flipkart-tape-use-for-packaging",
+      "prompt": "Use case: precise-object-edit. Asset type: square EcommerceWale product catalogue photo. Input Image 1: actual supplier photo EDIT TARGET. Subject: Flipkart tape roll and existing demonstration carton with applied strip. Retain blue colour, Flipkart letters, bag symbols and stripes in their exact positions. Remove only external bottom size caption. Do not change carton or roll.. Improve ONLY background and framing to very pale warm off-white seamless studio surface and soft natural contact shadows, fit entire product with comfortable margins. Preserve actual product silhouette, roll count, width/proportions, surface colours, translucent/opaque material, layers, core, logos, printed words, icons and artwork. Edit surroundings only, keep product pixels as closely as possible; no redraw, no redesigned text, no new features, props or marketing claims. Accuracy above styling.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-38732fe7-2073-4081-945f-69b7632c9c21.png"
+    },
+    {
+      "imageId": "51143475167530",
+      "key": "box-tape-51143475167530",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsAppImage2025-12-16at1.39.03PM.jpg?v=1765872614",
+      "slug": "amazon-transparent-tape-use-for-packaging",
+      "prompt": "Use case: precise-object-edit. Asset type: square EcommerceWale product catalogue photo. Input Image 1: actual supplier photo EDIT TARGET. Subject: Amazon transparent printed tape roll on existing demonstration carton and attached clear strip. Preserve exact printing including source spelling Purchasd on, amazon.in, smile arrow and India\\'s largest online store. Do not correct spelling or invent logos. Keep roll black/clear printed stripes, carton and clear strip.. Improve ONLY background and framing to very pale warm off-white seamless studio surface and soft natural contact shadows, fit entire product with comfortable margins. Preserve actual product silhouette, roll count, width/proportions, surface colours, translucent/opaque material, layers, core, logos, printed words, icons and artwork. Edit surroundings only, keep product pixels as closely as possible; no redraw, no redesigned text, no new features, props or marketing claims. Accuracy above styling.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-27b93968-1bd0-4324-9c31-92be902027b6.png"
+    },
+    {
+      "imageId": "51143444496682",
+      "key": "box-tape-51143444496682",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsAppImage2025-12-16at1.31.35PM.jpg?v=1765872121",
+      "slug": "amazon-prime-tape-use-for-packaging",
+      "prompt": "Use case: precise-object-edit. Asset type: square EcommerceWale product catalogue photo. Input Image 1: actual supplier photo EDIT TARGET. Subject: single black Amazon Prime tape roll with exact gold and blue printing, stopwatch and video icons. Preserve Fast delivery / on millions of items and exclusive & early / access to deals verbatim, same layout and typography, and green PACKMAX core. No substitute plain transparent tape.. Improve ONLY background and framing to very pale warm off-white seamless studio surface and soft natural contact shadows, fit entire product with comfortable margins. Preserve actual product silhouette, roll count, width/proportions, surface colours, translucent/opaque material, layers, core, logos, printed words, icons and artwork. Edit surroundings only, keep product pixels as closely as possible; no redraw, no redesigned text, no new features, props or marketing claims. Accuracy above styling.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-30a2a97a-73c2-47df-9e8a-c25204ef2e7a.png"
+    },
+    {
+      "imageId": "51132806889770",
+      "key": "box-tape-51132806889770",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-15_at_9.26.10_PM.jpg?v=1765814583",
+      "slug": "transparent-tape-use-for-packaging",
+      "prompt": "Use case: precise-object-edit. Asset type: square EcommerceWale catalogue photo. Image 1: actual supplier photo EDIT TARGET showing THREE transparent 2-inch tape rolls with blue-striped white cores. Change ONLY background and external caption: remove bottom size caption from surroundings, use very pale warm off-white seamless studio surface and gentle contact shadows with comfortable margins. Keep exact product count, orientation, width proportions, core, wound layers, colours, transparency and markings. Do not change tape width, shape, quantity or product design. No new props, printing, measurements, logos or claims. Photorealistic reference edit; product accuracy above styling.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-7dc10d3d-e543-4df3-a3fb-2ed722953564.png"
+    },
+    {
+      "imageId": "51132808462634",
+      "key": "box-tape-51132808462634",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-15_at_9.26.09_PM.jpg?v=1765814611",
+      "slug": "transparent-tape-use-for-packaging",
+      "prompt": "Use case: precise-object-edit. Asset type: square EcommerceWale catalogue photo. Image 1: actual supplier photo EDIT TARGET showing THREE transparent 1.5-inch tape rolls with blue-striped white cores. Change ONLY background and external caption: remove bottom size caption from surroundings, use very pale warm off-white seamless studio surface and gentle contact shadows with comfortable margins. Keep exact product count, orientation, width proportions, core, wound layers, colours, transparency and markings. Do not change tape width, shape, quantity or product design. No new props, printing, measurements, logos or claims. Photorealistic reference edit; product accuracy above styling.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-05052171-4742-4bab-a3e5-56a2527f1077.png"
+    },
+    {
+      "imageId": "51132810264874",
+      "key": "box-tape-51132810264874",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-15_at_9.26.09_PM_1.jpg?v=1765814642",
+      "slug": "transparent-tape-use-for-packaging",
+      "prompt": "Use case: precise-object-edit. Asset type: square EcommerceWale catalogue photo. Image 1: actual supplier photo EDIT TARGET showing THREE transparent 1-inch tape rolls with blue-striped white cores. Change ONLY background and external caption: remove bottom size caption from surroundings, use very pale warm off-white seamless studio surface and gentle contact shadows with comfortable margins. Keep exact product count, orientation, width proportions, core, wound layers, colours, transparency and markings. Do not change tape width, shape, quantity or product design. No new props, printing, measurements, logos or claims. Photorealistic reference edit; product accuracy above styling.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-e0071a1c-a1ab-4644-a894-84c050d33b57.png"
+    },
+    {
+      "imageId": "51143031652650",
+      "key": "box-tape-51143031652650",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-16_at_12.38.34_PM_1.jpg?v=1765869214",
+      "slug": "brown-tape-use-for-packaging",
+      "prompt": "Use case: precise-object-edit. Asset type: square EcommerceWale catalogue photo. Image 1: actual supplier photo EDIT TARGET showing ONE brown 3-inch wide tape roll with white core. Change ONLY background and external caption: remove bottom size caption from surroundings, use very pale warm off-white seamless studio surface and gentle contact shadows with comfortable margins. Keep exact product count, orientation, width proportions, core, wound layers, colours, transparency and markings. Do not change tape width, shape, quantity or product design. No new props, printing, measurements, logos or claims. Photorealistic reference edit; product accuracy above styling.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-f9b285fa-dd9f-45b4-9c27-1e620a78ec5b.png"
+    },
+    {
+      "imageId": "51143034831146",
+      "key": "box-tape-51143034831146",
+      "sourceUrl": "https://cdn.shopify.com/s/files/1/0965/0018/7434/files/WhatsApp_Image_2025-12-16_at_12.38.35_PM.jpg?v=1765869214",
+      "slug": "brown-tape-use-for-packaging",
+      "prompt": "Use case: precise-object-edit. Asset type: square EcommerceWale catalogue photo. Image 1: actual supplier photo EDIT TARGET showing ONE brown 2-inch wide tape roll with white core. Change ONLY background and external caption: remove bottom size caption from surroundings, use very pale warm off-white seamless studio surface and gentle contact shadows with comfortable margins. Keep exact product count, orientation, width proportions, core, wound layers, colours, transparency and markings. Do not change tape width, shape, quantity or product design. No new props, printing, measurements, logos or claims. Photorealistic reference edit; product accuracy above styling.",
+      "generatedPath": "C:\\Users\\ADIN\\.codex\\generated_images\\01a11a19-2a62-7d82-9cee-83a48a09f029\\exec-94bdbd6c-115e-48fe-accc-de210c59da9a.png"
+    }
+  ]
+}

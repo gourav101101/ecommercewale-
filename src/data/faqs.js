@@ -6,7 +6,7 @@ export const faqData = [
     { q: 'What if WhatsApp does not open?', a: 'After preparing your enquiry, use the Open WhatsApp link or Copy enquiry button. You can send the copied list to +91 98277 87080. The enquiry page also lets you view the complete message.' },
   ] },
   { category: 'Pricing & bulk orders', questions: [
-    { q: 'How does volume pricing work?', a: 'Each product page lists quantity tiers. Select your quantity to see the corresponding unit price. Your order list updates pricing automatically as quantities change. Our team confirms the final quote.' },
+    { q: 'How does size and pack pricing work?', a: 'Supplier products have exact size, design and pack combinations. Changing a size or pack selects that variant’s own price. The quantity field counts complete selected packs/items, not loose pieces. Supplier-listed prices are reference estimates until our team confirms your final quote. Custom products may use separate quantity tiers.' },
     { q: 'Do displayed prices include GST and delivery?', a: 'Catalogue prices and subtotals are estimates before GST and delivery. The final quote confirms applicable taxes, shipping charges and availability for your order.' },
     { q: 'Can I request a larger or recurring order?', a: 'Yes. Share the products, quantities and your delivery pincode on WhatsApp. Our team can prepare a quote for your requirements.' },
     { q: 'How do I request a GST invoice?', a: 'Mention that you need a business GST invoice in your enquiry notes. Our team will ask for your business and GST details when finalising the order.' },

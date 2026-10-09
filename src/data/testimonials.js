@@ -92,7 +92,7 @@ export const usps = [
   {
     icon: 'Headphones',
     title: 'Dedicated Support',
-    description: 'WhatsApp, call, and email support. Packaging experts to help you choose the right products.',
+    description: 'WhatsApp and phone support. Packaging experts to help you choose the right products.',
   },
   {
     icon: 'RotateCcw',

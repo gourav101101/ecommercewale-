@@ -35,7 +35,9 @@ export default function AdminDashboard() {
     const fetchDashboard = async () => {
       try {
         const res = await fetch('/api/dashboard');
+        if (!res.ok) throw new Error('Dashboard unavailable');
         const json = await res.json();
+        if (!Array.isArray(json.stats) || !Array.isArray(json.recentOrders) || !Array.isArray(json.topProducts)) throw new Error('Invalid dashboard response');
         setData(json);
       } catch (error) {
         console.error('Failed to load dashboard:', error);
@@ -51,13 +53,14 @@ export default function AdminDashboard() {
   }
 
   if (!data) {
-    return <div style={{ padding: '2rem' }}>Failed to load dashboard.</div>;
+    return <div className="adminNotice" role="alert">Dashboard unavailable. Check the MongoDB connection and try again. <button onClick={() => location.reload()}>Retry</button><p>Supplier review is available independently of the store database.</p><Link href="/admin/suppliers">Open supplier review</Link></div>;
   }
 
   const { stats, recentOrders, topProducts } = data;
 
   return (
     <div>
+      <div className="adminNotice">These figures reflect recorded database orders. WhatsApp enquiries are not automatically saved as orders, and delivered order value is not a payment-received report.</div>
       {/* Stats Grid */}
       <div className="statsGrid">
         {stats.map((stat, i) => {
