@@ -10,7 +10,9 @@ export async function POST(request) {
   if (!adminConfigured()) return NextResponse.json({ error: 'Admin access is not configured. Set the server environment variables.' }, { status: 503 });
   try {
     const { email, password } = await request.json();
-    if (!equalSecret(email, process.env.ADMIN_EMAIL) || !equalSecret(password, process.env.ADMIN_PASSWORD)) {
+    const loginId = typeof email === 'string' ? email.trim().toLowerCase() : email;
+    const configuredId = process.env.ADMIN_EMAIL.trim().toLowerCase();
+    if (!equalSecret(loginId, configuredId) || !equalSecret(password, process.env.ADMIN_PASSWORD)) {
       return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 });
     }
     const response = NextResponse.json({ authenticated: true });

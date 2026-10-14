@@ -24,6 +24,7 @@ const sidebarLinks = [
   { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/admin/products', label: 'Products', icon: Package },
   { href: '/admin/suppliers', label: 'Supplier catalogue', icon: Package },
+  { href: '/admin/price-book', label: 'Purchase costs & pricing', icon: Package },
   { href: '/admin/orders', label: 'Orders', icon: ShoppingBag },
   { href: '/admin/customers', label: 'Customers', icon: Users },
   { href: '/admin/inquiries', label: 'Inquiries', icon: Mail },
@@ -33,6 +34,7 @@ const pageTitles = {
   '/admin': { title: 'Dashboard', subtitle: 'Welcome back! Here\'s your store overview.' },
   '/admin/products': { title: 'Products', subtitle: 'Manage your product catalog.' },
   '/admin/suppliers': { title: 'Supplier catalogue', subtitle: 'Manage exact size/pack prices and availability for the connected catalogue.' },
+  '/admin/price-book': { title: 'Purchase costs & pricing', subtitle: 'Ecosoft PDF costs, landed-cost planning and selling margins.' },
   '/admin/orders': { title: 'Orders', subtitle: 'Track and manage customer orders.' },
   '/admin/customers': { title: 'Customers', subtitle: 'View and manage your customer base.' },
   '/admin/inquiries': { title: 'Inquiries', subtitle: 'Read messages from the contact form.' },
@@ -84,7 +86,7 @@ function AdminShell({ children }) {
       <aside className={`adminSidebar ${sidebarOpen ? 'open' : ''}`}>
         <div className="sidebarHeader">
           <div className="sidebarLogoIcon">
-            <Image src="/images/brand/logo-circle.webp" alt="EcommerceWale" width={40} height={40} style={{ borderRadius: '50%' }} />
+            <Image src="/images/brand/logo-circle.webp" alt="EcommerceWale" width={40} height={40} loading="eager" style={{ borderRadius: '50%' }} />
           </div>
           <div>
             <div className="sidebarBrand">EcommerceWale</div>

@@ -6,6 +6,7 @@ import { Search, Download, Mail, Filter } from 'lucide-react';
 export default function AdminCustomers() {
   const [customers, setCustomers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const [filterStatus, setFilterStatus] = useState('all');
 
@@ -14,9 +15,12 @@ export default function AdminCustomers() {
       try {
         const res = await fetch('/api/customers');
         const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Unable to load customers.');
+        if (!Array.isArray(data)) throw new Error('Invalid customers response.');
+        setLoadError('');
         setCustomers(data);
       } catch (error) {
-        console.error('Failed to fetch customers:', error);
+        setLoadError(error.message || 'Unable to load records.');
       } finally {
         setLoading(false);
       }
@@ -30,6 +34,8 @@ export default function AdminCustomers() {
     customer.phone.includes(searchQuery)) &&
     (filterStatus === 'all' || customer.status === filterStatus)
   );
+
+  if (!loading && loadError) return <div className="adminNotice" role="alert"><p>{loadError}</p><button type="button" onClick={() => location.reload()}>Retry</button><p>No records are shown while this service is unavailable.</p></div>;
 
   return (
     <div className="adminPanel">

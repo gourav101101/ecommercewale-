@@ -30,17 +30,22 @@ const iconColors = [
 export default function AdminDashboard() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState('');
 
   useEffect(() => {
     const fetchDashboard = async () => {
       try {
-        const res = await fetch('/api/dashboard');
-        if (!res.ok) throw new Error('Dashboard unavailable');
+        const res = await fetch('/api/dashboard', { cache: 'no-store' });
         const json = await res.json();
+        if (!res.ok) throw new Error(json.error || 'Dashboard unavailable');
+        if (json.requiresSetup) {
+          setLoadError(json.message);
+          return;
+        }
         if (!Array.isArray(json.stats) || !Array.isArray(json.recentOrders) || !Array.isArray(json.topProducts)) throw new Error('Invalid dashboard response');
         setData(json);
       } catch (error) {
-        console.error('Failed to load dashboard:', error);
+        setLoadError(error.message || 'Unable to load dashboard.');
       } finally {
         setLoading(false);
       }
@@ -53,7 +58,7 @@ export default function AdminDashboard() {
   }
 
   if (!data) {
-    return <div className="adminNotice" role="alert">Dashboard unavailable. Check the MongoDB connection and try again. <button onClick={() => location.reload()}>Retry</button><p>Supplier review is available independently of the store database.</p><Link href="/admin/suppliers">Open supplier review</Link></div>;
+    return <div className="adminNotice" role="alert"><h2>Dashboard setup</h2><p>{loadError || 'Dashboard unavailable. Check the MongoDB connection.'}</p><button type="button" onClick={() => location.reload()}>Retry</button><p>Supplier catalogue review is available without a database. Saving prices, stock and pack confirmations requires MongoDB. WhatsApp enquiries are not automatically recorded as orders.</p><Link href="/admin/suppliers">Open supplier review</Link></div>;
   }
 
   const { stats, recentOrders, topProducts } = data;

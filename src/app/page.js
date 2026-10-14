@@ -6,14 +6,16 @@ import { getShopProducts } from '@/lib/products';
 import { whatsappUrl } from '@/lib/whatsapp';
 import ProductCard from '@/components/shop/ProductCard/ProductCard';
 import styles from './page.module.css';
+import CatalogueNotice from '@/components/shop/CatalogueNotice';
 
 export const revalidate = 300;
 
 export default async function Home() {
   const products = await getShopProducts();
-  const available = products.filter(product => product.inStock !== false);
+  const available = products.filter(product => product.inStock !== false || product.catalogueUnavailable);
   const featured = [...available].sort((a, b) => Number(!!b.bestSeller) - Number(!!a.bestSeller)).slice(0, 8);
   return <div className={styles.home}>
+    {products.some(product=>product.catalogueUnavailable)&&<CatalogueNotice/>}
     <section className={styles.hero}>
       <div className={styles.heroCopy}><p>THOUGHTFUL PACKAGING. EVERY DAY.</p><h1>Good products.<br />Beautifully packed.</h1><span>Boxes, bags and finishing touches.<br />For every order that has your name on it.</span><Link href="/shop">Discover the collection <ArrowRight size={21} /></Link></div>
       <div className={styles.heroImage}><Image src="/images/packaging-campaign.webp" alt="Kraft boxes, mailers, labels and packing tape arranged in a warm studio" width={1536} height={1024} sizes="(max-width: 700px) 100vw, 57.5vw" priority /></div>

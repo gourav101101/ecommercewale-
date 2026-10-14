@@ -53,7 +53,7 @@ export default function AdminLogin() {
       <div className={styles.loginBox}>
         <div className={styles.loginHeader}>
           <div className={styles.logoIcon}>
-            <Image src="/images/brand/logo-circle.webp" alt="EcommerceWale" width={56} height={56} style={{ borderRadius: '50%' }} />
+            <Image src="/images/brand/logo-circle.webp" alt="EcommerceWale" width={56} height={56} loading="eager" style={{ borderRadius: '50%' }} />
           </div>
           <h1>Admin Portal</h1>
           <p>Sign in to manage your store</p>
@@ -68,7 +68,8 @@ export default function AdminLogin() {
                 type="email"
                 id="email"
                 className={styles.input}
-                placeholder="admin@ecommercewale.in"
+                placeholder="Your admin login ID"
+                autoComplete="username"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -83,6 +84,7 @@ export default function AdminLogin() {
               <input
                 type={isPasswordVisible ? 'text' : 'password'}
                 id="password"
+                autoComplete="current-password"
                 className={styles.input}
                 placeholder="••••••••"
                 value={password}

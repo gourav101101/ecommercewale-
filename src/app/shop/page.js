@@ -1,6 +1,7 @@
 import ShopClient from './ShopClient';
 import { getShopProducts } from '@/lib/products';
 import { permanentRedirect } from 'next/navigation';
+import CatalogueNotice from '@/components/shop/CatalogueNotice';
 
 export const metadata = {
   title: 'Shop Wholesale Packaging Supplies | EcommerceWale',
@@ -28,5 +29,5 @@ export default async function ShopPage({ searchParams }) {
     permanentRedirect(`/shop?${nextParams.toString()}`);
   }
   const products = await getShopProducts();
-  return <ShopClient initialProducts={products} />;
+  return <>{products.some(product=>product.catalogueUnavailable)&&<CatalogueNotice/>}<ShopClient initialProducts={products} /></>;
 }

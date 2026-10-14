@@ -6,14 +6,18 @@ import { Mail, Phone, Calendar, RefreshCcw } from 'lucide-react';
 export default function AdminInquiries() {
   const [inquiries, setInquiries] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState('');
 
   const fetchInquiries = async () => {
     try {
       const res = await fetch('/api/contact');
       const data = await res.json();
-      setInquiries(Array.isArray(data) ? data : []);
+      if (!res.ok) throw new Error(data.error || 'Unable to load inquiries.');
+      if (!Array.isArray(data)) throw new Error('Invalid inquiries response.');
+      setLoadError('');
+      setInquiries(data);
     } catch (error) {
-      console.error('Failed to load inquiries:', error);
+      setLoadError(error.message || 'Unable to load records.');
     } finally {
       setLoading(false);
     }
@@ -22,6 +26,8 @@ export default function AdminInquiries() {
   useEffect(() => {
     queueMicrotask(fetchInquiries);
   }, []);
+
+  if (!loading && loadError) return <div className="adminNotice" role="alert"><p>{loadError}</p><button type="button" onClick={() => location.reload()}>Retry</button><p>No records are shown while this service is unavailable.</p></div>;
 
   return (
     <div>

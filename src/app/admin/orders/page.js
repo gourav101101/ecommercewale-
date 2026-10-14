@@ -8,6 +8,7 @@ import Modal from '@/components/ui/Modal/Modal';
 export default function AdminOrders() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const [filterStatus, setFilterStatus] = useState('all');
   const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
@@ -18,9 +19,12 @@ export default function AdminOrders() {
       try {
         const res = await fetch('/api/orders');
         const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Unable to load orders.');
+        if (!Array.isArray(data)) throw new Error('Invalid orders response.');
+        setLoadError('');
         setOrders(data);
       } catch (error) {
-        console.error('Failed to fetch orders:', error);
+        setLoadError(error.message || 'Unable to load records.');
       } finally {
         setLoading(false);
       }
@@ -35,6 +39,8 @@ export default function AdminOrders() {
     const matchesStatus = filterStatus === 'all' || order.status === filterStatus;
     return matchesSearch && matchesStatus;
   });
+
+  if (!loading && loadError) return <div className="adminNotice" role="alert"><p>{loadError}</p><button type="button" onClick={() => location.reload()}>Retry</button><p>No records are shown while this service is unavailable.</p></div>;
 
   return (
     <div className="adminPanel">

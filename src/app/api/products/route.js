@@ -1,12 +1,15 @@
 import { NextResponse } from 'next/server';
 import { revalidateTag } from 'next/cache';
 import dbConnect from '@/lib/db';
+import { databaseSetupResponse } from '@/lib/database-response';
 import Product from '@/models/Product';
 import { productInput } from '@/lib/product-input';
 import { excludedFromStorefront } from '@/lib/storefront-policy';
 import { canonicalCategory, canonicalProductCategory } from '@/lib/product-category';
 
 export async function GET(request) {
+  const setup = databaseSetupResponse();
+  if (setup) return setup;
   try {
     await dbConnect();
     
@@ -40,6 +43,8 @@ export async function GET(request) {
 }
 
 export async function POST(request) {
+  const setup = databaseSetupResponse();
+  if (setup) return setup;
   let data;
   try { data = productInput(await request.json()); }
   catch (error) { return NextResponse.json({ error: error.message }, { status: 400 }); }
@@ -55,6 +60,8 @@ export async function POST(request) {
 }
 
 export async function PUT(request) {
+  const setup = databaseSetupResponse();
+  if (setup) return setup;
   let data;
   try { data = productInput(await request.json()); }
   catch (error) { return NextResponse.json({ error: error.message }, { status: 400 }); }
@@ -80,6 +87,8 @@ export async function PUT(request) {
 }
 
 export async function DELETE(request) {
+  const setup = databaseSetupResponse();
+  if (setup) return setup;
   try {
     await dbConnect();
     const { searchParams } = new URL(request.url);

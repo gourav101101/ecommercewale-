@@ -5,6 +5,12 @@ import Order from '@/models/Order';
 import Customer from '@/models/Customer';
 
 export async function GET() {
+  if (!process.env.MONGODB_URI) {
+    return NextResponse.json({
+      requiresSetup: true,
+      message: 'Database not connected. Configure MONGODB_URI to load recorded orders, customers and dashboard totals.',
+    }, { headers: { 'Cache-Control': 'no-store' } });
+  }
   try {
     await dbConnect();
     

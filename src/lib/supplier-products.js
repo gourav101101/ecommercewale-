@@ -4,7 +4,7 @@ import { productContent } from './product-visuals.js';
 import { supplierVisual, supplierReferenceImage, supplierOriginalReferenceImage, approvedSupplierVisuals } from './supplier-visuals.js';
 import { validateCommercialSettings } from './supplier-commercial-settings.js';
 import { excludedFromStorefront } from './storefront-policy.js';
-import boxTapeGalleries from '../data/box-tape-galleries.json';
+import boxTapeGalleries from '../data/box-tape-galleries.json' with { type: 'json' };
 import { sourcePackDetails, positivePackQuantity, courierSizeLabel } from './courier-options.js';
 
 export function supplierCategory(title) {

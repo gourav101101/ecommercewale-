@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import ProductClient from './ProductClient';
 import { getProductDetails } from '@/lib/products';
+import CatalogueNotice from '@/components/shop/CatalogueNotice';
 
 const siteUrl = 'https://www.ecommercewale.in';
 
@@ -41,7 +42,7 @@ export default async function ProductPage({ params }) {
     image: product.gallery?.length ? product.gallery : product.image ? [product.image] : undefined,
     sku: product.id,
     brand: { '@type': 'Brand', name: 'EcommerceWale' },
-    ...(product.pricingMode==='variant' ? {} : {offers: {
+    ...(product.pricingMode==='variant' || product.catalogueUnavailable ? {} : {offers: {
       '@type': 'Offer',
       url: productUrl,
       priceCurrency: 'INR',
@@ -56,6 +57,7 @@ export default async function ProductPage({ params }) {
 
   return (
     <>
+      {product.catalogueUnavailable&&<CatalogueNotice/>}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }} />
       <ProductClient initialProduct={product} initialRelatedProducts={relatedProducts} />
     </>

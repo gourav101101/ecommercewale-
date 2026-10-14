@@ -13,6 +13,7 @@
 # testing
 /coverage
 /test-artifacts/
+/.tmp/
 /research/supplier-image-references/
 
 # next.js

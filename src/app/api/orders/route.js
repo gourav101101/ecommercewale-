@@ -1,8 +1,11 @@
 import { NextResponse } from 'next/server';
 import dbConnect from '@/lib/db';
+import { databaseSetupResponse } from '@/lib/database-response';
 import Order from '@/models/Order';
 
 export async function GET() {
+  const setup = databaseSetupResponse();
+  if (setup) return setup;
   try {
     await dbConnect();
     const orders = await Order.find({}).sort({ createdAt: -1 });
@@ -13,6 +16,8 @@ export async function GET() {
 }
 
 export async function POST(request) {
+  const setup = databaseSetupResponse();
+  if (setup) return setup;
   try {
     await dbConnect();
     const data = await request.json();

@@ -1,10 +1,10 @@
-import referenceImages from '../data/supplier-reference-images.json';
-import editedImages from '../data/supplier-edited-images.json';
-import labelImages from '../data/label-edited-images.json';
-import boxTapeImages from '../data/box-tape-edited-images.json';
-import boxVariantImages from '../data/box-variant-edited-images.json';
-import boxDimensionImages from '../data/box-dimension-edited-images.json';
-import corrugatedDimensionImages from '../data/corrugated-dimension-edited-images.json';
+import referenceImages from '../data/supplier-reference-images.json' with { type: 'json' };
+import editedImages from '../data/supplier-edited-images.json' with { type: 'json' };
+import labelImages from '../data/label-edited-images.json' with { type: 'json' };
+import boxTapeImages from '../data/box-tape-edited-images.json' with { type: 'json' };
+import boxVariantImages from '../data/box-variant-edited-images.json' with { type: 'json' };
+import boxDimensionImages from '../data/box-dimension-edited-images.json' with { type: 'json' };
+import corrugatedDimensionImages from '../data/corrugated-dimension-edited-images.json' with { type: 'json' };
 
 const variantDimensionImages=Object.freeze({...boxDimensionImages,...corrugatedDimensionImages});
 

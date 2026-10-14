@@ -26,7 +26,7 @@ export default function Navbar() {
   const openMenu = () => menuRef.current?.showModal();
   useEffect(() => { if (searchOpen) searchRef.current?.focus(); }, [searchOpen]);
   const search = (event) => { event.preventDefault(); if (query.trim()) { router.push(`/shop?search=${encodeURIComponent(query.trim())}`); setSearchOpen(false); setQuery(''); } };
-  const logo = <><Image className={styles.logoIcon} src="/images/brand/logo-circle.webp" alt="" width={38} height={38} /><div className={styles.logoText}><span>Ecommerce<span>Wale</span></span><small>PACKAGING THAT MEANS BUSINESS.</small></div></>;
+  const logo = <><Image className={styles.logoIcon} src="/images/brand/logo-circle.webp" alt="" width={38} height={38} loading="eager" /><div className={styles.logoText}><span>Ecommerce<span>Wale</span></span><small>PACKAGING THAT MEANS BUSINESS.</small></div></>;
   return <header className={styles.header}>
     <nav className={`container ${styles.nav}`} aria-label="Main navigation">
       <Link href="/" className={styles.logo} aria-label="EcommerceWale home">{logo}</Link>

@@ -55,12 +55,12 @@ export default function AdminProducts() {
     setLoadError('');
     try {
       const res = await fetch('/api/products?includeOutOfStock=true');
-      if (!res.ok) throw new Error('Failed to load catalogue');
       const data = await res.json();
-      setProducts(Array.isArray(data) ? data : []);
-    } catch {
-      setLoadError('Catalogue unavailable. Check the MongoDB connection before editing products.');
-      showToast('Failed to fetch products from database', 'error');
+      if (!res.ok) throw new Error(data.error || 'Failed to load catalogue');
+      if (!Array.isArray(data)) throw new Error('Invalid catalogue response');
+      setProducts(data);
+    } catch (error) {
+      setLoadError(error.message || 'Catalogue unavailable. Check the MongoDB connection before editing products.');
     } finally {
       setLoading(false);
     }
