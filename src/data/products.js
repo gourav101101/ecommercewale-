@@ -3,6 +3,11 @@ import { canonicalProductCategory } from '../lib/product-category.js';
 
 export const categories = [
   {
+    id: 'printers', name: 'Label Printers', slug: 'printers',
+    description: 'Label printers with model specifications and pricing on request',
+    icon: 'Printer', image: '/images/product-image-under-review.svg', color: '#2668A5',
+  },
+  {
     id: 'courier-bags',
     name: 'Courier Bags',
     slug: 'courier-bags',

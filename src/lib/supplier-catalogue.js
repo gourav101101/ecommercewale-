@@ -4,6 +4,7 @@ import SupplierVariantOverride from '@/models/SupplierVariantOverride';
 import { buildSupplierProducts } from '@/lib/supplier-products';
 import SupplierSnapshot from '@/models/SupplierSnapshot';
 import { fetchSupplierSnapshot, snapshotChanges } from '@/lib/supplier-feed';
+import { princeProducts } from '@/data/prince-products';
 
 export async function supplierSnapshot() {
   if (!process.env.MONGODB_URI) return snapshot;
@@ -34,5 +35,5 @@ export async function supplierProducts() {
     await dbConnect();
     overrides=await SupplierVariantOverride.find({}).lean();
   }
-  return buildSupplierProducts(await supplierSnapshot(),overrides);
+  return [...buildSupplierProducts(await supplierSnapshot(),overrides), ...princeProducts];
 }

@@ -10,6 +10,7 @@ import { canonicalProductCategory } from './product-category.js';
 import supplierReference from '../../research/ecosoft-full-catalogue.json';
 import { buildSupplierProducts } from './supplier-products.js';
 import { referenceOnlyProduct, withCatalogueFallback } from './catalogue-resilience.js';
+import { princeProducts } from '../data/prince-products.js';
 // Keep disposable review databases and different deployment environments from
 // sharing filesystem cache entries. Never put a connection secret in cache keys.
 const catalogueEnvironment = createHash('sha256').update(process.env.MONGODB_URI || 'local-snapshot').digest('hex').slice(0,16);
@@ -37,11 +38,11 @@ const cachedShopProducts = unstable_cache(
     const sourceSlugs = new Set(supplier.map(item => item.slug));
     return JSON.parse(JSON.stringify([...supplier, ...products.filter(item => !sourceSlugs.has(item.slug) && !excludedFromStorefront(item)).map(legacyVisual)]));
   },
-  ['shop-products-courier-packs-v19',catalogueEnvironment],
+  ['shop-products-prince-v20',catalogueEnvironment],
   { revalidate: 300, tags: ['products'] }
 );
 
-const referenceProducts = () => buildSupplierProducts(supplierReference).map(referenceOnlyProduct);
+const referenceProducts = () => [...buildSupplierProducts(supplierReference), ...princeProducts].map(referenceOnlyProduct);
 
 // Keep fallback responses outside the cache: they must not replace a successful
 // database read or remain cached after the database recovers.
@@ -75,7 +76,7 @@ export async function getProductDetails(slug) {
 
       return JSON.parse(JSON.stringify({ product:legacyVisual(product), relatedProducts:relatedProducts.filter(item=>!excludedFromStorefront(item)).map(legacyVisual).filter(item=>item.category===canonicalProductCategory(product).category) }));
     },
-    ['product-details-courier-packs-v19',catalogueEnvironment,slug],
+    ['product-details-prince-v20',catalogueEnvironment,slug],
     { revalidate: 300, tags: ['products'] }
   );
 
