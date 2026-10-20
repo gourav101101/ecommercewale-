@@ -2,8 +2,10 @@
 import { useState } from 'react';
 import styles from './page.module.css';
 import CommercialFields, { commercialFormValues } from './CommercialFields';
+import { useAdminConfirm } from '@/context/AdminConfirmContext';
 
 export default function VariantEditor({productId,variant,enabled}) {
+  const confirm = useAdminConfirm();
   const [price,setPrice]=useState(variant.sellingPrice??'');
   const [available,setAvailable]=useState(variant.storeAvailable);
   const [packQuantity,setPackQuantity]=useState(variant.confirmedPackQuantity??'');
@@ -12,7 +14,9 @@ export default function VariantEditor({productId,variant,enabled}) {
   const [saving,setSaving]=useState(false);
   const [status,setStatus]=useState('');
   async function save(event) {
-    event.preventDefault();if(saving)return;setSaving(true);setStatus('');
+    event.preventDefault();if(saving)return;
+    if (!await confirm({ title: 'Save variant changes?', message: `Save price, quote selection, pack quantity and commercial details for ${variant.title}?\nSelling price: ${price === '' ? 'Supplier reference' : 'INR ' + price}. Quote selection: ${available ? 'Allowed' : 'Disabled'}.`, confirmLabel: 'Save variant' })) return;
+    setSaving(true);setStatus('');
     try {
       const response=await fetch('/api/admin/supplier-catalogue',{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({productId,variantId:variant.id,sellingPrice:price===''?null:Number(price),available,commercial,...(variant.isCourierBag ? {packQuantity:packQuantity===''?null:Number(packQuantity)} : {})})});
       const data=await response.json();if(!response.ok)throw new Error(data.error||'Could not save.');

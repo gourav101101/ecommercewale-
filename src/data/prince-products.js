@@ -29,7 +29,7 @@ function product(slug, name, category, variants, description, features, pricingN
     supplierId: 'prince-enterprises', supplierName: 'Prince Enterprises, Indore',
     type: category === 'printers' ? 'Label printer' : 'Label rolls',
     description, features, pricingNote, pricingMode: 'variant',
-    options: [{ name: 'Size / roll', values: variants.map(item => item.title) }],
+    options: [{ name: category === 'printers' ? 'Model' : 'Size / roll', values: variants.map(item => item.title) }],
     variants, variantCount: variants.length, priceUnit: 'pack/item',
     basePrice: minimum, bulkPrice: minimum, inStock: variants.some(item => item.available),
     image, imageStatus: 'review-pending', gallery: [image],
@@ -55,4 +55,23 @@ export const princeProducts = [
     'DCode DC2M printer identified from the supplier carton. Ask our team to confirm the selling price, warranty and supported label sizes.',
     ['Model: DC2M', 'Carton size marking: 2 inch', 'Interface: USB only', 'Price and warranty confirmation pending'],
     'Price on request. The supplier messages do not clearly associate the quoted prices or warranty periods with a specific printer. Confirm compatibility before ordering; this 2-inch printer is not listed as a 4 × 6-inch shipping-label printer.'),
-];
+  product('prince-dcode-dc421d-printer', 'DCode DC421D Label Printer', 'printers',
+    [variant('dcode-dc421d', 'DC421D / Direct thermal', 0)],
+    'DCode DC421D direct thermal label printer, identified from the supplier packaging photograph.',
+    ['Model: DC421D', 'Printing method: Direct thermal', 'Packaging marked Made in India', 'Confirm supported label sizes, interface and warranty before ordering'],
+    'Price on request. Confirm the selling price, GST, warranty and supported label sizes with our team.'),
+].map(item => {
+  if (item.category !== 'printers') return item;
+  const dc2m = item.slug === 'prince-dcode-dc2m-printer';
+  const gallery = dc2m
+    ? ['/images/prince/dcode-dc2m-studio-v1.webp']
+    : ['/images/prince/dcode-dc421d-desktop-v2.webp'];
+  return { ...item, image: gallery[0], gallery, imageStatus: 'reference-edited',
+    imageScale: 1,
+    snapshotAt: '2026-10-16T00:00:00+05:30',
+    visualDisclosure: dc2m
+      ? 'AI-edited presentation based on the supplier printer photograph, with the hand, background and protective film removed and studio lighting added. Confirm physical appearance and supplied contents before ordering.'
+      : 'AI-generated presentation based on the supplier DC421D packaging illustration, with a wider desktop-style appearance. Proportions are illustrative, not verified physical dimensions or a photograph of an unboxed unit. Confirm physical appearance, dimensions and supplied contents before ordering.',
+    variants: item.variants.map(option => ({ ...option, image: gallery[0], imageStatus: 'reference-edited' })),
+  };
+});

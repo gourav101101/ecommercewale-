@@ -8,7 +8,7 @@ test('Prince roll quantities and reference prices retain the supplier units', ()
   const [shipping, barcode] = princeProducts;
   assert.deepEqual(shipping.variants.map(v => [v.price,v.labelsPerRoll,v.rollsPerBox]), [[155,400,40],[135,500,40]]);
   assert.equal(barcode.variants.length,26);
-  assert.equal(new Set(princeProducts.flatMap(p=>p.variants.map(v=>v.id))).size,29);
+  assert.equal(new Set(princeProducts.flatMap(p=>p.variants.map(v=>v.id))).size,30);
   const roll=barcode.variants.find(v=>v.id==='prince-barcode-38x25-2up');
   assert.equal(roll.price,122);
   assert.equal(roll.labelsPerRoll,4000);

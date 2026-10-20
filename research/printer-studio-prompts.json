@@ -1,0 +1,14 @@
+{
+  "tool": "built-in image_gen",
+  "createdAt": "2026-10-16",
+  "assets": [
+    {
+      "path": "public/images/prince/dcode-dc2m-studio-v1.webp",
+      "prompt": "Edit the supplied photo for a professional ecommerce product listing. Isolate the exact black and red DCode DC2M printer, remove the hand, shop background and loose protective film. Preserve the exact silhouette, viewing angle, red DCode logo, OPEN latch, two red circular buttons, POWER and STATUS markings, window and output slot. Do not invent ports or features. Center the entire printer on a warm off-white seamless studio surface with a subtle contact shadow, balanced soft lighting and crisp realistic material detail. Square image, generous 15 percent margins, product fills about 70 percent of canvas. No additional text, badges, props, labels or watermarks."
+    },
+    {
+      "path": "public/images/prince/dcode-dc421d-studio-v1.webp",
+      "prompt": "Use case: precise-object-edit / product catalogue presentation. Input: supplier photograph of DCode DC421D boxes. Create one professional square product image of ONLY the exact black-and-red DC421D printer depicted on the central box, using that printed illustration as the strict shape and design reference. Remove cartons, shelf and store entirely. Preserve illustrated three-quarter viewing angle, squat black rounded cuboid enclosure, top lid outline, small red DCode logo on top, single round red button on top, wide red front panel and small red side latch. Do not add screens, buttons, ports, paper, accessories, specifications or labels. Clean realistic product rendering, warm off-white seamless studio background, subtle grounded shadow, soft balanced studio lighting. Center whole printer with generous margins, about 70 percent canvas width. No promotional typography, watermark or props. This will be disclosed as an AI presentation derived from packaging artwork."
+    }
+  ]
+}

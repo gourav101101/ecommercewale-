@@ -3,6 +3,7 @@ import { useEffect,useState,useRef } from 'react';
 import Link from 'next/link';
 import { calculatePrice,initialPriceSettings } from '@/lib/price-book';
 import styles from './page.module.css';
+import { useAdminConfirm } from '@/context/AdminConfirmContext';
 
 const money=value=>value==null?'Not set':new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:2}).format(value);
 export default function PriceBook() {
@@ -33,6 +34,7 @@ export default function PriceBook() {
   </div>;
 }
 function CostEditor({item,record,enabled,onClose,onSaved}) {
+  const confirm = useAdminConfirm();
   const dialog=useRef(null);
   const [form,setForm]=useState(()=>record?.settings??initialPriceSettings(item));
   const [revision,setRevision]=useState(record?.revision??0),[dirty,setDirty]=useState(!record),[busy,setBusy]=useState(false),[status,setStatus]=useState('');
@@ -61,16 +63,25 @@ function CostEditor({item,record,enabled,onClose,onSaved}) {
   try {quote=calculatePrice(item,form);}catch(error){calculationError=error.message;}
   const number=(key,label,{max=10000000,step='0.01',min=0,help}={})=><label>{label}<input name={key} type="number" min={min} max={max} step={step} value={form[key]??''} onChange={e=>change(key,e.target.value===''?null:Number(e.target.value))}/>{help&&<small>{help}</small>}</label>;
   async function save(event){
-    event.preventDefault();if(busy)return;setBusy(true);setStatus('');
+    event.preventDefault();if(busy)return;
+    if (!await confirm({ title: 'Save private costing?', message: `Save the purchase costs, margin and commercial settings for ${item.name}? The website price changes only when you apply the saved estimate.`, confirmLabel: 'Save costing' })) return;
+    setBusy(true);setStatus('');
     try {const response=await fetch('/api/admin/price-book',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({itemId:item.id,revision,settings:form})});const result=await response.json();if(!response.ok)throw new Error(result.error);setForm(result.record.settings);setRevision(result.record.revision);onSaved(result.record);setDirty(false);setStatus('Costing saved. Website price has not changed.');}catch(error){setStatus(error.message);}finally{setBusy(false);}
   }
   async function apply(){
-    if(busy || dirty)return;setBusy(true);setStatus('');
+    if(busy || dirty)return;
+    if (!await confirm({ title: 'Apply price to website?', message: `Apply the saved ${quote ? money(quote.packSubtotal) : ''} pack estimate for ${item.name} to its matched website variant? This updates the customer-facing quote price.`, confirmLabel: 'Apply website price' })) return;
+    setBusy(true);setStatus('');
     try {const response=await fetch('/api/admin/price-book',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({itemId:item.id,revision})});const result=await response.json();if(!response.ok)throw new Error(result.error);setStatus(result.message);}catch(error){setStatus(error.message);}finally{setBusy(false);}
   }
+  async function closeEditor() {
+    if (busy) return;
+    if (dirty && !await confirm({ title: 'Discard unsaved costing?', message: `Discard your unsaved changes for ${item.name}?`, confirmLabel: 'Discard changes', cancelLabel: 'Keep editing', destructive: true })) return;
+    onClose();
+  }
   const product=targets.find(p=>String(p.id)===form.productId);
-  return <div className={styles.overlay}><section ref={dialog} className={styles.drawer} role="dialog" aria-modal="true" aria-labelledby="cost-title" onKeyDown={e=>{if(e.key==='Escape'&&!busy&&(!dirty||window.confirm('Discard unsaved costing changes?')))onClose();}}>
-    <header><div><h2 id="cost-title">{item.name}</h2><p>{item.size.replace('x',' × ')} inches · {item.option||item.code||'Standard'} · PDF p. {item.page}</p></div><button className="btn btn-outline" disabled={busy} onClick={()=>{if(!dirty || window.confirm('Discard unsaved costing changes?'))onClose();}}>Close</button></header>
+  return <div className={styles.overlay}><section ref={dialog} className={styles.drawer} role="dialog" aria-modal="true" aria-labelledby="cost-title" onKeyDown={e=>{if(e.key==='Escape'){e.preventDefault();void closeEditor();}}}>
+    <header><div><h2 id="cost-title">{item.name}</h2><p>{item.size.replace('x',' × ')} inches · {item.option||item.code||'Standard'} · PDF p. {item.page}</p></div><button className="btn btn-outline" disabled={busy} onClick={closeEditor}>Close</button></header>
     <div className={styles.drawerBody}>
       {item.flags.length>0&&<div className={styles.note}><strong>Supplier checks</strong><ul>{item.flags.map(flag=><li key={flag}>{flag}</li>)}</ul></div>}
       <form onSubmit={save}><fieldset disabled={busy} className={styles.fields}>

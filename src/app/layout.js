@@ -1,4 +1,6 @@
 import './globals.css';
+import { getActiveCategories } from '@/lib/categories';
+import { CategoriesProvider } from '@/context/CategoriesContext';
 import localFont from 'next/font/local';
 import { CartProvider } from '@/context/CartContext';
 import { ToastProvider } from '@/context/ToastContext';
@@ -7,6 +9,9 @@ import LayoutWrapper from '@/components/layout/LayoutWrapper/LayoutWrapper';
 import Toast from '@/components/ui/Toast/Toast';
 
 const manrope = localFont({ src: '../../public/fonts/manrope-variable.ttf', variable: '--font-manrope', display: 'swap', weight: '200 800' });
+
+// Category visibility is an admin setting and must be read at request time.
+export const dynamic = 'force-dynamic';
 
 export const metadata = {
   metadataBase: new URL('https://www.ecommercewale.in'),
@@ -36,11 +41,12 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const categories = await getActiveCategories();
   return (
     <html lang="en" className={manrope.variable} data-theme="light">
       <body>
-          <ToastProvider>
+          <CategoriesProvider categories={categories}><ToastProvider>
               <WishlistProvider>
                 <CartProvider>
                   <LayoutWrapper>
@@ -49,7 +55,7 @@ export default function RootLayout({ children }) {
                   <Toast />
                 </CartProvider>
               </WishlistProvider>
-          </ToastProvider>
+          </ToastProvider></CategoriesProvider>
       </body>
     </html>
   );

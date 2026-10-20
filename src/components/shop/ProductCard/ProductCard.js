@@ -42,7 +42,7 @@ export default function ProductCard({ product, priority = false }) {
   const sizeCount = product.sizes?.length || 1;
   const variantProduct = product.pricingMode==='variant';
   return <article className={styles.card}>
-    <div className={styles.imageWrap}>
+    <div className={styles.imageWrap} style={{ '--product-image-scale': product.imageScale || 1 }}>
       <Link href={`/product/${product.slug}`} aria-label={`View ${product.name}`}><Image src={product.image || '/images/category-boxes.jpg'} alt={product.name} fill priority={priority} sizes="(max-width: 600px) 92vw, (max-width: 1000px) 46vw, 24vw" className={styles.image} /></Link>
       {product.packConfirmationRequired ? <span className={styles.badge}>Pack count pending</span> : outOfStock ? <span className={styles.badge}>Out of stock</span> : product.bestSeller && <span className={styles.badge}>Bestseller</span>}
       <button type="button" className={styles.wishlist} aria-label={`${saved ? 'Remove' : 'Save'} ${product.name}`} aria-pressed={saved} onClick={() => { const added = toggleWishlist(product); showToast(added ? 'Saved to your wishlist' : 'Removed from wishlist', 'info'); }}><Heart size={19} fill={saved ? 'currentColor' : 'none'} /></button>

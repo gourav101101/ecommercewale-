@@ -4,13 +4,14 @@ import { useState, useMemo, Suspense, useDeferredValue, useTransition } from 're
 import { useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import { Search, SlidersHorizontal, X, Package, ArrowRight } from 'lucide-react';
-import { categories } from '@/data/products';
+import { useCategories } from '@/context/CategoriesContext';
 import { marketplaces } from '@/data/marketplace';
 import ProductCard from '@/components/shop/ProductCard/ProductCard';
 import { whatsappUrl } from '@/lib/whatsapp';
 import styles from './page.module.css';
 
 function Catalogue({ products, params }) {
+  const categories = useCategories();
   const router = useRouter();
   const [pending, startTransition] = useTransition();
   const [query, setQuery] = useState(params.get('search') || '');

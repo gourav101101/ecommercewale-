@@ -5,7 +5,7 @@
 .header button { width: 44px; height: 44px; display: grid; place-items: center; color: inherit; }
 .product { display: grid; grid-template-columns: 120px 1fr; gap: 22px; padding-block: 28px; align-items: center; }
 .image { position: relative; aspect-ratio: 1; overflow: hidden; background: var(--color-surface); }
-.image img { object-fit: contain; }
+.image img { object-fit: contain; transform: scale(var(--product-image-scale, 1)); }
 .product span { font-size: 13px; color: var(--color-text-secondary); }
 .product h2 { font-size: 23px; line-height: 1.25; letter-spacing: -.5px; margin-block: 8px 12px; font-weight: 600; }
 .product a { display: flex; align-items: center; gap: 8px; font-size: 14px; text-decoration: underline; text-underline-offset: 4px; }

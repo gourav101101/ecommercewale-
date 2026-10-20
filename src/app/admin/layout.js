@@ -18,11 +18,14 @@ import {
 import { AdminAuthProvider, useAdminAuth } from '@/context/AdminAuthContext';
 import { useToast } from '@/context/ToastContext';
 import Modal from '@/components/ui/Modal/Modal';
+import { AdminConfirmProvider } from '@/context/AdminConfirmContext';
 import './admin.css';
 
 const sidebarLinks = [
   { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/admin/products', label: 'Products', icon: Package },
+  { href: '/admin/categories', label: 'Categories', icon: Package },
+  { href: '/admin/product-visibility', label: 'Product visibility', icon: Package },
   { href: '/admin/suppliers', label: 'Supplier catalogue', icon: Package },
   { href: '/admin/price-book', label: 'Purchase costs & pricing', icon: Package },
   { href: '/admin/orders', label: 'Orders', icon: ShoppingBag },
@@ -31,6 +34,8 @@ const sidebarLinks = [
 ];
 
 const pageTitles = {
+  '/admin/product-visibility': { title: 'Product visibility', subtitle: 'Activate or deactivate individual products.' },
+  '/admin/categories': { title: 'Categories', subtitle: 'Activate or deactivate entire product categories.' },
   '/admin': { title: 'Dashboard', subtitle: 'Welcome back! Here\'s your store overview.' },
   '/admin/products': { title: 'Products', subtitle: 'Manage your product catalog.' },
   '/admin/suppliers': { title: 'Supplier catalogue', subtitle: 'Manage exact size/pack prices and availability for the connected catalogue.' },
@@ -41,7 +46,7 @@ const pageTitles = {
 };
 
 export default function AdminLayout({ children }) {
-  return <AdminAuthProvider><AdminShell>{children}</AdminShell></AdminAuthProvider>;
+  return <AdminAuthProvider><AdminConfirmProvider><AdminShell>{children}</AdminShell></AdminConfirmProvider></AdminAuthProvider>;
 }
 
 function AdminShell({ children }) {

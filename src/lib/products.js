@@ -10,6 +10,10 @@ import { canonicalProductCategory } from './product-category.js';
 import supplierReference from '../../research/ecosoft-full-catalogue.json';
 import { buildSupplierProducts } from './supplier-products.js';
 import { referenceOnlyProduct, withCatalogueFallback } from './catalogue-resilience.js';
+import { storefrontProductVisibility } from '@/lib/product-visibility';
+import { visibleProducts } from './product-visibility-policy';
+import { getActiveCategories } from '@/lib/categories';
+import { activeCategoryProducts } from './category-policy';
 import { princeProducts } from '../data/prince-products.js';
 // Keep disposable review databases and different deployment environments from
 // sharing filesystem cache entries. Never put a connection secret in cache keys.
@@ -38,7 +42,7 @@ const cachedShopProducts = unstable_cache(
     const sourceSlugs = new Set(supplier.map(item => item.slug));
     return JSON.parse(JSON.stringify([...supplier, ...products.filter(item => !sourceSlugs.has(item.slug) && !excludedFromStorefront(item)).map(legacyVisual)]));
   },
-  ['shop-products-prince-v20',catalogueEnvironment],
+  ['shop-products-printer-desktop-v27',catalogueEnvironment],
   { revalidate: 300, tags: ['products'] }
 );
 
@@ -46,11 +50,22 @@ const referenceProducts = () => [...buildSupplierProducts(supplierReference), ..
 
 // Keep fallback responses outside the cache: they must not replace a successful
 // database read or remain cached after the database recovers.
-export async function getShopProducts() {
+export async function getAllShopProducts() {
   return withCatalogueFallback(cachedShopProducts,()=>referenceProducts().map(cardProduct),{operation:'shop'});
 }
 
+export async function getShopProducts() {
+  const [products, categories, visibility] = await Promise.all([getAllShopProducts(), getActiveCategories(), storefrontProductVisibility()]);
+  return visibleProducts(activeCategoryProducts(products, categories), visibility);
+}
+
 export async function getProductDetails(slug) {
+  const [details, categories, visibility] = await Promise.all([getUnfilteredProductDetails(slug), getActiveCategories(), storefrontProductVisibility()]);
+  if (!details || !visibleProducts(activeCategoryProducts([details.product], categories), visibility).length) return null;
+  return { ...details, relatedProducts: visibleProducts(activeCategoryProducts(details.relatedProducts, categories), visibility) };
+}
+
+async function getUnfilteredProductDetails(slug) {
   if(excludedFromStorefront({slug})) return null;
   const getCachedProduct = unstable_cache(
     async () => {
@@ -76,7 +91,7 @@ export async function getProductDetails(slug) {
 
       return JSON.parse(JSON.stringify({ product:legacyVisual(product), relatedProducts:relatedProducts.filter(item=>!excludedFromStorefront(item)).map(legacyVisual).filter(item=>item.category===canonicalProductCategory(product).category) }));
     },
-    ['product-details-prince-v20',catalogueEnvironment,slug],
+    ['product-details-printer-desktop-v27',catalogueEnvironment,slug],
     { revalidate: 300, tags: ['products'] }
   );
 

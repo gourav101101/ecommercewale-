@@ -5,8 +5,10 @@ import Image from 'next/image';
 import { Search, Download, ExternalLink, AlertCircle, CheckCircle } from 'lucide-react';
 import styles from './page.module.css';
 import VariantEditor from './VariantEditor';
+import { useAdminConfirm } from '@/context/AdminConfirmContext';
 
 export default function SupplierCatalogue() {
+  const confirm = useAdminConfirm();
   const [catalogue, setCatalogue] = useState(null);
   const [error, setError] = useState('');
   const [query, setQuery] = useState('');
@@ -15,6 +17,8 @@ export default function SupplierCatalogue() {
   const [refreshing, setRefreshing] = useState(false);
   const [refreshStatus, setRefreshStatus] = useState('');
   async function refreshCatalogue() {
+    if (refreshing) return;
+    if (!await confirm({ title: 'Refresh supplier prices and stock?', message: 'Fetch and publish the latest supplier catalogue. Supplier reference prices and availability may change. Your store overrides will be preserved.', confirmLabel: 'Refresh catalogue' })) return;
     setRefreshing(true);
     setRefreshStatus('Checking supplier feed and sitemap…');
     try {

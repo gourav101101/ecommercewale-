@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, ArrowUpRight, MessageCircle, Layers, Package } from 'lucide-react';
-import { categories } from '@/data/products';
+import { getActiveCategories } from '@/lib/categories';
 import { getShopProducts } from '@/lib/products';
 import { whatsappUrl } from '@/lib/whatsapp';
 import ProductCard from '@/components/shop/ProductCard/ProductCard';
@@ -12,6 +12,7 @@ export const revalidate = 300;
 
 export default async function Home() {
   const products = await getShopProducts();
+  const categories = await getActiveCategories();
   const available = products.filter(product => product.inStock !== false || product.catalogueUnavailable);
   const featured = [...available].sort((a, b) => Number(!!b.bestSeller) - Number(!!a.bestSeller)).slice(0, 8);
   return <div className={styles.home}>
@@ -26,10 +27,10 @@ export default async function Home() {
       <div className={styles.productGrid}>{featured.map(product => <ProductCard key={product.id} product={product} />)}</div>
       <Link href="/shop" className={styles.allProducts}>Explore the whole collection <ArrowRight size={18} /></Link>
     </section>
-    <section className={styles.editorial}>
+    {categories.some(category => category.id === 'shredded-paper') && <section className={styles.editorial}>
       <div className={styles.editorialImage}><Image src="/images/finishing-editorial.webp" alt="Packaging inspiration: an open kraft box, crinkle paper, tissue and a blank card" fill sizes="(max-width: 700px) 100vw, 50vw" /><span className={styles.artCaption}>AI-created packaging inspiration</span></div>
       <div className={styles.editorialCopy}><p>IT’S ALL IN THE DETAILS</p><h2>A good first impression.<br />Before it’s even opened.</h2><span>Make the last step of packing feel like the first step of something special. Explore the finishing touches for your next delivery.</span><Link href="/shop?category=shredded-paper">Discover finishing touches <ArrowRight size={18} /></Link></div>
-    </section>
+    </section>}
     <section className={`container ${styles.services}`} aria-label="How ordering works">
       <div><Package size={27} strokeWidth={1.3} /><h3>Your product. Your fit.</h3><p>Choose sizes and quantities that work for what you’re sending.</p></div>
       <div><Layers size={27} strokeWidth={1.3} /><h3>Better value as you grow.</h3><p>See quantity pricing before adding anything to your order list.</p></div>

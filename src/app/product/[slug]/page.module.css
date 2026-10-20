@@ -5,7 +5,7 @@
 .productLayout { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); gap:6%; align-items:start; }
 .visualColumn { position:sticky; top:calc(var(--navbar-height) + 22px); min-width:0; }
 .mainImage { position:relative; aspect-ratio:1; background:var(--color-surface); }
-.mainImage img { object-fit:contain; padding:4%; }
+.mainImage img { object-fit:contain; padding:4%; transform:scale(var(--product-image-scale, 1)); }
 .imageLabel { position:absolute; left:24px; top:24px; background:var(--color-bg); padding:8px 14px; font-size:13px; }
 .thumbnails { display:flex; gap:12px; margin-top:16px; overflow:auto; }
 .thumbnails button { width:76px; height:80px; position:relative; flex-shrink:0; border:1px solid transparent; }

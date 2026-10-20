@@ -1,0 +1,400 @@
+{
+  "products": [
+    {
+      "id": "transparent-pod-bag",
+      "slug": "transparent-pod-courier-bag",
+      "name": "Transparent POD Courier Bag",
+      "description": "Crystal clear transparent courier bags with POD (Proof of Delivery) jacket. Ideal for marketplaces requiring visible product inspection during delivery.",
+      "basePrice": 8.5,
+      "bulkPrice": 3.8,
+      "rating": 4.5,
+      "reviewCount": 328
+    },
+    {
+      "id": "non-transparent-courier-bag",
+      "slug": "non-transparent-courier-bag",
+      "name": "Non-Transparent Courier Bag",
+      "description": "Premium opaque courier bags with white exterior and black interior for complete privacy. The industry standard for secure e-commerce shipments.",
+      "basePrice": 9,
+      "bulkPrice": 4.2,
+      "rating": 4.7,
+      "reviewCount": 512
+    },
+    {
+      "id": "bubble-courier-bag",
+      "slug": "bubble-lined-courier-bag",
+      "name": "Bubble Lined Courier Bag",
+      "description": "Premium bubble-lined courier bags with built-in cushioning. Perfect for fragile items like electronics, cosmetics, and glass products.",
+      "basePrice": 18,
+      "bulkPrice": 8.5,
+      "rating": 4.6,
+      "reviewCount": 189
+    },
+    {
+      "id": "3-ply-corrugated-box",
+      "slug": "3-ply-corrugated-box",
+      "name": "3-Ply Corrugated Box",
+      "description": "Lightweight yet durable 3-ply single wall corrugated boxes. Ideal for shipping apparel, books, cosmetics, and small electronics.",
+      "basePrice": 22,
+      "bulkPrice": 9,
+      "rating": 4.4,
+      "reviewCount": 276
+    },
+    {
+      "id": "5-ply-corrugated-box",
+      "slug": "5-ply-corrugated-box",
+      "name": "5-Ply Corrugated Box",
+      "description": "Heavy-duty 5-ply double wall corrugated boxes for maximum protection. Built for electronics, appliances, and fragile shipments.",
+      "basePrice": 42,
+      "bulkPrice": 19,
+      "rating": 4.6,
+      "reviewCount": 198
+    },
+    {
+      "id": "bopp-brown-tape",
+      "slug": "bopp-brown-packaging-tape",
+      "name": "BOPP Brown Packaging Tape",
+      "description": "Industrial-grade BOPP brown packaging tape with strong adhesive. The industry standard for sealing corrugated boxes securely.",
+      "basePrice": 55,
+      "bulkPrice": 28,
+      "rating": 4.3,
+      "reviewCount": 445
+    },
+    {
+      "id": "printed-fragile-tape",
+      "slug": "printed-fragile-warning-tape",
+      "name": "Printed Fragile Warning Tape",
+      "description": "Pre-printed \"FRAGILE - Handle with Care\" warning tape. Essential for shipping delicate items — electronics, glassware, ceramics.",
+      "basePrice": 75,
+      "bulkPrice": 38,
+      "rating": 4.5,
+      "reviewCount": 167
+    },
+    {
+      "id": "thermal-shipping-label",
+      "slug": "thermal-shipping-label-4x6",
+      "name": "Thermal Shipping Labels (4×6\")",
+      "description": "Premium direct thermal shipping labels — no ink, no toner, no ribbons needed. Compatible with all major thermal printers (Zebra, TSC, Rollo).",
+      "basePrice": 320,
+      "bulkPrice": 185,
+      "rating": 4.8,
+      "reviewCount": 623
+    },
+    {
+      "id": "barcode-labels",
+      "slug": "barcode-labels-roll",
+      "name": "Barcode Labels (Roll)",
+      "description": "Precision barcode labels on rolls for high-volume product labeling. Compatible with thermal transfer and direct thermal printers.",
+      "basePrice": 180,
+      "bulkPrice": 95,
+      "rating": 4.4,
+      "reviewCount": 234
+    },
+    {
+      "id": "a4-sheet-labels",
+      "slug": "a4-sheet-labels",
+      "name": "A4 Sheet Labels",
+      "description": "Self-adhesive A4 label sheets for standard inkjet and laser printers. Perfect for small sellers who need product labels, address labels, or FBA labels.",
+      "basePrice": 350,
+      "bulkPrice": 210,
+      "rating": 4.2,
+      "reviewCount": 156
+    },
+    {
+      "id": "warning-fragile-stickers",
+      "slug": "warning-fragile-stickers",
+      "name": "Warning / Fragile Stickers",
+      "description": "Pre-printed warning and fragile stickers for boxes and packages. Bright colors ensure handlers notice the warning immediately.",
+      "basePrice": 220,
+      "bulkPrice": 110,
+      "rating": 4.3,
+      "reviewCount": 112
+    },
+    {
+      "id": "kraft-crinkle-paper",
+      "slug": "kraft-crinkle-shredded-paper",
+      "name": "Kraft Crinkle Shredded Paper",
+      "description": "Premium kraft crinkle-cut shredded paper for void filling and cushioning. Adds a rustic, eco-friendly touch to your packaging.",
+      "basePrice": 150,
+      "bulkPrice": 75,
+      "rating": 4.6,
+      "reviewCount": 89
+    },
+    {
+      "id": "colored-shredded-paper",
+      "slug": "colored-shredded-paper",
+      "name": "Colored Shredded Paper",
+      "description": "Vibrant colored shredded paper for premium unboxing experiences. Available in 5 beautiful colors to match your brand aesthetic.",
+      "basePrice": 180,
+      "bulkPrice": 90,
+      "rating": 4.7,
+      "reviewCount": 67
+    },
+    {
+      "id": "tissue-shredded-paper",
+      "slug": "premium-tissue-shredded-paper",
+      "name": "Premium Tissue Shredded Paper",
+      "description": "Ultra-soft premium tissue shredded paper for luxury gift packaging. The softest, most elegant filler for high-end unboxing.",
+      "basePrice": 250,
+      "bulkPrice": 130,
+      "rating": 4.8,
+      "reviewCount": 45
+    }
+  ],
+  "orders": [
+    {
+      "id": "EW100234",
+      "customer": "Rajesh Kumar",
+      "email": "rajesh@trendykart.in",
+      "items": 3,
+      "total": 4520,
+      "status": "delivered",
+      "date": "2026-07-24",
+      "paymentMethod": "UPI"
+    },
+    {
+      "id": "EW100233",
+      "customer": "Priya Sharma",
+      "email": "priya@beautybox.in",
+      "items": 5,
+      "total": 8750,
+      "status": "shipped",
+      "date": "2026-07-24",
+      "paymentMethod": "Card"
+    },
+    {
+      "id": "EW100232",
+      "customer": "Mohammed Irfan",
+      "email": "irfan@stylestreet.in",
+      "items": 2,
+      "total": 2100,
+      "status": "processing",
+      "date": "2026-07-23",
+      "paymentMethod": "UPI"
+    },
+    {
+      "id": "EW100231",
+      "customer": "Sneha Patel",
+      "email": "sneha@fashionvibe.in",
+      "items": 8,
+      "total": 15200,
+      "status": "delivered",
+      "date": "2026-07-23",
+      "paymentMethod": "Net Banking"
+    },
+    {
+      "id": "EW100230",
+      "customer": "Amit Verma",
+      "email": "amit@gadgetzone.in",
+      "items": 4,
+      "total": 6800,
+      "status": "processing",
+      "date": "2026-07-23",
+      "paymentMethod": "UPI"
+    },
+    {
+      "id": "EW100229",
+      "customer": "Deepa Nair",
+      "email": "deepa@organicglow.in",
+      "items": 1,
+      "total": 950,
+      "status": "pending",
+      "date": "2026-07-22",
+      "paymentMethod": "Card"
+    },
+    {
+      "id": "EW100228",
+      "customer": "Vikram Singh",
+      "email": "vikram@vikramstore.in",
+      "items": 6,
+      "total": 11400,
+      "status": "shipped",
+      "date": "2026-07-22",
+      "paymentMethod": "UPI"
+    },
+    {
+      "id": "EW100227",
+      "customer": "Anita Desai",
+      "email": "anita@craftcorner.in",
+      "items": 3,
+      "total": 3200,
+      "status": "delivered",
+      "date": "2026-07-21",
+      "paymentMethod": "Card"
+    },
+    {
+      "id": "EW100226",
+      "customer": "Suresh Reddy",
+      "email": "suresh@techmart.in",
+      "items": 10,
+      "total": 22500,
+      "status": "cancelled",
+      "date": "2026-07-21",
+      "paymentMethod": "Net Banking"
+    },
+    {
+      "id": "EW100225",
+      "customer": "Kavita Joshi",
+      "email": "kavita@joshifashions.in",
+      "items": 2,
+      "total": 1800,
+      "status": "delivered",
+      "date": "2026-07-20",
+      "paymentMethod": "UPI"
+    },
+    {
+      "id": "EW100224",
+      "customer": "Rohit Mehta",
+      "email": "rohit@mehtaenterprises.in",
+      "items": 15,
+      "total": 34500,
+      "status": "shipped",
+      "date": "2026-07-20",
+      "paymentMethod": "Net Banking"
+    },
+    {
+      "id": "EW100223",
+      "customer": "Fatima Khan",
+      "email": "fatima@zarafashions.in",
+      "items": 4,
+      "total": 5600,
+      "status": "processing",
+      "date": "2026-07-19",
+      "paymentMethod": "Card"
+    }
+  ],
+  "customers": [
+    {
+      "id": "1",
+      "name": "Rajesh Kumar",
+      "email": "rajesh@trendykart.in",
+      "phone": "+91 98765 43210",
+      "totalOrders": 24,
+      "totalSpent": 48500,
+      "status": "active",
+      "joinDate": "2025-03-15",
+      "city": "Mumbai"
+    },
+    {
+      "id": "2",
+      "name": "Priya Sharma",
+      "email": "priya@beautybox.in",
+      "phone": "+91 87654 32109",
+      "totalOrders": 18,
+      "totalSpent": 62300,
+      "status": "active",
+      "joinDate": "2025-04-22",
+      "city": "Delhi"
+    },
+    {
+      "id": "3",
+      "name": "Mohammed Irfan",
+      "email": "irfan@stylestreet.in",
+      "phone": "+91 76543 21098",
+      "totalOrders": 12,
+      "totalSpent": 21800,
+      "status": "active",
+      "joinDate": "2025-06-10",
+      "city": "Hyderabad"
+    },
+    {
+      "id": "4",
+      "name": "Sneha Patel",
+      "email": "sneha@fashionvibe.in",
+      "phone": "+91 65432 10987",
+      "totalOrders": 32,
+      "totalSpent": 95400,
+      "status": "active",
+      "joinDate": "2025-01-08",
+      "city": "Ahmedabad"
+    },
+    {
+      "id": "5",
+      "name": "Amit Verma",
+      "email": "amit@gadgetzone.in",
+      "phone": "+91 54321 09876",
+      "totalOrders": 28,
+      "totalSpent": 78200,
+      "status": "active",
+      "joinDate": "2025-02-14",
+      "city": "Bangalore"
+    },
+    {
+      "id": "6",
+      "name": "Deepa Nair",
+      "email": "deepa@organicglow.in",
+      "phone": "+91 43210 98765",
+      "totalOrders": 8,
+      "totalSpent": 12500,
+      "status": "active",
+      "joinDate": "2025-08-05",
+      "city": "Kochi"
+    },
+    {
+      "id": "7",
+      "name": "Vikram Singh",
+      "email": "vikram@vikramstore.in",
+      "phone": "+91 32109 87654",
+      "totalOrders": 15,
+      "totalSpent": 34200,
+      "status": "active",
+      "joinDate": "2025-05-20",
+      "city": "Jaipur"
+    },
+    {
+      "id": "8",
+      "name": "Anita Desai",
+      "email": "anita@craftcorner.in",
+      "phone": "+91 21098 76543",
+      "totalOrders": 6,
+      "totalSpent": 8900,
+      "status": "inactive",
+      "joinDate": "2025-07-12",
+      "city": "Pune"
+    },
+    {
+      "id": "9",
+      "name": "Suresh Reddy",
+      "email": "suresh@techmart.in",
+      "phone": "+91 10987 65432",
+      "totalOrders": 45,
+      "totalSpent": 142000,
+      "status": "active",
+      "joinDate": "2024-11-30",
+      "city": "Chennai"
+    },
+    {
+      "id": "10",
+      "name": "Kavita Joshi",
+      "email": "kavita@joshifashions.in",
+      "phone": "+91 09876 54321",
+      "totalOrders": 10,
+      "totalSpent": 18700,
+      "status": "active",
+      "joinDate": "2025-09-01",
+      "city": "Lucknow"
+    },
+    {
+      "id": "11",
+      "name": "Rohit Mehta",
+      "email": "rohit@mehtaenterprises.in",
+      "phone": "+91 98712 34560",
+      "totalOrders": 52,
+      "totalSpent": 185000,
+      "status": "active",
+      "joinDate": "2024-09-15",
+      "city": "Surat"
+    },
+    {
+      "id": "12",
+      "name": "Fatima Khan",
+      "email": "fatima@zarafashions.in",
+      "phone": "+91 87612 34509",
+      "totalOrders": 14,
+      "totalSpent": 28400,
+      "status": "active",
+      "joinDate": "2025-06-28",
+      "city": "Kolkata"
+    }
+  ]
+}

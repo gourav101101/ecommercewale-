@@ -4,10 +4,12 @@ import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { Search, Plus, Filter, Edit, Trash2 } from 'lucide-react';
 import Modal from '@/components/ui/Modal/Modal';
+import { useAdminConfirm } from '@/context/AdminConfirmContext';
 import { useToast } from '@/context/ToastContext';
 import { parsePricing, formatPricing } from '@/lib/product-input';
 
 export default function AdminProducts() {
+  const confirm = useAdminConfirm();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
@@ -108,6 +110,7 @@ export default function AdminProducts() {
   const handleAddProduct = async (e) => {
     e.preventDefault();
     if (saving) return;
+    if (!await confirm({ title: 'Add product?', message: `Create ${formData.name} with the entered product details and prices?`, confirmLabel: 'Add product' })) return;
     setSaving(true);
     try {
       const id = crypto.randomUUID();
@@ -154,6 +157,7 @@ export default function AdminProducts() {
     e.preventDefault();
     if (!selectedProduct) return;
     if (saving) return;
+    if (!await confirm({ title: 'Save product changes?', message: `Update ${formData.name} with the entered details and prices?`, confirmLabel: 'Save changes' })) return;
     setSaving(true);
     try {
       const updatedProduct = buildProduct(selectedProduct);
@@ -193,6 +197,7 @@ export default function AdminProducts() {
 
   const handleToggleStatus = async (product) => {
     const newStatus = !product.inStock;
+    if (!await confirm({ title: 'Change stock status?', message: `Mark ${product.name} as ${newStatus ? 'in stock' : 'out of stock'}?`, confirmLabel: 'Update stock' })) return;
     // Optimistic UI update
     setProducts(prev => prev.map(p => p.id === product.id ? { ...p, inStock: newStatus } : p));
 
@@ -311,6 +316,7 @@ export default function AdminProducts() {
 
   return (
     <div className="adminPanel">
+      <div className="adminNotice"><Link href="/admin/product-visibility">Activate or deactivate individual products ?</Link></div>
       <div className="adminNotice">Supplier products use exact size/pack variants. <Link href="/admin/suppliers">Manage the 44 supplier products and 688 variant prices here →</Link> This screen manages your separate custom products.</div>
       {loadError && <div className="adminNotice" role="alert">{loadError} <button type="button" onClick={fetchProducts}>Retry</button></div>}
       <div className="panelHeader">

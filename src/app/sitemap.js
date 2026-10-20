@@ -2,7 +2,7 @@ import { getShopProducts } from '@/lib/products';
 
 const siteUrl = 'https://www.ecommercewale.in';
 
-export const revalidate = 86400;
+export const dynamic = 'force-dynamic';
 
 export default async function sitemap() {
   const products = await getShopProducts();

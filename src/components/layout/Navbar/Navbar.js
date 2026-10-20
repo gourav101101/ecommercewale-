@@ -9,6 +9,7 @@ import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
 import { whatsappUrl } from '@/lib/whatsapp';
 import styles from './Navbar.module.css';
+import { useCategories } from '@/context/CategoriesContext';
 
 export default function Navbar() {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -20,7 +21,8 @@ export default function Navbar() {
   const menuRef = useRef(null);
   const triggerRef = useRef(null);
   const searchRef = useRef(null);
-  const categoryLinks = [{ href: '/shop', label: 'Shop all' }, { href: '/shop?category=courier-bags', label: 'Courier bags' }, { href: '/shop?category=boxes', label: 'Boxes' }, { href: '/shop?category=tapes', label: 'Tapes' }, { href: '/shop?category=labels', label: 'Labels' }, { href: '/shop?category=shredded-paper', label: 'Finishing touches' }];
+  const categories = useCategories();
+  const categoryLinks = [{ href: '/shop', label: 'Shop all' }, ...categories.map(category => ({ href: `/shop?category=${category.id}`, label: category.name }))];
   const links = [{ href: '/shop', label: 'Shop' }, { href: '/about', label: 'About' }, { href: '/contact', label: 'Contact' }];
   const closeMenu = () => { menuRef.current?.close(); triggerRef.current?.focus(); };
   const openMenu = () => menuRef.current?.showModal();
